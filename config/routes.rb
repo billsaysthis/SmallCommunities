@@ -2,6 +2,8 @@ SmallCommunities::Application.routes.draw do
   
   devise_for :users
   resources :events
+  get "events/past"
+  get "events/upcoming"
   
   root :to => "events#index"
   # The priority is based upon order of creation:
