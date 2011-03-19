@@ -2,7 +2,8 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.0.5'
 
-gem 'mysql2'
+# gem 'mysql2'
+gem "sqlite3"
 
 gem "haml-rails", ">= 0.2"
 gem "devise", ">=1.1.2"
@@ -16,6 +17,7 @@ gem "sass"
 gem 'oily_png'
 gem "hpricot"
 gem 'jquery-rails', '>= 0.2.6'
+gem "ruby_parser"
 # gem 'unicorn'
 # gem 'capistrano'
 

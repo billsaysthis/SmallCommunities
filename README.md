@@ -49,8 +49,8 @@ useful.
        <tt>rake db:create</tt>
 
 4. Start the Rails server and load the app in your browser to confirm a valid install:
-       <tt>rails s</tt>
-       <tt>http://localhost:3000</tt>
+  rails s</tt>
+  http://localhost:3000</tt>
 
 5. Basic Setup and Customization
 

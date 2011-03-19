@@ -13,6 +13,7 @@ module SmallCommunities
       g.test_framework  :rspec, :fixture => true, :views => false
       g.integration_tool :rspec, :fixture => true, :views => true
     end
+    config.action_view.javascript_expansions[:defaults] = %w(jquery rails)
 
     config.filter_parameters += [:password]
   end
