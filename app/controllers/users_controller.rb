@@ -10,10 +10,10 @@ class UsersController < ApplicationController
 
   def update
     if update_attributes(params[:user])
-      flash.now(:notice) = t(:member_update_success)
+      flash.now[:notice] = t(:member_update_success)
       redirect_to :back
     else
-      flash.now(:error) = t(:member_update_error) + @user.errors.full_messages.to_s
+      flash.now[:error] = t(:member_update_error) + @user.errors.full_messages.to_s
       render :action => :edit
     end
   end

@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/sferik/rails_admin.git
-  revision: d1154eea92aa4c3fa0efee1b5d1f19b519a4c9b4
+  revision: 3c3c8eb90d92ecaf2ab7ed68c6c4c2f5a183a3f4
   specs:
     rails_admin (0.0.2)
       builder (~> 2.1.0)
@@ -175,7 +175,7 @@ PLATFORMS
 
 DEPENDENCIES
   capybara (>= 0.3.6)
-  compass (>= 0.11.alpha)
+  compass (>= 0.11.beta.3)
   cucumber (>= 0.6.3)
   cucumber-rails (>= 0.3.2)
   database_cleaner (>= 0.5.0)

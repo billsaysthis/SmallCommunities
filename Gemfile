@@ -11,7 +11,7 @@ gem "rails_admin", :git => 'git://github.com/sferik/rails_admin.git'
 gem "validate_email"
 gem "ice_cube"
 gem "icalendar"
-gem "compass", ">= 0.11.alpha" # ">= 0.10.6"
+gem "compass", ">= 0.11.beta.3" # ">= 0.10.6"
 gem "haml", ">= 3.1.0.alpha.145"
 gem "sass"
 gem 'oily_png'
