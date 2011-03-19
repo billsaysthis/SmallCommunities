@@ -20,7 +20,8 @@ class EventsController < ApplicationController
     @is_current = @event.is_current?
     @context_title = @event.title
     @show_rsvp = current_user && current_user.attendances.where(:event_id => @event.id).size == 0
-    @event_template = @event.is_special ? 'events/' + @event.special_layout_name : 'event'
+    # @event_template = @event.is_special ? 'events/' + @event.special_layout_name : 'event'
+    @event_template = 'event'
     @show_sponsors = @event.show_sponsors
   end
 

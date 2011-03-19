@@ -19,14 +19,18 @@ class Event < ActiveRecord::Base
   end
   
   def is_current?
-    occurs_on > Event.current_event.occurs_on
+    if Event.current_event.present?
+      occurs_on > Event.current_event.occurs_on
+    else
+      true
+    end
   end
   
   def self.tba
     last_event = Event.where("occurs_on < ?", Date.current).limit(1).order("occurs_on DESC").first
-    last_plus_one = (last_event.occurs_on + 1.month).beginning_of_month.next_week + 1.day
+    last_plus_one = last_event.present? ? self.next_event(last_event.occurs_on) : self.next_event(Date.current.beginning_of_month)
     # 'To Be Announced', 'Date is tentative until program is confirmed.'
-    Event.create({:title => Setting.retrieve('default_event_title'), :occurs_on => last_plus_one, :description => Setting.retrieve('default_event_description')})
+    Event.new({:title => Setting.retrieve('default_event_title'), :occurs_on => last_plus_one, :description => Setting.retrieve('default_event_description')})
   end
   
   def to_ics
@@ -43,5 +47,10 @@ class Event < ActiveRecord::Base
     event.created = self.created_at
     event.last_modified = self.updated_at
     event
+  end
+  
+  def self.next_event last_date
+    # defaults to second Tuesday of the next month
+    (last_date + 1.month).beginning_of_month.next_week + 1.day
   end
 end

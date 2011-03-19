@@ -48,6 +48,10 @@ class User < ActiveRecord::Base
     self.is_admin?
   end
 
+  def is_volunteer?
+    !volunteer_title.blank?
+  end
+
   protected
   def password_required?
     !persisted? || password.present? || password_confirmation.present?
