@@ -1,5 +1,13 @@
 SmallCommunities::Application.routes.draw do
   
+  get "users/index"
+
+  get "users/edit"
+
+  get "users/update"
+
+  get "users/show"
+
   devise_for :users
   resources :events
   get "events/past"

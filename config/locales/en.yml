@@ -2,6 +2,9 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  user_id_param: "Must request a specific member"
+  member_update_error: 'Unable to update member: '
+  member_update_success: "Your profile was updated"
   with: "with"
   special_pricing: "Special Price: "
   advance_pricing: "In Advance: "
