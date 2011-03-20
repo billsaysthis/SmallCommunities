@@ -1,4 +1,4 @@
-class PagesController < InheritedResources::Base
+class PagesController < ApplicationController
   respond_to :html
   
   def contact

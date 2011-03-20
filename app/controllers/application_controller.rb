@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 		  [:memberships_link, memberships_url],
   		[:about_link, about_url], 
   		[:past_events_link, events_past_url], 
-  		[:members_link, member_pages_url],
+  		[:members_link, users_url],
   		[Setting.retrieve('current_year')+' Schedule', events_upcoming_url]
   	]
   end
