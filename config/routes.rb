@@ -6,6 +6,19 @@ SmallCommunities::Application.routes.draw do
   get "events/past"
   get "events/upcoming"
   
+  resources :pages do
+    collection do
+      post 'contact'
+    end
+  end
+  
+  controller :pages do
+    match '/about' => :about, :as => 'about'
+    match '/contact' => :contact, :as => 'contact'
+    match '/member_pages' => :member_pages, :as => 'member_pages'
+    match '/memberships' => :memberships, :as => 'memberships'
+  end
+  
   root :to => "events#index"
   # The priority is based upon order of creation:
   # first created -> highest priority.

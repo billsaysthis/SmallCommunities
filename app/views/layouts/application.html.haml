@@ -1,7 +1,7 @@
 !!! 5
 %html
 	%head
-		%title= Setting.retrieve('long_name') + (@context_title || "")
+		%title= page_title(@context_title)
 		= raw stylesheet_link_tag('screen', :media => 'screen, projection')
 		= raw stylesheet_link_tag('print', :media => 'print')
 		/[if lt IE 8]
@@ -9,7 +9,9 @@
 		= csrf_meta_tag
 	%body
 		#container
-			/ %header= render :partial => 'layouts/banner'
+			%header
+				= render :partial => 'layouts/banner'
+				= render :partial => 'layouts/navigation'
 			/ %sidebar= render :partial => 'layouts/sidebar'
 			%section#content
 				- if flash.present?
@@ -19,21 +21,4 @@
 				%section#content-inner= yield
 			/ %section#sponsorBlock= render :partial => 'layouts/sponsors_block' if @show_sponsors
 			/ %footer= render :partial => 'layouts/footer'
-		= javascript_include_tag :defaults
-		= javascript_include_tag "application"
-		%script{ :type => "text/javascript"}
-			:javascript
-				var _gaq = _gaq || [];
-				_gaq.push(['_setAccount', '#{Setting.retrieve("google-analytics")}']);
-				_gaq.push(['_setDomainName', 'none']);
-				_gaq.push(['_trackPageview']);
-				(function() {
-					var ga = document.createElement('script');
-					ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-					ga.setAttribute('async', 'true');
-					document.documentElement.firstChild.appendChild(ga);
-				})();
-			
-		/ 
-			(c) Copyright 2011 Bill Lazar. All Rights Reserved. 
-			Licensed for use to Jewish High Tech Community
+		= render :partial => 'layouts/js'

@@ -5,7 +5,18 @@ en:
   user_id_param: "Must request a specific member"
   member_update_error: 'Unable to update member: '
   member_update_success: "Your profile was updated"
+  missing_name: 'Please enter your name'
+  missing_email: 'Please enter your email'
+  missing_message: 'Please enter a message to send'
+  contact_success: 'Your email was sent and a response will be sent at our first opportunity'
+  contact_failure: 'Unfortunately your email could not be sent at this time, please try again later'
   with: "with"
   special_pricing: "Special Price: "
   advance_pricing: "In Advance: "
   door_pricing: "At the Door: "
+  contact_link: 'Contact Us'
+  memberships_link: 'Memberships'
+  members_link: 'Members'
+  about_link: 'About'
+  past_events_link: 'Past Events'
+  future_events_link: 'Upcoming Events'
