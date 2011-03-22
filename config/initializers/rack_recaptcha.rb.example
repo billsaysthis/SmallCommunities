@@ -1,0 +1,2 @@
+# see https://github.com/achiu/rack-recaptcha for details on configuring Rack::Recaptcha
+SmallCommunities::Application.config.middleware.use Rack::Recaptcha, :public_key => 'KEY', :private_key => 'SECRET', :paths => 'PATH'

@@ -1,5 +1,6 @@
 module ApplicationHelper
   include Compass::SassExtensions::Functions::ImageSize
+  include Rack::Recaptcha::Helpers
   
   def page_title(context_title='')
     Setting.retrieve('long_name') + (context_title.blank? ? '' :  ' - ' + context_title)

@@ -4,3 +4,4 @@ log/*.log
 tmp/**/*
 *.tmproj
 .idea/*
+config/initializers/rack_recaptcha.rb

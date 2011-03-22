@@ -18,6 +18,7 @@ gem 'oily_png'
 gem "hpricot"
 gem 'jquery-rails', '>= 0.2.6'
 gem "ruby_parser"
+gem 'rack-recaptcha', :require => 'rack/recaptcha'
 # gem 'unicorn'
 # gem 'capistrano'
 
