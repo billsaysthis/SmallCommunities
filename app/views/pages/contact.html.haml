@@ -1,5 +1,8 @@
 %h1= t(:contact_link)
-#join-mailing-list= link_to t(:join_mailing_list), Setting.retrieve('mailing_list_url'), :id => "ygCFLink"
+
+- if @mailing_list_url.present?
+	#join-mailing-list= link_to t(:join_mailing_list), @mailing_list_url, :id => "ygCFLink"
+
 #contact1
 	= form_tag contact_pages_url, :id => 'contactForm', :method => 'POST' do
 		= label_tag :yourname, t(:contact_name)

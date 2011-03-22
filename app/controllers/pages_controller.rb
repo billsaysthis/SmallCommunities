@@ -4,6 +4,7 @@ class PagesController < ApplicationController
   def contact
     @event = Event.current_event
     @context_title = t(:contact_link)
+    @mailing_list_url = Setting.retrieve('mailing_list_url')
     
     unless params[:yourname].blank? && params[:youremail].blank? && params[:yourmessage].blank?
       if params[:yourname].blank?

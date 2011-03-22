@@ -14,6 +14,10 @@ class AddBasicSettings < ActiveRecord::Migration
     Setting.create({:name => "default_event_description", :value => 'Date is tentative until program is confirmed.'})
     Setting.create({:name => "event_length", :value => '150'})
 
+    Setting.create!({:name => 'google-analytics', :value => 'UA-21971932-1'})
+    Setting.create!({:name => 'twitter_account', :value => 'billsaysthis'})
+    Setting.create!({:name => 'mailing_list_url', :value => 'http://groups.yahoo.com/group/JHTCmembers/join'})
+
     Setting.create({:name => 'top_photos_qty', :value => '2'})
     Setting.create({:name => 'bottom_photos_qty', :value => '6'})
     
@@ -31,5 +35,37 @@ class AddBasicSettings < ActiveRecord::Migration
   end
 
   def self.down
+    Setting.find_by_name('current_year').destroy
+    Setting.find_by_name('long_name').destroy
+    Setting.find_by_name('short_name').destroy
+    Setting.find_by_name('corp_name').destroy
+    Setting.find_by_name('tag_line').destroy
+    Setting.find_by_name('copyright').destroy
+    Setting.find_by_name('corp_url').destroy
+    Setting.find_by_name('corp_email').destroy
+    Setting.find_by_name('default_location_label').destroy
+    Setting.find_by_name('default_location_url').destroy
+    Setting.find_by_name("default_event_title").destroy
+    Setting.find_by_name("default_event_description").destroy
+    Setting.find_by_name("event_length").destroy
+
+    Setting.find_by_name('google-analytics').destroy
+    Setting.find_by_name!'twitter_account').destroy
+    Setting.find_by_name!'mailing_list_url').destroy
+
+    Setting.find_by_name('top_photos_qty').destroy
+    Setting.find_by_name('bottom_photos_qty').destroy
+    
+    Setting.find_by_name('gold_member_annual').destroy
+    Setting.find_by_name('regular_member_annual').destroy
+    Setting.find_by_name('renewing_member_annual').destroy
+    Setting.find_by_name('student_member_annual').destroy
+    Setting.find_by_name('regular_event_advance').destroy
+    Setting.find_by_name('regular_event_door').destroy
+    Setting.find_by_name('special_event').destroy
+    Setting.find_by_name('gold_ppc').destroy
+    Setting.find_by_name('regular_ppc').destroy
+    Setting.find_by_name('renewing_ppc').destroy
+    Setting.find_by_name('student_ppc').destroy
   end
 end
