@@ -5,6 +5,7 @@ SmallCommunities::Application.routes.draw do
   resources :events do
     member do
       get 'calendar'
+      post 'rsvp'
     end
     collection do
       get "past"

@@ -39,6 +39,6 @@ class PagesController < ApplicationController
   
   protected
   def setup
-    @show_sponsors = true
+    @sponsors = User.active_public
   end
 end

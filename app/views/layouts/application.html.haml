@@ -20,5 +20,6 @@
 							%div{:id => ["flash", key]}= value
 				%section#content-inner= yield
 			/ %section#sponsorBlock= render :partial => 'layouts/sponsors_block' if @show_sponsors
+			= render(:partial => 'users/sponsors' if @sponsors.present?
 			%footer= render :partial => 'layouts/footer'
 		= render :partial => 'layouts/js'

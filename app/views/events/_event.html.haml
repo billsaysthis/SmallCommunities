@@ -2,7 +2,7 @@
 	#current-text= (@is_current) ? t(:next_meeting_label) : ''
 	#msgHolder
 	%h2#event-title= raw @event.title
-	#speaker-names= speaker_list(@event.speakers) if @event.speakers.size > 0
+	#speaker-names= speaker_list(@event.speakers) if @event.speakers.present?
 	#event-infobox= render :partial => 'infobox'
 #meeting-description= raw(@event.description)
-= render(:partial => 'speakers', :locals => {:speakers => @event.speakers}) if @event.speakers.size > 0
+= render(:partial => 'speakers', :locals => {:speakers => @event.speakers}) if @event.speakers.present?

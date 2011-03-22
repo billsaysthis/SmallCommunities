@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  before_filter :authenticate_user!, :only => [:rsvp]
   before_filter :setup, :only => [:index, :show]
   
   def index
@@ -18,6 +19,16 @@ class EventsController < ApplicationController
   def calendar
   end
   
+  def rsvp
+    if params[:id].present?
+      evt = Event.find(params[:id])
+      Attendance.create!({:event => evt, :user => current_user})
+      render :update do |page|
+        page.replace 'memberRSVP', t(:thanks_for_rsvp)
+      end
+    end
+  end
+  
   protected
   def setup
     @event = params[:id].blank? ? Event.current_event : Event.find(params[:id])
@@ -27,7 +38,7 @@ class EventsController < ApplicationController
     @show_rsvp = current_user && current_user.attendances.where(:event_id => @event.id).size == 0
     # @event_template = @event.is_special ? 'events/' + @event.special_layout_name : 'event'
     @event_template = 'event'
-    @show_sponsors = @event.show_sponsors
+    @sponsors = User.active_public if @event.show_sponsors
   end
 
 end

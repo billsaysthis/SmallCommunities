@@ -22,6 +22,8 @@ en:
   future_events_link: 'Upcoming Events'
   sign_out: "Sign out"
   sign_in: "Sign in"
+  recaptcha_error: "There was an error with the recaptcha code entered. Please retry and click submit."
+  create_account: "Sign up"
   profile_link: "Profile"
   socnet_links_title: "Networking"
   schedule: "Schedule"
@@ -29,6 +31,7 @@ en:
   past_events_title: "Past Events"
   about_speakers_title: "About the Speaker "
   member_rsvp_label: 'Member RSVP'
+  thanks_for_rsvp: 'Thanks for the RSVP!'
   see_rsvps: 'See RSVPs'
   guest: "Guest"
   student_senior: "Student/Senior"

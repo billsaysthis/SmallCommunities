@@ -15,9 +15,9 @@ class User < ActiveRecord::Base
   validates :last_name, :presence => true
   
   scope :active, joins(:memberships).where(:memberships => {:year => Setting.retrieve('current_year')})
-  scope :active_sponsors, joins(:memberships).where(:memberships => {:year => Setting.retrieve('current_year'), :mtype => ['sponsor', 'gold']})
+  scope :active_sponsors, joins(:memberships).where(:memberships => {:year => Setting.retrieve('current_year'), :mtype => [t(:sponsor_member), t(:premium_member)]})
   scope :visible, where("label != ''")
-  scope :active_public, visible.active.where("mtype != ? and mtype != ?", 'gold', 'sponsor')
+  scope :active_public, visible.active.where("mtype != ? and mtype != ?", t(:premium_member), t(:sponsor_member))
   default_scope order("last_name, first_name")
   
   def self.before_create
