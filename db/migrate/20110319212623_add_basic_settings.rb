@@ -1,9 +1,10 @@
 class AddBasicSettings < ActiveRecord::Migration
   def self.up
     Setting.create({:name => 'current_year', :value => Date.current.year.to_s})
-    Setting.create({:name => 'long_name', :value => 'Long Not Incorporated Group Name'})
-    Setting.create({:name => 'short_name', :value => 'LNIGN'})
+    Setting.create({:name => 'long_name', :value => 'Small Communities'})
+    Setting.create({:name => 'short_name', :value => 'SmCom'})
     Setting.create({:name => 'corp_name', :value => 'Long Incorporated Group Name, Inc.'})
+    Setting.create({:name => 'tag_line', :value => 'Manage your community'})
     Setting.create({:name => 'copyright', :value => '2011-'})
     Setting.create({:name => 'corp_url', :value => 'http://example.org'})
     Setting.create({:name => 'corp_email', :value => 'leadership@example.org'})

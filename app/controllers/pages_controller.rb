@@ -32,11 +32,6 @@ class PagesController < ApplicationController
     @context_title = t(:about_link)
   end
   
-  def member_pages
-    @context_title = t(:members_link)
-    @members = Member.active_public
-  end
-
   def memberships
     @context_title = t(:memberships_link)
   end

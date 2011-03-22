@@ -1,2 +1,3 @@
-%h1 Users#index
-%p Find me in app/views/users/index.html.haml
+%h1= t(:active_member_title)
+.gen_page
+	= render :partial => "user", :collection => @users

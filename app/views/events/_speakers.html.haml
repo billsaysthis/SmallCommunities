@@ -1,0 +1,8 @@
+#speaker-description
+	%h3= t(:about_speakers_title) + (speakers.size == 1 ? "" : "Speaker".pluralize)
+	- speakers.each do |s|
+		.speaker
+			%span.speaker-image= image_tag s.image_url, :alt => s.name
+			.speaker-bio
+				%span.strong= s.name
+				= raw(s.bio)

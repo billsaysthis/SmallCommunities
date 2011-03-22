@@ -1,2 +1,4 @@
-%h1 Event#upcoming
-%p Find me in app/views/event/upcoming.html.haml
+#future-events
+	%h2= raw(Setting.retrieve('current_year') + " &#x2721; " + t(:schedule))
+	%p t(:standard_meeting_explainer)
+	= render :partial => "future_event", :collection => @events

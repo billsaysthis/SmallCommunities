@@ -1,2 +1,4 @@
-%h1 Event#past
-%p Find me in app/views/event/past.html.haml
+#past-events
+	%h2 t(:past_events_title)
+	.gen_page
+		= render :partial => "past_event", :locals => {:events => @events}

@@ -2,9 +2,15 @@ SmallCommunities::Application.routes.draw do
   
   devise_for :users
   resources :users
-  resources :events
-  get "events/past"
-  get "events/upcoming"
+  resources :events do
+    member do
+      get 'calendar'
+    end
+    collection do
+      get "past"
+      get "upcoming"
+    end
+  end
   
   resources :pages do
     collection do
@@ -15,7 +21,6 @@ SmallCommunities::Application.routes.draw do
   controller :pages do
     match '/about' => :about, :as => 'about'
     match '/contact' => :contact, :as => 'contact'
-    match '/member_pages' => :member_pages, :as => 'member_pages'
     match '/memberships' => :memberships, :as => 'memberships'
   end
   

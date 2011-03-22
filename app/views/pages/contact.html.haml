@@ -1,0 +1,15 @@
+%h1= t(:contact_link)
+#join-mailing-list= link_to t(:join_mailing_list), Setting.retrieve('mailing_list_url'), :id => "ygCFLink"
+#contact1
+	= form_tag contact_pages_url, :id => 'contactForm', :method => 'POST' do
+		= label_tag :yourname, t(:contact_name)
+		= text_field_tag :yourname
+		%br
+		= label_tag :youremail, t(:contact_email)
+		= email_field_tag :youremail
+		%br
+		= label_tag :yourmessage, t(:contact_msg)
+		= text_area_tag :yourmessage
+		%br
+		= label_tag raw('&nbsp;')
+		= submit_tag t(:send_message)

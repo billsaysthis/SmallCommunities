@@ -16,5 +16,6 @@ module SmallCommunities
     config.action_view.javascript_expansions[:defaults] = %w(jquery rails)
 
     config.filter_parameters += [:password]
+    
   end
 end

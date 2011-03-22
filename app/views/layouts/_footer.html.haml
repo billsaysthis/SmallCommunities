@@ -1,0 +1,6 @@
+#footer
+	= raw t(:copyright) + " &copy; "
+	= Setting.retrieve('copyright') + Setting.retrieve('current_year') + ',' 
+	= Setting.retrieve('corp_name')
+	%br
+	= link_to t(:contact_link), contact_url

@@ -1,0 +1,5 @@
+- if @event.regular_paypal && !current_member
+	.rsvpdiv
+		= render :partial => 'ppl_button', :locals => {:ppl_code => @event.regular_paypal, :ppl_label => t(:guest), :ppl_pricing => event_pricing(@event)}
+		- if @event.special_paypal
+			= render :partial => 'ppl_button', :locals => {:ppl_code => @event.special_paypal, :ppl_label => t(:student_senior), :ppl_pricing => t(:advance_door)+": " + Setting.retrieve('special_event')}

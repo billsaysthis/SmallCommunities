@@ -5,14 +5,19 @@ class EventsController < ApplicationController
   end
 
   def past
+    @events = Event.past_events
   end
 
   def upcoming
+    @events = Event.current_year
   end
 
   def show
   end
 
+  def calendar
+  end
+  
   protected
   def setup
     @event = params[:id].blank? ? Event.current_event : Event.find(params[:id])

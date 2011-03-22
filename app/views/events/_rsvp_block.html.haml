@@ -1,0 +1,3 @@
+- if @show_rsvp and @event.id.present?
+	#memberRSVP
+		= link_to t(:member_rsvp_label), {:controller => :attendances, :action => :create, :event_id => @event.id}, :method => :post

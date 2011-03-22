@@ -1,0 +1,3 @@
+%div{:class => "list-event " + cycle('list_line_odd', 'list_line_even')}
+	.feDate= future_event[:occurs_on]
+	.feTitle= short_desc_link(future_event)

@@ -6,8 +6,679 @@
 
 // Import all the default blueprint modules so that we can access their mixins.
 @import "blueprint";
+@import "blueprint/buttons";
 
-// Combine the partials into a single screen stylesheet.
-@import "partials/page";
-@import "partials/form";
-@import "partials/two_col";
+// Import the non-default scaffolding module.
+@import "blueprint/scaffolding";
+
+// To generate css equivalent to the blueprint css but with your configuration applied, uncomment:
+// +blueprint
+
+@import "compass/css3";
+@import "compass/css3/border-radius";
+@import "compass/css3/box-shadow";
+@import "compass/layout/sticky-footer";
+@import "compass/utilities/general/min";
+@import "compass/utilities/lists/horizontal-list";
+@import "compass/layout/stretching";
+
+// Page layout can be done using mixins applied to your semantic classes and IDs:
+body {
+	@include blueprint-typography(true);
+	@include blueprint-utilities;
+	@include blueprint-debug;
+	@include blueprint-interaction;
+	@include blueprint-scaffolding;
+
+	background-color: $margin-bgc; 
+	
+	#container {
+		@include container;
+		margin-top: 2px;
+		line-height:1.4em;
+		color:#303030;
+		background-color: $lt-bgc;
+		border:2px solid $border-main;
+		h1, h2, h3 {font-family: Futura;}
+		
+		a {
+			color:$dk-bgc;
+			font-weight:bold;
+			text-decoration: none;
+		}
+
+		header, footer {
+			@include column($blueprint-grid-columns, true);
+		}
+		
+		hr {
+			@include colruler($dk-bgc);
+		}
+		
+		.strong {font-weight: bold}
+		.big {font-size: 146%}
+
+		footer {
+			@include sticky-footer(60px);
+			text-align: center;
+			background:$dk-bgc;
+			color:$lt-bgc;
+			padding-top: 1em;
+
+			a {
+				color: $lt-bgc;
+			}
+		}
+	
+
+    header {
+      @include column($blueprint-grid-columns);
+      font-size: 90%;
+
+      #banner {
+        @include column($blueprint-grid-columns, last);
+
+        #banner-img {
+          @include column(5);
+          margin-top: 4px; 
+          margin-left: 14px; 
+          z-index: 120;
+
+          #logoimg {
+            width: 100%;
+          }
+        }
+
+        h1, h2 {
+          font-family: "Hevetica Neue";
+          @include column(11);
+          @include push(1);
+        }
+
+        h1 {
+          padding-top:14px;
+          font-size:2.6em;
+          font-weight:normal;
+          letter-spacing: 0px;
+          margin-bottom: 0em;
+          a {color: $dk-bgc;}
+        }
+
+        #devise-links {
+          @include column(6, true);
+          @include push(2);
+          margin-top: -8px;
+          a {
+      			@include border-bottom-radius(4px);
+      			@include anchor-button();
+      			@include button-colors($dk-bgc, $hilite-bgc, $dk-bgc);
+      			@include button-hover-colors($hilite-bgc, $dk-bgc, $dk-bgc, $dk-bgc);
+            font-size: 65%;
+            color: $dk-bgc;
+          }
+        }
+
+        h2 {
+          font-size:1.8em;
+          margin-top: 8px;
+          margin-bottom: 0em;
+          color: $dk-bgc;
+          letter-spacing: 1px;
+          font-weight: normal;
+        }
+      }
+    }
+
+    #navigation {
+      @include column($blueprint-grid-columns,true);
+      @include min-height(2.2em);
+      line-height:2.2em;
+      border-top: 2px solid $dk-border;
+      border-bottom: 2px solid $dk-border;
+      background: $hilite-bgc;
+      color:$dk-bgc;
+      margin-top: 1em;
+      z-index: 12;
+
+      ul {
+        @include horizontal-list;
+        @include prepend(5);
+
+        li {
+          @include column(3);
+          @include border(1px, $lt-bgc); 
+          text-align: center; 
+          a {
+          @include column(3);
+            font-size:0.8em;
+            font-variant: small-caps;
+            letter-spacing: 0.1em;
+            color: $dk-bgc;
+          }
+          &:last-child {
+            border-right: none !important;
+          }
+          .selected, :hover {
+            background:$dk-bgc;
+            color: $lt-bgc;
+          }
+        }
+      }
+    }
+    * html #navigation a {width:1%;}
+
+		sidebar {
+			// One third of the grid columns, rounding down. With 24 cols, this is 8.
+			@include column($sidebar-columns, last);
+      @include opaque;
+			background: $hilite-bgc;
+
+			padding-top: 10px;
+			margin-right: 0em;
+
+			h2 {
+				color: $dk-bgc; 
+				font-size: 1.5em; 
+				font-weight: bold; 
+				margin: 0px 6px 10px;
+			}
+			p {margin-left: 6px;}
+
+			#socnet_links {
+			  padding: 1em 0 1px;
+  			@include column($sidebar-columns - 0.75);
+  			margin-left: 14px;
+			  @include border-radius(8px, 8px);
+			  background-color: $lt-bgc;
+			  h2 {font-family: "Helvetica Neue", verdana, arial, times, "Times New Roman", sans-serif;}
+				#soc-networks {
+					list-style: none;
+					padding-left: 0em;
+					width: 120px;
+					li {
+					  @include column($sidebar-columns - 1.25);
+					  a {margin-left: 2em;}
+					}
+				}
+			}
+
+			#midColumn {
+				@include column(5);
+				background: $hilite-bgc none repeat scroll 0 0;
+				line-height: 1.3;
+				font-size: 0.8em;
+				margin-right: -1px;
+
+				p {margin-bottom: 0;}
+				li {line-height: 1.1; margin-bottom: 5px;}
+				#ppl_volunteer {height: 21px; margin-top: 10px;}
+				#sidebarContact {
+					margin-left: 6px; 
+					padding: 0px;
+					a {
+						@include border-radius(4px, 4px);
+						@include anchor-button();
+						@include button-colors($lt-bgc, $dk-bgc, $dk-bgc);
+						@include button-hover-colors($dk-bgc, #B3C9D9, $dk-bgc, $dk-bgc);
+						font-size: 140%; 
+						font-weight: bold;
+					}
+				}
+			}
+			ul {
+				list-style-position: inside; list-style-type: none; margin-left: 6px;
+				li {margin-bottom: 5px;}
+				font-size: 0.8em; 
+				line-height: 1;
+			}
+
+			#sidebar_r {
+				@include column(5, last);
+				font-size: 0.8em; 
+				line-height: 1;
+        // background-color: $lt-bgc;
+
+				form {margin-top: 10px;}
+				p {margin-bottom: 0.7em; margin-right: 4px;}
+			}
+			.eventPhotos {
+				@include column($sidebar-columns, last);
+				padding-top: 10px;
+
+				img {
+					width: 160px;
+					vertical-align: top;
+					padding: 10px 10px 10px 15px;
+				}
+			}
+		}
+
+		sidebar, #content {
+			@include min-height(500px);
+		}
+		
+		#memberRSVP a, #ygCFLink, #evt-attendees {
+			@include border-radius(4px);
+			@include anchor-button();
+			@include button-colors($dk-bgc, #B3C9D9, $dk-bgc);
+			@include button-hover-colors($dk-bgc, #B3C9D9, $dk-bgc, $dk-bgc);
+		}
+
+		#content {
+			@include column($content-columns);
+			background-color: $hilite-bgc;
+  		overflow: auto;
+			
+			#content-inner {
+				@include prepend(1);
+				@include column($content-columns - 1, true);
+        // @include border-left;
+				padding-top: 20px;
+				background-color: $lt-bgc;
+				min-height: 600px;
+				
+				#current-text {font-size: 1.7em; margin-bottom: 10px;}
+        // #event-header {text-align: center;}
+				h2, .page-title {
+					margin-bottom: 10px;
+					font-size: 2em;
+					letter-spacing:-1px;
+					line-height: 1.0;
+					color: $dk-bgc;
+					font-weight: bold;
+					background-color:inherit;
+				}
+
+				.page-title {font-size: 30px;}
+				#event-title {
+					@include column($content-columns - 1, true);
+				}
+				h2 a{font-weight:normal;}
+				h3 {margin: 20px 0px; font-size: 1.6em; font-weight: normal;}
+				
+				.is-special {
+				  color: $err-bgc; 
+				  font-variant: small_caps; 
+				  margin-bottom: 10px;
+				  font-size: 126%;
+				}
+				#speaker-names {
+					font-size: 1.7em;
+					color: $dk-bgc;
+					line-height: 1.2em;
+					a {
+						font-weight: normal;
+						color: $dk-bgc;
+					}
+				}
+
+				#msgHolder {
+					@include push(1);
+					@include prepend(1);
+					@include column($content-columns - 5, true);
+					margin-top: 10px;
+					border: 3px solid yellow;
+					background-color: $dk-bgc;
+					color: rgb(192, 192, 192);
+					font-size: 185%;
+					font-weight: bold;
+					display: none;
+					padding-top: 0.6em;
+					padding-bottom: 0.6em;
+				}
+				
+				#event-infobox {
+					@include column($content-columns - 7, true);
+					color:#505050;
+					
+					line-height:1.5em;
+					margin-top:5px;
+					margin-bottom:10px;
+					border-top: 3px solid $dk-bgc;
+					border-bottom: 3px solid $dk-bgc;
+					
+					.location a, .calLink {font-weight: normal;}
+					.calLink {
+            font-size: 60%;
+            padding: 5px;
+						&:hover {
+						  background-color: $hilite-bgc;
+          		color: $dk-bgc;
+						}
+					}
+				}
+
+				.rsvpdiv {
+					margin-top: 0.5em;
+				  border-top: 3px solid #00B;
+					@include column($content-columns - 1, true);
+					margin-bottom: 1em;
+					
+					#regularPPL {
+					  @include column(($content-columns - 8) / 2);
+					}
+					#studentPPL {
+					  @include column(($content-columns - 8) / 2, true);
+					}
+					.extra-bottom {padding-bottom: 6px;}
+				}
+				
+				#meeting-description, #speaker-description {
+					@include column($content-columns - 2, true);
+				}
+				
+				.speaker {
+					margin-top: 1em;
+					.speaker-image {
+						float: left; margin-right: 20px; margin-top: 4px;
+						img {width: 160px;}
+					}
+				}
+				
+				.gen_page {
+					font-size: 90%;
+					line-height: 1.3;
+					
+					div, h2 {margin-bottom: 10px;}
+					h2 {
+						color: $dk-bgc;
+						font-size: 1.2em;
+						font-weight: bold;
+						letter-spacing: normal;
+					}
+					
+					#leadership-photos {
+						img {margin-right: 10px;}
+					}
+					
+					.leaders_list {
+						@include column($content-columns - 1, true);
+						
+						.leader_label {
+							@include column(3);
+							font-weight: bold;
+						}
+						.leader_link {
+							@include column($content-columns - 4,true);
+						}
+					}
+					
+					.member {
+					  @include column($content-columns - 1, true);
+					  margin-bottom: 2px;
+					  
+					  div {
+					    margin-bottom: 0px;
+        	  }
+          	.member_name {
+          	  @include column(4);
+          	  padding-left: 0.4em;
+          	}
+          	.member_link {
+          	  @include column($content-columns - 6, true);
+          	}
+        	}
+				}
+
+      	.list_line_even, .list_line_odd {
+  				padding-top: 0.5em;
+  				padding-bottom: 0.5em;
+				}
+      	.list_line_even {
+      	  background-color: $hilite-bgc;
+      	}
+
+  			#past-events {
+				
+  				.curyear {
+  					@include column($content-columns - 2, true);
+  					font-size: 126%;
+  					background-color: $dk-bgc;
+  					color: $lt-bgc;
+  					margin-top: 0.5em;
+  					margin-bottom: 0.5em;
+					
+  					div {
+  						@include column($content-columns - 3, true);
+  						padding-left: 0.4em;
+  						font-weight: bold;
+  						margin-bottom: 0em;
+  						letter-spacing: .2em;
+  					}
+  				}
+  				.list-event {
+    				margin-bottom: 0.4em;
+    				
+    				div {
+      				margin-bottom: 0em;
+    				}
+  				}
+  			}
+
+  			.list-event {
+  				@include column($content-columns - 2, true);
+				
+  				&.last {
+  				 border-bottom: none; 
+  				}
+  				.feDate, .peDate {
+  					@include column(2);
+  					padding-left: 0.4em;
+  				}
+  				.feTitle, .peTitle {
+  					@include column($content-columns - 5, true);
+  				}
+  				.peSpeakers {
+  					@include column($content-columns - 5, true);
+  					@include push(2);
+  					margin-bottom: 0em;
+  				}
+  			}
+			}
+
+    	#contact1 {
+    	  display: block;
+    		@include column($content-columns - 1, true);
+    		
+    		form {
+      		@include column($content-columns - 1, true);
+      		
+      		label {
+      		  @include column(2);
+      		}
+      		input[type=submit] {
+      		  margin-top: 10px;
+      		}
+    		}
+    	}
+		}
+		
+		#sponsorBlock {
+			@include column($blueprint-grid-columns);
+
+			border-top: 3px solid $dk-bgc;
+			background-color: $lt-bgc;
+
+			h2 {
+				border-bottom:1px solid $dk-bgc;
+				color: $dk-bgc;
+				padding-top:10px;
+				padding-bottom:10px !important;
+				margin-bottom:10px;
+				text-align:center;
+				font-size: 1.6em;
+			}
+			#sponsorLogos {
+				@include column($blueprint-grid-columns, true);
+				@include push(2);
+				margin-bottom: 1em;
+				text-align: center;
+				
+				.sponsor {
+					@include column(5);
+				}
+				img {
+          vertical-align: bottom;
+				}
+			}
+
+  		.logoWD img {width: 120px;}
+  		.logoHT img {height: 75px;}
+
+		}
+		
+		#purim_sponsor_block p {
+		  @include column($content-columns - 1, true);
+		  line-height: 1.3em;
+		  a {
+		    @include column(5);
+		    text-align: center;
+		  }
+		}
+		
+		form {
+			@include blueprint-form;
+			@include column($content-columns - 1, true);
+
+			fieldset {
+				border: 0;
+
+				label {
+					display: inline-block;
+					width: 120px;
+				}
+			}
+			
+			p {
+			  @include column($content-columns - 1, true);
+			  margin-bottom: 0.5em;
+			}
+			.reg_label {
+			  width: 300px;
+			  display: inline-block;
+			  margin-right: 12px;
+			}
+			#member_street {@include column($content-columns - 11);}
+			#member_city {@include column(3);}
+			#member_state {@include column(1);}
+			#member_zip {@include column(2, true);}
+
+			input[type=submit] {
+				background: #222 url('/images/icons/overlay.png') repeat-x;
+				display: inline-block;
+				padding: 5px 10px 6px;
+				color: $lt-bgc;
+				text-decoration: none;
+				@include border-radius(6px);
+				@include box-shadow;
+				border: 0px;
+				border-bottom: 1px solid rgba(0,0,0,0.25);
+				position: relative;
+				cursor: pointer
+			}
+
+			input[type=submit]:hover {
+				background-color: #111;
+				color: $lt-bgc;
+			}
+
+			ol {
+				padding: 0;
+				margin: 0;
+				list-style-type: none;
+			}
+		}
+	}
+	
+	.fbForm {
+		display: none;
+		
+		form {
+			line-height: 2em;
+			color: $lt-bgc;
+		}
+		input, textarea {
+			border: 1px solid $dk-bgc;
+			@include column(4,true);
+			position: absolute;
+			left: 126px;
+			margin-top: 8px;
+		}
+		hr{
+			margin-top: 1em;
+			background-color: $border-main;
+			@include clearfix;
+		}
+		
+		label {
+			@include column(3);
+			font-weight: bold;
+			color: $dk-bgc;
+		}
+
+		.hd {
+			font-weight: bold;
+			font-size: 1.4em; 
+			position: relative;
+			padding-top: 4px;
+			padding-bottom: 4px;
+			background: $dk-bgc; 
+			color: $lt-bgc;
+		}
+		.hd, .ft {
+			@include stretch-x;
+			text-align: center; 
+		}
+		.ft {
+			@include clearfix;
+			margin-top: 10px;
+			background-color: $dk-bgc;
+			
+			a {color: $lt-bgc;}
+		}
+		.fbCloser {
+			left: auto; 
+			margin-top: 4px;
+			right: 4px; 
+			width: 20px;
+		}
+	}
+	
+	#soc-networks {
+	  li {
+	    line-height: 1.5;
+	  }
+    .twitter {background: url('/images/logos/twitter.jpg') no-repeat;}
+    .facebook {background: url('/images/logos/facebook.jpg') no-repeat;}
+    .linkedin {background: url('/images/logos/linkedin.jpg') no-repeat;}
+    .yahoo {background: url('/images/logos/yahoo.jpg') no-repeat;}
+  }
+  #social-shares {
+    vertical-align: top; 
+    padding-top:10px;
+    .twitter-share-button {height: 25px !important;}
+  }
+  #flash {
+    @include column($content-columns, true);
+    text-align: center;
+    padding-top: 1em;
+    padding-bottom: 0.5em;
+    background-color: $lt-bgc;
+    & div {
+      @include column($content-columns - 2, true);
+      @include push(1);
+      margin-bottom: 0;
+      padding-top: 0.5em;
+      padding-bottom: 0.5em;
+      font-size: 126%
+    }
+    #flash_notice {
+      background-color: yellow;
+      color: $dk-bgc;
+    }
+    #flash_alert {
+      background-color: $err-bgc;
+      color: $lt-bgc;
+    }
+  }
+}

@@ -1,2 +1,6 @@
-%h1 Users#edit
-%p Find me in app/views/users/edit.html.haml
+%h1= t(:update_profile_title)
+
+= form_for(@user) do |f|
+	/= devise_error_messages!
+	= render :partial => 'devise/registrations/form', :locals => {:f => f}
+	%p= f.submit t(:update_button)

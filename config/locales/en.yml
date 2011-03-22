@@ -20,3 +20,29 @@ en:
   about_link: 'About'
   past_events_link: 'Past Events'
   future_events_link: 'Upcoming Events'
+  sign_out: "Sign out"
+  sign_in: "Sign in"
+  profile_link: "Profile"
+  socnet_links_title: "Networking"
+  schedule: "Schedule"
+  standard_meeting_explainer: "All meetings are on Tuesdays starting at 6:30 p.m."
+  past_events_title: "Past Events"
+  about_speakers_title: "About the Speaker "
+  member_rsvp_label: 'Member RSVP'
+  see_rsvps: 'See RSVPs'
+  guest: "Guest"
+  student_senior: "Student/Senior"
+  advance_door: "Advance/Door"
+  add_to_calendar: 'Add to Calendar'
+  special_date_notice: 'Please note special date:'
+  copyright: "Copyright"
+  tweet: "Tweet"
+  next_meeting_label: 'Our Next Meeting'
+  active_member_title: "Active Members"
+  update_profile_title: "Update Your Profile"
+  update_button: "Update"
+  join_mailing_list: "Join Our Mailing List"
+  contact_name: "Name"
+  contact_email: "Email"
+  contact_msg: "Message"
+  send_message: "Send Message"

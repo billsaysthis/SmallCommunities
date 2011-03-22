@@ -1,0 +1,5 @@
+#socnet_links
+	%h2= t(:socnet_links_title)
+	%ul#soc-networks
+		- @socnet_links.each do |sl|
+			%li{:class => sl[:id]}= link_to sl[:label], sl[:url]

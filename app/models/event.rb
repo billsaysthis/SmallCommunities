@@ -36,7 +36,7 @@ class Event < ActiveRecord::Base
   def to_ics
     event = Icalendar::Event.new
     event.start = self.occurs_on.strftime("%Y%m%dT%H%M%S")
-    event.end = (self.occurs_on + Setting.retrieve('event_length','int').minutes).strftime("%Y%m%dT%H%M%S")
+    event.end = (self.occurs_on + int_Setting.retrieve('event_length').minutes).strftime("%Y%m%dT%H%M%S")
     event.summary = Setting.retrieve('short_name') + ': ' + self.title
     event.description = self.description
     event.url = Setting.retrieve('corp_url')
