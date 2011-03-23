@@ -6,11 +6,11 @@ class ApplicationController < ActionController::Base
   
   def nav_links
 		@nav_links = [
-		  [:memberships_link, memberships_url],
-  		[:about_link, about_url], 
-  		[:past_events_link, past_events_url], 
-  		[:members_link, users_url],
-  		[Setting.retrieve('current_year')+' Schedule', upcoming_events_url]
+		  {:top => [:memberships_link, memberships_url]},
+  		{:top => [:about_link, about_url]}, 
+  		{:top => [:past_events_link, past_events_url]}, 
+  		{:top => [:members_link, users_url]},
+  		{:top => [Setting.retrieve('current_year')+' Schedule', upcoming_events_url]}
   	]
   end
   

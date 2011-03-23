@@ -25,8 +25,3 @@ $dk-border: #000;
 $err-bgc: #ff0000;
 $light-blue: #C0D3E1;
 $dark-blue: #0000bb;
-
-@mixin border-left($border_color: #0000bb, $border_width: 1px) {
-  padding-left: $blueprint_grid_margin / 2 - $border_width;
-  margin-left: $blueprint_grid_margin / 2;
-  border-left: #{$border_width} solid #{$border_color}; }

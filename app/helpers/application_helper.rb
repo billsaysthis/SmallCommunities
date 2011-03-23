@@ -32,9 +32,9 @@ module ApplicationHelper
     id.present? ? link_to(t(:add_to_calendar), calendar_event_url(@event.id, :format => :ics), :class => 'calLink') : ""
   end
   
-  def nav_link link, url
-    lbl = (link.class == String) ? link : t(link)
-    content_tag :li, link_to(lbl, url), :id => lbl.dasherize
+  def nav_link nav
+    lbl = (nav.first.class == String) ? nav.first : t(nav.first)
+    content_tag :li, link_to(lbl, nav.second), :id => lbl.dasherize
   end
   
   def logo_image img, alt=""

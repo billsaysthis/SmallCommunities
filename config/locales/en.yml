@@ -20,6 +20,7 @@ en:
   about_link: 'About'
   past_events_link: 'Past Events'
   future_events_link: 'Upcoming Events'
+  past_speakers_link: 'Past Speakers'
   sign_out: "Sign out"
   sign_in: "Sign in"
   recaptcha_error: "There was an error with the recaptcha code entered. Please retry and click submit."

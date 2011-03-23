@@ -13,6 +13,8 @@ class User < ActiveRecord::Base
 
   validates :first_name, :presence => true
   validates :last_name, :presence => true
+  validates :email, :email => true
+  validates :url, :uri => { :schemes => [:http] }
   
   scope :active, joins(:memberships).where(:memberships => {:year => Setting.retrieve('current_year')})
   scope :active_sponsors, joins(:memberships).where(:memberships => {:year => Setting.retrieve('current_year'), :mtype => [t(:sponsor_member), t(:premium_member)]})

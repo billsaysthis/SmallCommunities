@@ -20,6 +20,10 @@ SmallCommunities::Application.routes.draw do
     match '/memberships' => :memberships, :as => 'memberships'
   end
   
+  controller :speakers do
+    match '/past_speakers' => :past_speakers
+  end
+  
   root :to => "events#index"
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -272,7 +272,6 @@ body {
 			#content-inner {
 				@include prepend(1);
 				@include column($content-columns - 1, true);
-        // @include border-left;
 				padding-top: 20px;
 				background-color: $lt-bgc;
 				min-height: 600px;
