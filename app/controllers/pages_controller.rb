@@ -1,5 +1,23 @@
 class PagesController < ApplicationController
-  respond_to :html
+  before_filter :setup, :except => [:show]
+  
+  def index
+    redirect_to :about
+  end
+  
+  def show
+    if params[:id].present
+      @page = Page.find params[:id]
+      if @page.present? and @page.active
+        @context_title = @page.title
+        @sponsors = User.active_public if @page.show_sponsors
+      else
+          redirect_to :index
+        end
+    else
+      redirect_to :index
+    end
+  end
   
   def contact
     @event = Event.current_event
@@ -30,10 +48,12 @@ class PagesController < ApplicationController
   end
   
   def about
+    @page = Page.where(:title => t(:about_link))
     @context_title = t(:about_link)
   end
   
   def memberships
+    @page = Page.where(:title => t(:memberships_link))
     @context_title = t(:memberships_link)
   end
   

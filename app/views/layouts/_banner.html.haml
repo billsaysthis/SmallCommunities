@@ -1,6 +1,6 @@
 #banner
 	#banner-img= link_to logo_image('sc-logo1.png', Setting.retrieve('short_name') + '!'), root_url
 	%h1= link_to(Setting.retrieve('long_name'), root_url)
-	#devise-links= signin_link + '	' + link_to(t(:contact_link), '/contact')
+	#devise-links= signin_link + '	' + link_to(t(:contact_link), contact_path)
 	- if Setting.retrieve('tagline')
 		%h2= Setting.retrieve('tagline')
