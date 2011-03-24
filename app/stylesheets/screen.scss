@@ -32,7 +32,7 @@ body {
 
 	background-color: $margin-bgc; 
 	.strong {font-weight: bold}
-	.big {font-size: 146%}
+	.big {font-size: $big-text-size;}
 
 	
 	#container {
@@ -73,7 +73,7 @@ body {
 
     header {
       @include column($blueprint-grid-columns);
-      font-size: 90%;
+      font-size: $body-text-size;
 
       #banner {
         @include column($blueprint-grid-columns, last);
@@ -113,7 +113,7 @@ body {
       			@include anchor-button();
       			@include button-colors($dk-bgc, $hilite-bgc, $dk-bgc);
       			@include button-hover-colors($hilite-bgc, $dk-bgc, $dk-bgc, $dk-bgc);
-            font-size: 65%;
+            font-size: $btn-text-size;
             color: $dk-bgc;
           }
         }
@@ -246,7 +246,7 @@ body {
 				  color: $err-bgc; 
 				  font-variant: small_caps; 
 				  margin-bottom: 10px;
-				  font-size: 126%;
+				  font-size: $med-text-size;
 				}
 				#speaker-names {
 					font-size: 1.7em;
@@ -266,7 +266,7 @@ body {
 					border: 3px solid yellow;
 					background-color: $dk-bgc;
 					color: rgb(192, 192, 192);
-					font-size: 185%;
+					font-size: $lg-text-size;
 					@extend .strong;
 					display: none;
 					padding-top: 0.6em;
@@ -285,7 +285,7 @@ body {
 					
 					.location a, .calLink {font-weight: normal;}
 					.calLink {
-            font-size: 60%;
+            font-size: $btn-text-size;
             padding: 5px;
 						&:hover {
 						  background-color: $hilite-bgc;
@@ -324,7 +324,7 @@ body {
 				}
 				
 				.gen_page {
-					font-size: 90%;
+					font-size: $body-text-size;
 					line-height: 1.3;
 					
 					div, h2 {margin-bottom: 10px;}
@@ -380,7 +380,7 @@ body {
 				
   				.curyear {
   					@include column($content-columns - 2, true);
-  					font-size: 126%;
+  					font-size: $med-text-size;
   					background-color: $dk-bgc;
   					color: $lt-bgc;
   					margin-top: 0.5em;
@@ -550,7 +550,7 @@ body {
       margin-bottom: 0;
       padding-top: 0.5em;
       padding-bottom: 0.5em;
-      font-size: 126%
+      font-size: $med-text-size;
     }
     #flash_notice {
       background-color: yellow;

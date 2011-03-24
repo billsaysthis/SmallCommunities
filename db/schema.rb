@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110323142944) do
+ActiveRecord::Schema.define(:version => 20110323154044) do
 
   create_table "attendances", :force => true do |t|
     t.integer  "event_id"
@@ -29,6 +29,18 @@ ActiveRecord::Schema.define(:version => 20110323142944) do
     t.string   "special_paypal"
     t.string   "special_pricing"
     t.boolean  "show_sponsors",   :default => true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "linkages", :force => true do |t|
+    t.string   "label"
+    t.string   "url"
+    t.string   "link_type"
+    t.integer  "parent_id"
+    t.integer  "position"
+    t.boolean  "active",     :default => true
+    t.boolean  "is_symbol",  :default => true
     t.datetime "created_at"
     t.datetime "updated_at"
   end

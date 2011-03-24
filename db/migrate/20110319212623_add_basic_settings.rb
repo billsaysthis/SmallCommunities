@@ -50,8 +50,8 @@ class AddBasicSettings < ActiveRecord::Migration
     Setting.find_by_name("event_length").destroy
 
     Setting.find_by_name('google-analytics').destroy
-    Setting.find_by_name!'twitter_account').destroy
-    Setting.find_by_name!'mailing_list_url').destroy
+    Setting.find_by_name('twitter_account').destroy
+    Setting.find_by_name('mailing_list_url').destroy
 
     Setting.find_by_name('top_photos_qty').destroy
     Setting.find_by_name('bottom_photos_qty').destroy

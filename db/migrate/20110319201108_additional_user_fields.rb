@@ -16,6 +16,7 @@ class AdditionalUserFields < ActiveRecord::Migration
     add_column :users, :twitter, :string
     add_column :users, :foursquare, :string
     add_column :users, :volunteer_title, :string
+    add_column :users, :is_admin, :boolean, :default => false
   end
 
   def self.down

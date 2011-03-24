@@ -5,10 +5,10 @@ class ApplicationController < ActionController::Base
   before_filter :socnet_links
   
   def nav_links
-		@nav_links = Link.nav.active.tops
+		@nav_links = Linkage.nav.active.tops
   end
   
   def socnet_links
-    @socnet_links = Link.social.active
+    @socnet_links = Linkage.social.active
   end
 end
