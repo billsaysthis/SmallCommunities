@@ -29,6 +29,6 @@ class UsersController < ApplicationController
   end
   
   def sponsors
-    @sponsors = User.active_public
+    @sponsors = User.active_sponsors
   end
 end

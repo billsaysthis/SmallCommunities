@@ -1,8 +1,7 @@
 #navigation
 	%ul
 		- @nav_links.each do |nl|
-		  = render :partial => 'layouts/nav_item', :locals => {:nav => nl[:top]}
-			- if nl[:sub].present?
-			  - nl[:sub].each do |sl|
-  		    = render :partial => 'layouts/nav_item', :locals => {:nav => sl[:top]}
-			  
+		  = nav_link nl, 'top'
+			- if nl.sub_navs.present?
+			  - nl.sub_navs.each do |sl|
+			    = nav_link sl, 'second'			  

@@ -17,7 +17,7 @@ module EventsHelper
     end
   end
   
-  def speaker_list(speakers, needs_with=true)
+  def event_speakers_list(speakers, needs_with=true)
     spkrs = []
     speakers.each do |speaker|
       if speaker.url == ''
@@ -35,7 +35,7 @@ module EventsHelper
   end
   
   def short_desc_link(event)
-    spkrs = speaker_list(event[:speakers], false) unless event[:speakers] == ''
+    spkrs = event_speakers_list(event[:speakers], false) unless event[:speakers] == ''
     link_to(event[:title], event[:url]) + ' ' + spkrs
   end
 end

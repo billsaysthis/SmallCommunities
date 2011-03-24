@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
   attr_accessible :first_name, :last_name, :url, :street, :city, :state, :zip, :phone, :label, :url, :logo, :joined_on
-  attr_accessible :twitter, :facebook, :linkedin, :foursquare
+  attr_accessible :twitter, :facebook, :linkedin, :foursquare, :volunteer_title
 
   validates :first_name, :presence => true
   validates :last_name, :presence => true
@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
   scope :active, joins(:memberships).where(:memberships => {:year => Setting.retrieve('current_year')})
   scope :active_sponsors, joins(:memberships).where(:memberships => {:year => Setting.retrieve('current_year'), :mtype => [t(:sponsor_member), t(:premium_member)]})
   scope :visible, where("label != ''")
-  scope :active_public, visible.active.where("mtype != ? and mtype != ?", t(:premium_member), t(:sponsor_member))
+  scope :volunteers, where("volunteer_title != ''")
   default_scope order("last_name, first_name")
   
   def self.before_create

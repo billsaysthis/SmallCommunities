@@ -10,7 +10,7 @@ class PagesController < ApplicationController
       @page = Page.find params[:id]
       if @page.present? and @page.active
         @context_title = @page.title
-        @sponsors = User.active_public if @page.show_sponsors
+        @sponsors = User.active_sponsors if @page.show_sponsors
       else
           redirect_to :index
         end
@@ -59,6 +59,6 @@ class PagesController < ApplicationController
   
   protected
   def setup
-    @sponsors = User.active_public
+    @sponsors = User.active_sponsors
   end
 end

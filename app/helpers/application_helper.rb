@@ -32,15 +32,20 @@ module ApplicationHelper
     id.present? ? link_to(t(:add_to_calendar), calendar_event_url(@event.id, :format => :ics), :class => 'calLink') : ""
   end
   
-  def nav_link nav
-    lbl = (nav.first.class == String) ? nav.first : t(nav.first)
-    content_tag :li, link_to(lbl, nav.second), :id => lbl.dasherize
+  def nav_link nav, level, tag=:li
+    content_tag tag, link_to(nav.to_s, nav.second), :id => nav.label.dasherize, :class => level
   end
   
   def logo_image img, alt=""
     image_tag('logos/'+img, :id => 'logoimg', :alt => alt)
   end
 
+  def speaker_events_list speaker
+    sel = Array.new
+    speaker.events.each {|e| sel << link_to(e.title, event_path(e))}
+    sel.join(", ")
+  end
+  
   def special_event_date(event)
     event.occurs_on.wday != 2 ?  content_tag(:div, t(:special_date_notice), :class => 'is-special') : ''
   end

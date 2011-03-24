@@ -2,6 +2,6 @@ class SpeakersController < ApplicationController
   def past_speakers
     @speakers = Speakers.past
     @context_title = t(:past_speakers_link)
-    @sponsors = User.active_public
+    @sponsors = User.active_sponsors
   end
 end

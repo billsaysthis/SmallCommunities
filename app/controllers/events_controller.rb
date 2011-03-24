@@ -38,7 +38,7 @@ class EventsController < ApplicationController
     @show_rsvp = current_user && current_user.attendances.where(:event_id => @event.id).size == 0
     # @event_template = @event.is_special ? 'events/' + @event.special_layout_name : 'event'
     @event_template = 'event'
-    @sponsors = User.active_public if @event.show_sponsors
+    @sponsors = User.active_sponsors if @event.show_sponsors
   end
 
 end

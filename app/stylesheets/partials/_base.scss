@@ -13,6 +13,7 @@ $sidebar-columns: 5;
 $content-columns: $blueprint-grid-columns - $sidebar-columns;
 
 $blueprint-font-family: Helvetica Neue,Arial,Helvetica,sans-serif;
+$hdr-font: Futura;
 $blueprint_font_size: 16px;
 
 $margin-bgc: #e8eaec;
@@ -23,5 +24,13 @@ $lt-bgc: #fff;
 $dk-bgc: #000;
 $dk-border: #000;
 $err-bgc: #ff0000;
+$body-text: #303030;
 $light-blue: #C0D3E1;
 $dark-blue: #0000bb;
+
+$input-bgc: #222;
+$input-hover-bgc: #111;
+
+$std-border: 2px solid $border-main;
+$thin-border: 1px solid $border-main;
+$thick-border: 3px solid $border-main;

@@ -2,7 +2,7 @@
 	= special_event_date(@event) 
 	.strong.big
 		= raw @event.occurs_on.to_s(:basic) + ", 6:30 p.m. "
-		= add_to_cal_link(@event.id)
+		.calLink= add_to_cal_link(@event.id)
 	.location= location_label(@event)
 	= render :partial => 'events/share_event'
 	= render :partial => 'rsvp_block' if @is_current

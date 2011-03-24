@@ -1,2 +1,2 @@
-.speaker
-  = link_to speaker.name, speaker_path(speaker)
+%div{:class => "speaker " + cycle('list_odd', 'list_even')}
+  = link_to(speaker.name, speaker_path(speaker)) + ' ' + speaker_events_list(speaker)
