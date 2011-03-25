@@ -1,4 +1,4 @@
-== Welcome to Small Communities
+## Welcome to Small Communities
 
 Small Communities is an application built on Ruby on Rails to drive websites 
 for small groups. The central concepts of the app are Members and Events with 
@@ -13,12 +13,12 @@ include admission to regular events.
 
 There are also facilities for simple "static" pages, such as About and Contact.
 
-== Technical Overview
+## Technical Overview
 
 Small Communities uses Rails 3; Rails 2 support is precluded by use of certain 
 framework methods and gems not available in Rails 2.
 
-=== Core gems
+### Core gems
 
 * Devise for authentication
 * Compass, Sass and Haml for views and programmable CSS
@@ -27,7 +27,7 @@ framework methods and gems not available in Rails 2.
 * RailsAdmin for automatic admin backend
 * RSpec and Cucumber for tests
 
-=== Theming and Text Customization
+### Theming and Text Customization
 
 In order to easily customize appearance to match a group's visual branding, 
 Small Communities has a skin system.
@@ -36,7 +36,7 @@ Additionally, Small Communities uses Rails' I18N facilities to manage strings
 displayed so you may edit the provided English file and add other languages as 
 useful.
 
-== Getting Started
+## Getting Started
 
 1. At the command prompt, clone the Small Communities repo on GitHub:
        <tt>git clone <Small Communities URL></tt>
@@ -58,3 +58,24 @@ useful.
 * create your "static" pages
 * edit the Mailer configuration in config/initializers/sc_mailer.rb
 * edit (or add) the locale file for your language in config/locales
+
+## Contributing
+
+### Contributors
+
+- Bill Lazar (billsaysthis) - maintainer
+
+
+### Note on Patches/Pull Requests
+ 
+* Fork the project.
+* Make your feature addition or bug fix.
+* Add tests for it. This is important so I don't break it in a
+  future version unintentionally.
+* Commit, do not mess with rakefile, version, or history.
+  (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
+* Send me a pull request. Bonus points for topic branches.
+
+#### Copyright
+
+Copyright (c) 2011 Bill Lazar, http://billlazar.com. See LICENSE for details.
