@@ -38,42 +38,55 @@ useful.
 
 ## Getting Started
 
-1. At the command prompt, clone the Small Communities repo on GitHub:
+* At the command prompt, clone the Small Communities repo on GitHub:
 
-      git clone <Small Communities URL>
+<pre>   git clone git://github.com/billsaysthis/SmallCommunities.git</pre>
 
-2. Change directory to small_communities, install the bundle:
+* Change directory to small_communities, install the bundle:
 
-      cd small_communities; bundle install
+<pre>   cd small_communities
+   bundle install</pre>
 
-3. Setup and create the database:
+* Setup and create the database, run the migrations:
 
-      edit config/database.yml
-      rake db:create
+<pre>   edit config/database.yml
+   rake db:create
+   rake db:migrate</pre>
 
-4. Edit the configuration migrations:
+* Edit the English locale file, or prepare the one for your language:
 
-      edit db/migrations/<timestamp>_add_basic_settings.rb
-      edit db/migrations/<timestamp>_insert_basic_links.rb
+<pre>   edit config/locales/en.yml</pre>
 
-5. Start the Rails server and load the app in your browser to confirm a valid install:
+Note: You may want to review the RailsAdmin and Devise locale files for your language.
 
-      rails s
-      http://localhost:3000
+* Edit the seeds file and run the rake task:
 
-5. Basic Setup and Customization
+<pre>   edit db/seeds.rb
+   rake db:seed</pre>
 
-* customize your theme
-* create your "static" pages
-* edit the Mailer configuration in config/initializers/sc_mailer.rb
-* edit (or add) the locale file for your language in config/locales
+Note: The About and Memberships page titles make use of the locale file
+
+* Edit the Mailer configuration:
+
+<pre>   edit config/initializers/sc_mailer.rb</pre>
+
+* Start the Rails server and load the app in your browser to confirm a valid install:
+
+<pre>   rails s
+   http://localhost:3000</pre>
+
+### Basic Setup and Customization
+
+* Customize your theme by editing the SCSS files in app/stylesheets
+* Review the basic settings in the Settings tab of the Admin backend
+* Edit/create your "static" pages in the Pages tab of the Admin backend
 
 ## Contributing
 
 ### Contributors
 
 - Bill Lazar (billsaysthis) - maintainer
-
+- Steve Morris (stevemorris)
 
 ### Note on Patches/Pull Requests
  

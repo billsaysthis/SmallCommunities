@@ -1,7 +1,55 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
-#   Mayor.create(:name => 'Daley', :city => cities.first)
+
+# Basic Settings
+Setting.create({:name => 'current_year', :value => Date.current.year.to_s})
+Setting.create({:name => 'long_name', :value => 'Small Communities'})
+Setting.create({:name => 'short_name', :value => 'SmCom'})
+Setting.create({:name => 'corp_name', :value => 'Long Incorporated Group Name, Inc.'})
+Setting.create({:name => 'tag_line', :value => 'Manage your community'})
+Setting.create({:name => 'copyright', :value => '2011-'})
+Setting.create({:name => 'corp_url', :value => 'http://example.org'})
+Setting.create({:name => 'corp_email', :value => 'leadership@example.org'})
+Setting.create({:name => 'default_location_label', :value => 'Name & Street Address'})
+Setting.create({:name => 'default_location_url', :value => 'http://example.com', :is_html => true})
+Setting.create({:name => "default_event_title", :value => 'To Be Announced'})
+Setting.create({:name => "default_event_description", :value => 'Date is tentative until program is confirmed.'})
+Setting.create({:name => "event_length", :value => '150'})
+
+Setting.create!({:name => 'google-analytics', :value => 'UA-21971932-1'})
+Setting.create!({:name => 'twitter_account', :value => 'billsaysthis'})
+Setting.create!({:name => 'mailing_list_url', :value => 'http://groups.yahoo.com/group/JHTCmembers/join'})
+
+Setting.create({:name => 'top_photos_qty', :value => '2'})
+Setting.create({:name => 'bottom_photos_qty', :value => '6'})
+
+Setting.create({:name => 'gold_member_annual', :value => '$500'})
+Setting.create({:name => 'regular_member_annual', :value => '$100'})
+Setting.create({:name => 'renewing_member_annual', :value => '$50'})
+Setting.create({:name => 'student_member_annual', :value => '$75'})
+Setting.create({:name => 'regular_event_advance', :value => '$15'})
+Setting.create({:name => 'regular_event_door', :value => '$20'})
+Setting.create({:name => 'special_event', :value => '$5'})
+Setting.create({:name => 'gold_ppc', :value => 'PayPal button code'})
+Setting.create({:name => 'regular_ppc', :value => 'PayPal button code'})
+Setting.create({:name => 'renewing_ppc', :value => 'PayPal button code'})
+Setting.create({:name => 'student_ppc', :value => 'PayPal button code'})
+
+# Initial Pages
+Page.create({:title => t(:about_link), :content => 'Replace with your own content', :active => true})
+Page.create({:title => t(:memberships_link), :content => 'Replace with your own content', :active => true})
+
+# Sample Links
+Linkage.create({:label => 'about_link', :url => 'about_url', :position => 1, :link_type => 'nav'})
+# following two are showing how to have a sub-menu on the navigation
+al = Linkage.find_by_label('about_link')
+Linkage.create({:label => 'memberships_link', :url => 'memberships_url', :position => 1, :parent_id => al.id, :link_type => 'nav'})
+Linkage.create({:label => 'past_speakers_link', :url => 'past_speakers_url', :position => 2, :parent_id => al.id, :link_type => 'nav'})
+Linkage.create({:label => 'past_events_link', :url => 'past_events_url', :position => 2, :link_type => 'nav'})
+Linkage.create({:label => 'members_link', :url => 'users_url', :position => 3, :link_type => 'nav'})
+Linkage.create({:label => 'future_events_link', :url => 'upcoming_events_url', :position => 4, :link_type => 'nav'})
+           
+Linkage.create({:label => 'facebook_link', :url => 'http://www.facebook.com/group.php?gid=5783743884', :position => 1, :link_type => 'social'})
+Linkage.create({:label => 'yahoo_gorups_link', :url => 'http://groups.yahoo.com/group/JHTCmembers', :position => 2, :link_type => 'social'})
+Linkage.create({:label => 'twitter_link', :url => 'http://www.twitter.com/billsaysthis', :position => 3, :link_type => 'social'})
+Linkage.create({:label => 'linkedin_link', :url => 'http://www.linkedin.com/groups?gid=110955', :position => 4, :link_type => 'social'})
