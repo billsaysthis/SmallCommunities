@@ -14,8 +14,8 @@ module SmallCommunities
       g.integration_tool :rspec, :fixture => true, :views => true
     end
     config.action_view.javascript_expansions[:defaults] = %w(jquery rails)
-
     config.filter_parameters += [:password]
-    
+    asf = File.expand_path('../initializers/app_config.yml', __FILE__)
+    configatron.configure_from_yaml(asf)
   end
 end
