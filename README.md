@@ -26,6 +26,9 @@ framework methods and gems not available in Rails 2.
 * IceCube and iCalendar for calendaring
 * RailsAdmin for automatic admin backend
 * RSpec and Cucumber for tests
+* Configatron for configuration file support
+* Rack-Recaptcha for repatchas
+* Rails_uri_validator and Rails_uri_validator
 
 ### Theming and Text Customization
 
@@ -59,16 +62,17 @@ useful.
 
 Note: You may want to review the RailsAdmin and Devise locale files for your language.
 
+* Edit the Mailer and AppConfig initializers:
+
+<pre>   edit config/initializers/sc_mailer.rb
+   edit config/initializers/app_config.yml</pre>
+
 * Edit the seeds file and run the rake task:
 
 <pre>   edit db/seeds.rb
    rake db:seed</pre>
 
 Note: The About and Memberships page titles make use of the locale file
-
-* Edit the Mailer configuration:
-
-<pre>   edit config/initializers/sc_mailer.rb</pre>
 
 * Start the Rails server and load the app in your browser to confirm a valid install:
 
@@ -85,8 +89,8 @@ Note: The About and Memberships page titles make use of the locale file
 
 ### Contributors
 
-- Bill Lazar (billsaysthis) - maintainer
-- Steve Morris (stevemorris)
+- Bill Lazar [billsaysthis](http://github.com/billsaysthis) - maintainer
+- Steve Morris [stevemorris](http://github.com/stevemorris)
 
 ### Note on Patches/Pull Requests
  
@@ -100,4 +104,4 @@ Note: The About and Memberships page titles make use of the locale file
 
 #### Copyright
 
-Copyright (c) 2011 Bill Lazar, http://billlazar.com. See LICENSE for details.
+Copyright (c) 2011 Bill Lazar, [http://billlazar.com](http://billlazar.com). See LICENSE for details.
