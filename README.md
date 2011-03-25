@@ -39,18 +39,27 @@ useful.
 ## Getting Started
 
 1. At the command prompt, clone the Small Communities repo on GitHub:
-       <tt>git clone <Small Communities URL></tt>
 
-2. Change directory to <tt>small_communities</tt>, install the bundle:
-       <tt>cd small_communities; bundle install; rake db:create</tt>
+      git clone <Small Communities URL>
+
+2. Change directory to small_communities, install the bundle:
+
+      cd small_communities; bundle install
 
 3. Setup and create the database:
-       <tt>edit config/database.yml</tt>
-       <tt>rake db:create</tt>
 
-4. Start the Rails server and load the app in your browser to confirm a valid install:
-  rails s</tt>
-  http://localhost:3000</tt>
+      edit config/database.yml
+      rake db:create
+
+4. Edit the configuration migrations:
+
+      edit db/migrations/<timestamp>_add_basic_settings.rb
+      edit db/migrations/<timestamp>_insert_basic_links.rb
+
+5. Start the Rails server and load the app in your browser to confirm a valid install:
+
+      rails s
+      http://localhost:3000
 
 5. Basic Setup and Customization
 
