@@ -13,8 +13,8 @@ SmallCommunities::Application.routes.draw do
     end
   end
   
-  resources :pages
-  controller :pages do
+  resources :stat_pages
+  controller :stat_pages do
     match '/about' => :about, :as => 'about'
     match '/contact' => :contact, :as => 'contact'
     match '/memberships' => :memberships, :as => 'memberships'

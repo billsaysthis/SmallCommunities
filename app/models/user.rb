@@ -16,8 +16,8 @@ class User < ActiveRecord::Base
   validates :email, :email => true
   validates :url, :uri => { :schemes => [:http] }
   
-  scope :active, joins(:memberships).where(:memberships => {:year => Setting.retrieve('current_year')})
-  scope :active_sponsors, joins(:memberships).where(:memberships => {:year => Setting.retrieve('current_year'), :mtype => [t(:sponsor_member), t(:premium_member)]})
+  # scope :active, joins(:memberships).where(:memberships => {:year => Setting.retrieve('current_year')})
+  # scope :active_sponsors, joins(:memberships).where(:memberships => {:year => Setting.retrieve('current_year'), :mtype => [t(:sponsor_member), t(:premium_member)]})
   scope :visible, where("label != ''")
   scope :volunteers, where("volunteer_title != ''")
   default_scope order("last_name, first_name")

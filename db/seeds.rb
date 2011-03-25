@@ -36,8 +36,8 @@ Setting.create({:name => 'renewing_ppc', :value => 'PayPal button code'})
 Setting.create({:name => 'student_ppc', :value => 'PayPal button code'})
 
 # Initial Pages
-Page.create({:title => t(:about_link), :content => 'Replace with your own content', :active => true})
-Page.create({:title => t(:memberships_link), :content => 'Replace with your own content', :active => true})
+StatPage.create({:title => "About", :content => 'Replace with your own content', :active => true})
+StatPage.create({:title => "Membership", :content => 'Replace with your own content', :active => true})
 
 # Sample Links
 Linkage.create({:label => 'about_link', :url => 'about_url', :position => 1, :link_type => 'nav'})

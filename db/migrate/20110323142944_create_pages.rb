@@ -1,6 +1,6 @@
 class CreatePages < ActiveRecord::Migration
   def self.up
-    create_table :pages do |t|
+    create_table :stat_pages do |t|
       t.string :title
       t.text :content
       t.boolean :show_sponsors
@@ -11,6 +11,6 @@ class CreatePages < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :pages
+    drop_table :stat_pages
   end
 end
