@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
   # validates :email, :email => true
   validates :url, :uri => { :schemes => [:http] }
   
+  scope :active, joins(:memberships).where('memberships.year = ?', Date.current.year.to_s)
   scope :visible, where("label != ''")
   scope :volunteers, where("volunteer_title != ''")
   default_scope order("last_name, first_name")

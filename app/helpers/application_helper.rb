@@ -31,11 +31,7 @@ module ApplicationHelper
   def add_to_cal_link id
     id.present? ? link_to(t(:add_to_calendar), calendar_event_url(@event.id, :format => :ics), :class => 'calLink') : ""
   end
-  
-  def show_label nav
-    nav.is_symbol ? t(nav.label.to_sym) : nav.label
-  end
-  
+    
   def logo_image img, alt=""
     image_tag('logos/'+img, :id => 'logoimg', :alt => alt)
   end

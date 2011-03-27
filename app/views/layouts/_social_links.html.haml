@@ -2,4 +2,4 @@
 	%h2= t(:socnet_links_title)
 	%ul#soc-networks
 		- @socnet_links.each do |sl|
-			%li{:class => sl[:id]}= link_to sl[:label], sl[:url]
+			%li{:class => sl[:label].split("_").first.downcase}= link_to(t(sl[:label].to_sym), sl[:url])

@@ -160,9 +160,12 @@ body {
           &:last-child {
             border-right: none !important;
           }
-          .selected, :hover {
+          &.current, :hover {
             background:$dk-bgc;
             color: $lt-bgc;
+						a {
+							color: $lt-bgc;
+						}
           }
 					ul {
 						display: none;
