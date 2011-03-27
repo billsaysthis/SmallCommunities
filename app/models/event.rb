@@ -6,13 +6,14 @@ class Event < ActiveRecord::Base
 
   validates :title, :presence => true
   validates :occurs_on, :presence => true
+  validates :page_template, :presence => true
   
   scope :future_events, where("occurs_on > ?", Date.current).order("occurs_on DESC")
   scope :past_events, where("occurs_on < ?", Date.current).order("occurs_on DESC")
   scope :current_year, where(:occurs_on => Date.current.beginning_of_year..Date.current.end_of_year).order(:occurs_on)
   scope :current, where("occurs_on > ?", Date.current).order(:occurs_on).limit(1)
   
-  attr_accessible :title, :subtitle, :occurs_on, :special_paypal, :regular_paypal, :description
+  attr_accessible :title, :subtitle, :occurs_on, :special_paypal, :regular_paypal, :description, :page_template
 
   def self.current_event
     Event.current.first
@@ -30,7 +31,7 @@ class Event < ActiveRecord::Base
     last_event = Event.where("occurs_on < ?", Date.current).limit(1).order("occurs_on DESC").first
     last_plus_one = last_event.present? ? self.next_event(last_event.occurs_on) : self.next_event(Date.current.beginning_of_month)
     # 'To Be Announced', 'Date is tentative until program is confirmed.'
-    Event.new({:title => Setting.retrieve('default_event_title'), :occurs_on => last_plus_one, :description => Setting.retrieve('default_event_description')})
+    Event.new({:title => Setting.retrieve('default_event_title'), :page_template => 'event', :occurs_on => last_plus_one, :description => Setting.retrieve('default_event_description')})
   end
   
   def to_ics

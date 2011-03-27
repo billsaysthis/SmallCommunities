@@ -5,5 +5,5 @@
 		.calLink= add_to_cal_link(@event.id)
 	.location= location_label(@event)
 	= render :partial => 'events/share_event'
-	= render :partial => 'rsvp_block' if @is_current
+	= render :partial => 'rsvp_block' if @event.is_current?
 	= link_to( t(:see_rsvps), event_attendances_path(@event), :id => 'evt-attendees', :title => 'Only visible to admins' ) if (current_user.present? && current_user.is_admin?) and @event.attendances.count > 0

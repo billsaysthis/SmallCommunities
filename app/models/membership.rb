@@ -4,4 +4,5 @@ class Membership < ActiveRecord::Base
   validates :year, :presence => true
   validates :mtype, :presence => true, :inclusion => configatron.memberships
   
+  scope :current, where(:year => Date.current.year.to_s)
 end

@@ -13,17 +13,20 @@ class User < ActiveRecord::Base
 
   validates :first_name, :presence => true
   validates :last_name, :presence => true
-  validates :email, :email => true
+  # validates :email, :email => true
   validates :url, :uri => { :schemes => [:http] }
   
-  scope :active, joins(:memberships).where(:memberships => {:year => Date.current.year.to_s})
-  scope :active_sponsors, joins(:memberships).where(:memberships => {:year => Date.current.year.to_s, :mtype => configatron.premium_memberships})
   scope :visible, where("label != ''")
   scope :volunteers, where("volunteer_title != ''")
   default_scope order("last_name, first_name")
   
   def self.before_create
     joined_on ||= DateTime.current
+  end
+
+  # should probably be a scope...
+  def self.current_sponsors
+    User.all.each {|u| configatron.premium_memberships.include?(u.memberships.current.first.mtype)}
   end
   
   def name
@@ -35,11 +38,7 @@ class User < ActiveRecord::Base
   end
   
   def m_logo
-    if logo.starts_with?('http')
-      return logo
-    else
-      return 'users/'+logo
-    end
+    logo.starts_with?('http') ? logo : 'users/'+logo
   end
   
   def has_logo?

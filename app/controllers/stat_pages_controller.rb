@@ -10,7 +10,7 @@ class StatPagesController < ApplicationController
       @page = StatPage.find params[:id]
       if @page.present? and @page.active
         @context_title = @page.title
-        @sponsors = User.active_sponsors if @page.show_sponsors
+        @sponsors = User.current_sponsors if @page.show_sponsors
       else
           redirect_to :index
         end
@@ -59,6 +59,6 @@ class StatPagesController < ApplicationController
   
   protected
   def setup
-    @sponsors = User.active_sponsors
+    @sponsors = User.current_sponsors
   end
 end

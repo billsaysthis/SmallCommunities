@@ -41,45 +41,47 @@ useful.
 
 ## Getting Started
 
-* At the command prompt, clone the Small Communities repo on GitHub:
+Clone the SmallCommunities GitHub repo:
 
 <pre>   git clone git://github.com/billsaysthis/SmallCommunities.git</pre>
 
-* Change directory to small_communities, install the bundle:
+Change to the app directory and install the bundle:
 
 <pre>   cd small_communities
    bundle install</pre>
 
-* Setup and create the database, run the migrations:
+Setup and create the database, run the migrations:
 
 <pre>   edit config/database.yml
    rake db:create
    rake db:migrate</pre>
 
-* Edit the English locale file, or prepare the one for your language:
+Edit the English locale file, or prepare the one for your language:
 
 <pre>   edit config/locales/en.yml</pre>
 
-Note: You may want to review the RailsAdmin and Devise locale files for your language.
+_Note:_ You may want to review the RailsAdmin and Devise locale files for your language.
 
-* Edit the Mailer and AppConfig initializers:
+Edit the Mailer and AppConfig initializers:
 
 <pre>   edit config/initializers/sc_mailer.rb
    edit config/initializers/app_config.yml</pre>
 
-* Edit the seeds file and run the rake task:
+Edit the seeds file and run the rake task:
 
 <pre>   edit db/seeds.rb
    rake db:seed</pre>
 
-Note: The About and Memberships page titles make use of the locale file
+_Note:_ The About and Memberships page titles make use of the locale file
 
-* Start the Rails server and load the app in your browser to confirm a valid install:
+### Confirm a valid install:
+
+Start the Rails server and load the app in your browser:
 
 <pre>   rails s
    http://localhost:3000</pre>
 
-### Basic Setup and Customization
+### Customize Appearance and Finetune Settings
 
 * Customize your theme by editing the SCSS files in app/stylesheets
 * Review the basic settings in the Settings tab of the Admin backend

@@ -7,12 +7,9 @@ class Linkage < ActiveRecord::Base
   belongs_to :top_nav, :class_name => "Linkage"
   
   scope :active, where(:active => true)
-  scope :tops, where(:parent_id.blank?)
-  scope :nav, where(:link_type => 'navigation')
+  scope :tops, where(:parent_id => nil)
+  scope :nav, where(:link_type => 'nav')
   scope :social, where(:link_type => 'social')
   default_scope order("parent_id, position")
   
-  def to_s
-    is_symbol? ? t(label.to_sym) : label
-  end
 end

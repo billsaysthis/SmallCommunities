@@ -2,7 +2,7 @@ class CreateEvents < ActiveRecord::Migration
   def self.up
     create_table :events, :force => true do |t|
       t.string :title
-      t.string :subtitle, :location
+      t.string :subtitle, :location, :page_template
       t.datetime :occurs_on
       t.text :description
       t.string :regular_paypal, :special_paypal, :special_pricing

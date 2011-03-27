@@ -1,7 +1,2 @@
 #navigation
-	%ul
-		- @nav_links.each do |nl|
-		  = nav_link nl, 'top'
-			- if nl.sub_navs.present?
-			  - nl.sub_navs.each do |sl|
-			    = nav_link sl, 'second'			  
+  - @menu = build_mmmenu(@menu)

@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   before_filter :authenticate_user!, :only => [:rsvp]
   before_filter :setup, :only => [:index, :show]
+  before_filter :app_setup
   
   def index
   end
@@ -33,12 +34,12 @@ class EventsController < ApplicationController
   def setup
     @event = params[:id].blank? ? Event.current_event : Event.find(params[:id])
     @event ||= Event.tba
-    @is_current = @event.is_current?
     @context_title = @event.title
-    @show_rsvp = current_user && current_user.attendances.where(:event_id => @event.id).size == 0
-    # @event_template = @event.is_special ? 'events/' + @event.special_layout_name : 'event'
-    @event_template = 'event'
-    @sponsors = User.active_sponsors if @event.show_sponsors
+    @show_rsvp = current_user && current_user.attendances.where(:event_id => @event.id).blank?
+    @sponsors = User.current_sponsors if @event.show_sponsors
   end
 
+  def app_setup
+    @socnet_links = Linkage.social.active
+  end
 end

@@ -1,5 +1,5 @@
 #event-header
-	#current-text= @is_current ? t(:next_meeting_label) : ''
+	#current-text= @event.is_current? ? t(:next_meeting_label) : ''
 	#msgHolder
 	%h2#event-title= raw @event.title
 	#speaker-names= event_speakers_list(@event.speakers) if @event.speakers.present?

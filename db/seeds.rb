@@ -1,6 +1,12 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 
+# Admin user
+# Please change these defaults!!!
+User.create({:last_name => 'Admin', :first_name =>'I.M.', :password => '123456', :email => 'admin@example.com', :is_admin => true})
+u = User.find_by_email('admin@example.com')
+u.memberships.create(:year => Date.current.year.to_s, :mtype => 'gold')
+
 # Basic Settings
 Setting.create({:name => 'current_year', :value => Date.current.year.to_s})
 Setting.create({:name => 'long_name', :value => 'Small Communities'})
@@ -36,18 +42,18 @@ Setting.create({:name => 'renewing_ppc', :value => 'PayPal button code'})
 Setting.create({:name => 'student_ppc', :value => 'PayPal button code'})
 
 # Initial Pages
-StatPage.create({:title => "About", :content => 'Replace with your own content', :active => true})
-StatPage.create({:title => "Membership", :content => 'Replace with your own content', :active => true})
+StatPage.create({:title => "About", :content1 => 'Replace with your own content', :active => true})
+StatPage.create({:title => "Membership", :content1 => 'Replace with your own content', :active => true})
 
 # Sample Links
-Linkage.create({:label => 'about_link', :url => 'about_url', :position => 1, :link_type => 'nav'})
+Linkage.create({:label => 'about_link', :url => '/about', :position => 1, :link_type => 'nav'})
 # following two are showing how to have a sub-menu on the navigation
 al = Linkage.find_by_label('about_link')
-Linkage.create({:label => 'memberships_link', :url => 'memberships_url', :position => 1, :parent_id => al.id, :link_type => 'nav'})
-Linkage.create({:label => 'past_speakers_link', :url => 'past_speakers_url', :position => 2, :parent_id => al.id, :link_type => 'nav'})
-Linkage.create({:label => 'past_events_link', :url => 'past_events_url', :position => 2, :link_type => 'nav'})
-Linkage.create({:label => 'members_link', :url => 'users_url', :position => 3, :link_type => 'nav'})
-Linkage.create({:label => 'future_events_link', :url => 'upcoming_events_url', :position => 4, :link_type => 'nav'})
+Linkage.create({:label => 'memberships_link', :url => '/memberships', :position => 1, :parent_id => al.id, :link_type => 'nav'})
+Linkage.create({:label => 'past_speakers_link', :url => '/past_speakers', :position => 2, :parent_id => al.id, :link_type => 'nav'})
+Linkage.create({:label => 'past_events_link', :url => '/past_events', :position => 2, :link_type => 'nav'})
+Linkage.create({:label => 'members_link', :url => '/members', :position => 3, :link_type => 'nav'})
+Linkage.create({:label => 'future_events_link', :url => '/upcoming_events', :position => 4, :link_type => 'nav'})
            
 Linkage.create({:label => 'facebook_link', :url => 'http://www.facebook.com/group.php?gid=5783743884', :position => 1, :link_type => 'social'})
 Linkage.create({:label => 'yahoo_gorups_link', :url => 'http://groups.yahoo.com/group/JHTCmembers', :position => 2, :link_type => 'social'})

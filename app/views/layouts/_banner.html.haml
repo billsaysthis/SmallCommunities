@@ -2,5 +2,5 @@
 	#banner-img= link_to logo_image('sc-logo1.png', Setting.retrieve('short_name') + '!'), root_url
 	%h1#org_title= link_to(Setting.retrieve('long_name'), root_url)
 	#login-block= signin_link + '	' + link_to(t(:contact_link), contact_path)
-	- if Setting.retrieve('tagline')
-		%h2#tagline= Setting.retrieve('tagline')
+	- if Setting.retrieve('tag_line')
+		%h2#tagline= Setting.retrieve('tag_line')

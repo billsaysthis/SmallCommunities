@@ -1,0 +1,3 @@
+[submodule "vendor/plugins/mmmenu"]
+	path = vendor/plugins/mmmenu
+	url = git://github.com/snitko/mmmenu.git

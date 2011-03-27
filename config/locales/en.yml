@@ -50,3 +50,9 @@ en:
   contact_email: "Email"
   contact_msg: "Message"
   send_message: "Send Message"
+  premium_member: 'gold'
+  regular_member: 'regular'
+  student_member: 'student'
+  senior_member: 'senior'
+  sponsor_member: 'sponsor'
+  sponsors_label: 'Sponsors'

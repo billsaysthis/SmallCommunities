@@ -140,16 +140,18 @@ body {
       margin-top: 1em;
       z-index: 12;
 
-      ul {
+			> ul {
         @include horizontal-list;
         @include prepend(5);
+			}
+      ul {
 
         li {
           @include column(3);
           @include border(1px, $lt-bgc); 
           text-align: center; 
           a {
-          @include column(3);
+          	@include column(3);
             font-size:0.8em;
             font-variant: small-caps;
             letter-spacing: 0.1em;
@@ -162,6 +164,15 @@ body {
             background:$dk-bgc;
             color: $lt-bgc;
           }
+					ul {
+						display: none;
+						@include no-bullets;
+						padding-left: 0px;
+						
+						li {
+							border-right: none;
+						}
+					}
         }
       }
     }
@@ -224,7 +235,7 @@ body {
 				@include column($content-columns - 1, true);
 				padding-top: 20px;
 				background-color: $lt-bgc;
-				min-height: 600px;
+				@include min-height(490px);
 				
 				#current-text {font-size: 1.7em; margin-bottom: 10px;}
 

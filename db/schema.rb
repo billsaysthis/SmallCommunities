@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(:version => 20110323150358) do
     t.string   "title"
     t.string   "subtitle"
     t.string   "location"
+    t.string   "page_template"
     t.datetime "occurs_on"
     t.text     "description"
     t.string   "regular_paypal"
@@ -46,7 +47,7 @@ ActiveRecord::Schema.define(:version => 20110323150358) do
   end
 
   create_table "memberships", :force => true do |t|
-    t.integer  "member_id"
+    t.integer  "user_id"
     t.string   "mtype"
     t.string   "year"
     t.datetime "created_at"
@@ -106,7 +107,11 @@ ActiveRecord::Schema.define(:version => 20110323150358) do
 
   create_table "stat_pages", :force => true do |t|
     t.string   "title"
-    t.text     "content"
+    t.text     "content1"
+    t.text     "content2"
+    t.text     "content3"
+    t.text     "content4"
+    t.text     "content5"
     t.boolean  "show_sponsors"
     t.boolean  "active"
     t.datetime "created_at"
@@ -116,7 +121,6 @@ ActiveRecord::Schema.define(:version => 20110323150358) do
   create_table "users", :force => true do |t|
     t.string   "email",                               :default => "",    :null => false
     t.string   "encrypted_password",   :limit => 128, :default => "",    :null => false
-    t.string   "password_salt",                       :default => "",    :null => false
     t.string   "reset_password_token"
     t.string   "remember_token"
     t.datetime "remember_created_at"

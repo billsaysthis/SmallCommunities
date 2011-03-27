@@ -2,15 +2,17 @@ SmallCommunities::Application.routes.draw do
   
   devise_for :users
   resources :users
+  match "/members" => "users#index"
+  
   resources :events do
     member do
       get 'calendar'
       post 'rsvp'
     end
-    collection do
-      get "past"
-      get "upcoming"
-    end
+  end
+  controller :events do
+    match "/past_events" => :past
+    match "upcoming_events" => :upcoming
   end
   
   resources :stat_pages

@@ -2,7 +2,12 @@ class CreatePages < ActiveRecord::Migration
   def self.up
     create_table :stat_pages do |t|
       t.string :title
-      t.text :content
+      # yes, not normalized, we know :)
+      t.text :content1
+      t.text :content2
+      t.text :content3
+      t.text :content4
+      t.text :content5
       t.boolean :show_sponsors
       t.boolean :active
 
