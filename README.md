@@ -28,6 +28,7 @@ framework methods and gems not available in Rails 2.
 * RSpec and Cucumber for tests
 * Configatron for configuration file support
 * Rack-Recaptcha for repatchas
+* [mmmenu](https://github.com/snitko/mmmenu) for the Navigation menu
 * Rails_uri_validator and Rails_uri_validator
 
 ### Theming and Text Customization
