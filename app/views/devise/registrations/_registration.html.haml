@@ -1,22 +1,41 @@
-  %p
-    = f.label :email
-    %br/
-    = f.text_field :email
-  %p
-    = f.label :password
-    %i (leave blank if you don't want to change it)
-    %br/
-    = f.password_field :password
-  %p
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation
-  %p
-    = f.label :current_password
-    %i (we need your current password to confirm your changes)
-    %br/
-    = f.password_field :current_password
-  %p= f.submit "Update"
-%h3 Cancel my account
 %p
-  Unhappy? #{link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete}.
+	= f.label t(:contact_name)
+	%br/
+	= f.text_field(:first_name) + " " + f.text_field(:last_name)
+%p
+	.reg_label= f.label(:email) + " "
+	.reg_label= f.label(:phone)
+	%br/
+	= f.text_field(:email) + " " + f.text_field(:phone)
+%p
+	.reg_label= f.label :password
+	.reg_label= f.label :password_confirmation
+	%br/
+	= f.password_field(:password) + " " + f.password_field(:password_confirmation)
+%p
+	= f.label :street, t(:street_address)
+	%br/
+	= f.text_field(:street) + " " + f.text_field(:city) + " " + f.text_field(:state, :size => 4) + " " + f.text_field(:zip)
+%p
+	.reg_label= f.label :label, t(:member_link_label)
+	.reg_label= f.label :url, t(:member_link_url)
+	%br/
+	= f.text_field(:label) + " " + f.text_field(:url)
+	
+%p
+	.reg_label= f.label :url, t(:facebook_link)
+	.reg_label= f.label :url, t(:linkedin_link)
+	%br/
+	= f.text_field(:facebook) + " " + f.text_field(:linkedin)
+
+%p
+	.reg_label= f.label :url, t(:twitter_link)
+	.reg_label= f.label :url, t(:foursquare_link)
+	%br/
+	= f.text_field(:twitter) + " " + f.text_field(:foursquare)
+
+%h3= t(:premium_members_only)
+%p
+	= f.label :logo
+	%br/
+	= f.text_field :logo

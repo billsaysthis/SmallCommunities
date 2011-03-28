@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :memberships
+  has_many :attendances
+  has_many :events, :through => :attendances
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
@@ -46,10 +48,6 @@ class User < ActiveRecord::Base
     !logo.blank?
   end
   
-  def is_admin?
-    self.is_admin?
-  end
-
   def is_volunteer?
     !volunteer_title.blank?
   end

@@ -60,3 +60,8 @@ en:
   yahoo_gorups_link: 'Yahoo! Group'
   twitter_link: 'Twitter'
   linkedin_link: 'LinkedIn'
+  foursquare_link: "Foursquare"
+  street_address: "Street/City/State/Zip"
+  member_link_label: "Member Link Label"
+  member_link_url: "Member Link URL"
+  premium_members_only: "Gold Members and Sponsors Only"
