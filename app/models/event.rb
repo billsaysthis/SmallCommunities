@@ -36,17 +36,17 @@ class Event < ActiveRecord::Base
   
   def to_ics
     event = Icalendar::Event.new
-    event.start = self.occurs_on.strftime("%Y%m%dT%H%M%S")
-    event.end = (self.occurs_on + int_Setting.retrieve('event_length').minutes).strftime("%Y%m%dT%H%M%S")
-    event.summary = Setting.retrieve('short_name') + ': ' + self.title
-    event.description = self.description
+    event.start = occurs_on.strftime("%Y%m%dT%H%M%S")
+    event.end = (occurs_on + int_Setting.retrieve('event_length').minutes).strftime("%Y%m%dT%H%M%S")
+    event.summary = Setting.retrieve('short_name') + ': ' + title
+    spkrs = speakers.collect {|s| s.name}
+    spkrs = speakers.present? ? "Speakers: " + spkrs.join(", ") : ""
+    event.description = self.description.gsub(/<br\/>/, '\n') + '\n\n' + spkrs
     event.url = Setting.retrieve('corp_url')
-
-    self.location.to_hash.each_value {|v| evt_loc << v}
-    event.location = self.location
+    event.location = location
     event.klass = "PUBLIC"
-    event.created = self.created_at
-    event.last_modified = self.updated_at
+    event.created = created_at
+    event.last_modified = updated_at
     event
   end
   

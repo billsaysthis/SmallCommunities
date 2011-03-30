@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_filter :authenticate_user!, :only => [:rsvp]
-  before_filter :setup, :only => [:index, :show]
+  before_filter :setup, :only => [:index, :show, :calendar]
   
   def index
   end
@@ -17,6 +17,15 @@ class EventsController < ApplicationController
   end
 
   def calendar
+    respond_to do |format|
+      format.ics {
+        calendar = Icalendar::Calendar.new
+        calendar.custom_property("X-WR-CALNAME;VALUE=TEXT", Setting.retrieve("short_name")+@event.occurs_on.to_s(:month_year))
+        calendar.add_event(@event.to_ics)
+        calendar.publish
+        send_data(calendar.to_ical, :type => 'text/calendar', :filename => 'sc_cal_' + params[:id])
+      }
+    end
   end
   
   def rsvp
