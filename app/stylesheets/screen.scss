@@ -22,6 +22,8 @@
 @import "compass/utilities/lists/horizontal-list";
 @import "compass/layout/stretching";
 
+@include font-face("Cantarell", font-files("/stylesheets/Cantarell/Cantarell-Regular-webfont.ttf", truetype, "/stylesheets/Cantarell/Cantarell-Regular-webfont.otf", opentype));
+
 // Page layout can be done using mixins applied to your semantic classes and IDs:
 body {
 	@include blueprint-typography(true);
