@@ -8,10 +8,10 @@ class Event < ActiveRecord::Base
   validates :occurs_on, :presence => true
   validates :page_template, :presence => true
   
-  scope :future_events, where("occurs_on > ?", Date.current).order("occurs_on DESC")
-  scope :past_events, where("occurs_on < ?", Date.current).order("occurs_on DESC")
-  scope :current_year, where(:occurs_on => Date.current.beginning_of_year..Date.current.end_of_year).order(:occurs_on)
-  scope :current, where("occurs_on > ?", Date.current).order(:occurs_on).limit(1)
+  scope :future_events, lambda {where("occurs_on > ?", Date.current).order("occurs_on DESC")}
+  scope :past_events, lambda {where("occurs_on < ?", Date.current).order("occurs_on DESC")}
+  scope :current_year, lambda {where(:occurs_on => Date.current.beginning_of_year..Date.current.end_of_year).order(:occurs_on)}
+  scope :current, lambda {where("occurs_on > ?", Date.current).order(:occurs_on).limit(1)}
   
   attr_accessible :title, :subtitle, :occurs_on, :special_paypal, :regular_paypal, :description, :page_template
 
