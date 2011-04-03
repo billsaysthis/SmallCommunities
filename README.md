@@ -30,6 +30,8 @@ framework methods and gems not available in Rails 2.
 * Rack-Recaptcha for repatchas
 * [mmmenu](https://github.com/snitko/mmmenu) for the Navigation menu
 * Rails_uri_validator and Rails_uri_validator
+* [jTweetsAnywhere](http://thomasbillenstein.com/jTweetsAnywhere/) for displaying tweets
+* [Cantarell font](http://www.fontsquirrel.com/fonts/Cantarell) by Abattis Fonts from [FontSquirrel](http://www.fontsquirrel.com/)
 
 ### Theming and Text Customization
 
@@ -50,6 +52,11 @@ Change to the app directory and install the bundle:
 
 <pre>   cd small_communities
    bundle install</pre>
+
+Install plugins
+
+<pre>   git submodule init
+   git submodule update</pre>
 
 Setup and create the database, run the migrations:
 

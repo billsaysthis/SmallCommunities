@@ -387,8 +387,8 @@ body .border {
 }
 /* line 45, ../../../../.rvm/gems/ruby-1.9.2-p136@ruby-1.9.2-head/gems/compass-0.11.beta.4/frameworks/blueprint/stylesheets/blueprint/_scaffolding.scss */
 body .colborder {
-  padding-right: 24px;
-  margin-right: 25px;
+  padding-right: 25px;
+  margin-right: 26px;
   border-right: 1px solid #dddddd;
 }
 /* line 47, ../../../../.rvm/gems/ruby-1.9.2-p136@ruby-1.9.2-head/gems/compass-0.11.beta.4/frameworks/blueprint/stylesheets/blueprint/_scaffolding.scss */
@@ -434,7 +434,7 @@ body .big {
 }
 /* line 40, ../../app/stylesheets/screen.scss */
 body #container {
-  width: 950px;
+  width: 1010px;
   margin: 0 auto;
   overflow: hidden;
   *zoom: 1;
@@ -458,7 +458,7 @@ body #container header, body #container footer {
   display: inline;
   float: left;
   margin-right: 0;
-  width: 950px;
+  width: 1010px;
 }
 /* line 147, ../../../../.rvm/gems/ruby-1.9.2-p136@ruby-1.9.2-head/gems/compass-0.11.beta.4/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
 * html body #container header, * html body #container footer {
@@ -513,7 +513,7 @@ body #container header {
   display: inline;
   float: left;
   margin-right: 10px;
-  width: 950px;
+  width: 1010px;
   font-size: 90%;
 }
 /* line 147, ../../../../.rvm/gems/ruby-1.9.2-p136@ruby-1.9.2-head/gems/compass-0.11.beta.4/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
@@ -525,7 +525,7 @@ body #container header #banner {
   display: inline;
   float: left;
   margin-right: 0;
-  width: 950px;
+  width: 1010px;
 }
 /* line 147, ../../../../.rvm/gems/ruby-1.9.2-p136@ruby-1.9.2-head/gems/compass-0.11.beta.4/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
 * html body #container header #banner {
@@ -536,7 +536,7 @@ body #container header #banner #banner-img {
   display: inline;
   float: left;
   margin-right: 10px;
-  width: 190px;
+  width: 202.5px;
   margin-top: 4px;
   margin-left: 14px;
   z-index: 120;
@@ -555,11 +555,11 @@ body #container header #banner #org_title, body #container header #banner #tagli
   display: inline;
   float: left;
   margin-right: 10px;
-  width: 430px;
+  width: 457.5px;
   display: inline;
   float: left;
   position: relative;
-  margin: 0 -40px 1.5em 40px;
+  margin: 0 -42.5px 1.5em 42.5px;
 }
 /* line 147, ../../../../.rvm/gems/ruby-1.9.2-p136@ruby-1.9.2-head/gems/compass-0.11.beta.4/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
 * html body #container header #banner #org_title, * html body #container header #banner #tagline {
@@ -582,11 +582,11 @@ body #container header #banner #login-block {
   display: inline;
   float: left;
   margin-right: 0;
-  width: 230px;
+  width: 245px;
   display: inline;
   float: left;
   position: relative;
-  margin: 0 -80px 1.5em 80px;
+  margin: 0 -85px 1.5em 85px;
   margin-top: -8px;
 }
 /* line 147, ../../../../.rvm/gems/ruby-1.9.2-p136@ruby-1.9.2-head/gems/compass-0.11.beta.4/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
@@ -661,7 +661,7 @@ body #container #navigation {
   display: inline;
   float: left;
   margin-right: 0;
-  width: 950px;
+  width: 1010px;
   min-height: 2.2em;
   height: auto !important;
   height: 2.2em;
@@ -684,7 +684,7 @@ body #container #navigation > ul {
   border: 0;
   overflow: hidden;
   *zoom: 1;
-  padding-left: 200px;
+  padding-left: 212.5px;
 }
 /* line 60, ../../../../.rvm/gems/ruby-1.9.2-p136@ruby-1.9.2-head/gems/compass-0.11.beta.4/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
 body #container #navigation > ul li {
@@ -714,7 +714,7 @@ body #container #navigation ul li {
   display: inline;
   float: left;
   margin-right: 10px;
-  width: 110px;
+  width: 117.5px;
   padding-right: 5px-white;
   margin-right: 5px;
   border-right: white solid 1px;
@@ -729,7 +729,7 @@ body #container #navigation ul li a {
   display: inline;
   float: left;
   margin-right: 10px;
-  width: 110px;
+  width: 117.5px;
   font-size: 0.8em;
   font-variant: small-caps;
   letter-spacing: 0.1em;
@@ -777,7 +777,7 @@ body #container sidebar {
   display: inline;
   float: left;
   margin-right: 0;
-  width: 190px;
+  width: 245px;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
@@ -816,7 +816,7 @@ body #container sidebar .eventPhotos {
   display: inline;
   float: left;
   margin-right: 0;
-  width: 190px;
+  width: 245px;
   padding-top: 10px;
 }
 /* line 147, ../../../../.rvm/gems/ruby-1.9.2-p136@ruby-1.9.2-head/gems/compass-0.11.beta.4/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
@@ -886,7 +886,7 @@ body #container #content {
   display: inline;
   float: left;
   margin-right: 10px;
-  width: 750px;
+  width: 755px;
   background-color: #e0e0e0;
   overflow: auto;
 }
@@ -896,11 +896,11 @@ body #container #content {
 }
 /* line 238, ../../app/stylesheets/screen.scss */
 body #container #content #content-inner {
-  padding-left: 40px;
+  padding-left: 42.5px;
   display: inline;
   float: left;
   margin-right: 0;
-  width: 710px;
+  width: 712.5px;
   padding-top: 20px;
   background-color: white;
   min-height: 490px;
@@ -933,7 +933,7 @@ body #container #content #content-inner #event-title {
   display: inline;
   float: left;
   margin-right: 0;
-  width: 710px;
+  width: 712.5px;
 }
 /* line 147, ../../../../.rvm/gems/ruby-1.9.2-p136@ruby-1.9.2-head/gems/compass-0.11.beta.4/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
 * html body #container #content #content-inner #event-title {
@@ -972,12 +972,12 @@ body #container #content #content-inner #msgHolder {
   display: inline;
   float: left;
   position: relative;
-  margin: 0 -40px 1.5em 40px;
-  padding-left: 40px;
+  margin: 0 -42.5px 1.5em 42.5px;
+  padding-left: 42.5px;
   display: inline;
   float: left;
   margin-right: 0;
-  width: 550px;
+  width: 542.5px;
   margin-top: 10px;
   border: 3px solid yellow;
   background-color: black;
@@ -996,7 +996,7 @@ body #container #content #content-inner #event-infobox {
   display: inline;
   float: left;
   margin-right: 0;
-  width: 470px;
+  width: 457.5px;
   color: #303030;
   line-height: 1.5em;
   margin-top: 5px;
@@ -1029,7 +1029,7 @@ body #container #content #content-inner .rsvpdiv {
   display: inline;
   float: left;
   margin-right: 0;
-  width: 710px;
+  width: 712.5px;
   margin-bottom: 1em;
 }
 /* line 147, ../../../../.rvm/gems/ruby-1.9.2-p136@ruby-1.9.2-head/gems/compass-0.11.beta.4/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
@@ -1041,7 +1041,7 @@ body #container #content #content-inner .rsvpdiv #regularPPL {
   display: inline;
   float: left;
   margin-right: 10px;
-  width: 210px;
+  width: 202.5px;
 }
 /* line 147, ../../../../.rvm/gems/ruby-1.9.2-p136@ruby-1.9.2-head/gems/compass-0.11.beta.4/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
 * html body #container #content #content-inner .rsvpdiv #regularPPL {
@@ -1052,7 +1052,7 @@ body #container #content #content-inner .rsvpdiv #studentPPL {
   display: inline;
   float: left;
   margin-right: 0;
-  width: 210px;
+  width: 202.5px;
 }
 /* line 147, ../../../../.rvm/gems/ruby-1.9.2-p136@ruby-1.9.2-head/gems/compass-0.11.beta.4/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
 * html body #container #content #content-inner .rsvpdiv #studentPPL {
@@ -1111,7 +1111,7 @@ body #container #content #content-inner .gen_page .leaders_list {
   display: inline;
   float: left;
   margin-right: 0;
-  width: 710px;
+  width: 712.5px;
 }
 /* line 147, ../../../../.rvm/gems/ruby-1.9.2-p136@ruby-1.9.2-head/gems/compass-0.11.beta.4/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
 * html body #container #content #content-inner .gen_page .leaders_list {
@@ -1122,7 +1122,7 @@ body #container #content #content-inner .gen_page .leaders_list .leader_label {
   display: inline;
   float: left;
   margin-right: 10px;
-  width: 110px;
+  width: 117.5px;
 }
 /* line 147, ../../../../.rvm/gems/ruby-1.9.2-p136@ruby-1.9.2-head/gems/compass-0.11.beta.4/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
 * html body #container #content #content-inner .gen_page .leaders_list .leader_label {
@@ -1133,7 +1133,7 @@ body #container #content #content-inner .gen_page .leaders_list .leader_link {
   display: inline;
   float: left;
   margin-right: 0;
-  width: 590px;
+  width: 585px;
 }
 /* line 147, ../../../../.rvm/gems/ruby-1.9.2-p136@ruby-1.9.2-head/gems/compass-0.11.beta.4/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
 * html body #container #content #content-inner .gen_page .leaders_list .leader_link {
@@ -1144,7 +1144,7 @@ body #container #content #content-inner .gen_page .member {
   display: inline;
   float: left;
   margin-right: 0;
-  width: 710px;
+  width: 712.5px;
   margin-bottom: 2px;
 }
 /* line 147, ../../../../.rvm/gems/ruby-1.9.2-p136@ruby-1.9.2-head/gems/compass-0.11.beta.4/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
@@ -1160,7 +1160,7 @@ body #container #content #content-inner .gen_page .member .member_name {
   display: inline;
   float: left;
   margin-right: 10px;
-  width: 150px;
+  width: 160px;
   padding-left: 0.4em;
 }
 /* line 147, ../../../../.rvm/gems/ruby-1.9.2-p136@ruby-1.9.2-head/gems/compass-0.11.beta.4/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
@@ -1172,7 +1172,7 @@ body #container #content #content-inner .gen_page .member .member_link {
   display: inline;
   float: left;
   margin-right: 0;
-  width: 510px;
+  width: 500px;
 }
 /* line 147, ../../../../.rvm/gems/ruby-1.9.2-p136@ruby-1.9.2-head/gems/compass-0.11.beta.4/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
 * html body #container #content #content-inner .gen_page .member .member_link {
@@ -1208,7 +1208,7 @@ body #container #content #content-inner #past-events .curyear div {
   display: inline;
   float: left;
   margin-right: 0;
-  width: 630px;
+  width: 627.5px;
   padding-left: 0.4em;
   margin-bottom: 0em;
   letter-spacing: .2em;
@@ -1245,7 +1245,7 @@ body #container #content #content-inner .list-event .feDate, body #container #co
   display: inline;
   float: left;
   margin-right: 10px;
-  width: 70px;
+  width: 75px;
   padding-left: 0.4em;
 }
 /* line 147, ../../../../.rvm/gems/ruby-1.9.2-p136@ruby-1.9.2-head/gems/compass-0.11.beta.4/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
@@ -1257,7 +1257,7 @@ body #container #content #content-inner .list-event .feTitle, body #container #c
   display: inline;
   float: left;
   margin-right: 0;
-  width: 550px;
+  width: 542.5px;
 }
 /* line 147, ../../../../.rvm/gems/ruby-1.9.2-p136@ruby-1.9.2-head/gems/compass-0.11.beta.4/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
 * html body #container #content #content-inner .list-event .feTitle, * html body #container #content #content-inner .list-event .peTitle {
@@ -1268,11 +1268,11 @@ body #container #content #content-inner .list-event .peSpeakers {
   display: inline;
   float: left;
   margin-right: 0;
-  width: 550px;
+  width: 542.5px;
   display: inline;
   float: left;
   position: relative;
-  margin: 0 -80px 1.5em 80px;
+  margin: 0 -85px 1.5em 85px;
   margin-bottom: 0em;
 }
 /* line 147, ../../../../.rvm/gems/ruby-1.9.2-p136@ruby-1.9.2-head/gems/compass-0.11.beta.4/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
@@ -1285,7 +1285,7 @@ body #container #contact-form {
   display: inline;
   float: left;
   margin-right: 0;
-  width: 710px;
+  width: 712.5px;
 }
 /* line 147, ../../../../.rvm/gems/ruby-1.9.2-p136@ruby-1.9.2-head/gems/compass-0.11.beta.4/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
 * html body #container #contact-form {
@@ -1296,7 +1296,7 @@ body #container #contact-form label {
   display: inline;
   float: left;
   margin-right: 10px;
-  width: 70px;
+  width: 75px;
 }
 /* line 147, ../../../../.rvm/gems/ruby-1.9.2-p136@ruby-1.9.2-head/gems/compass-0.11.beta.4/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
 * html body #container #contact-form label {
@@ -1311,7 +1311,7 @@ body #container #sponsorBlock {
   display: inline;
   float: left;
   margin-right: 10px;
-  width: 950px;
+  width: 1010px;
   border-top: 3px solid #a0a0a0;
   background-color: white;
 }
@@ -1334,11 +1334,11 @@ body #container #sponsorBlock #sponsorLogos {
   display: inline;
   float: left;
   margin-right: 0;
-  width: 950px;
+  width: 1010px;
   display: inline;
   float: left;
   position: relative;
-  margin: 0 -80px 1.5em 80px;
+  margin: 0 -85px 1.5em 85px;
   margin-bottom: 1em;
   text-align: center;
 }
@@ -1351,7 +1351,7 @@ body #container #sponsorBlock #sponsorLogos .sponsor {
   display: inline;
   float: left;
   margin-right: 10px;
-  width: 190px;
+  width: 202.5px;
 }
 /* line 147, ../../../../.rvm/gems/ruby-1.9.2-p136@ruby-1.9.2-head/gems/compass-0.11.beta.4/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
 * html body #container #sponsorBlock #sponsorLogos .sponsor {
@@ -1374,7 +1374,7 @@ body #container form {
   display: inline;
   float: left;
   margin-right: 0;
-  width: 710px;
+  width: 712.5px;
 }
 /* line 18, ../../../../.rvm/gems/ruby-1.9.2-p136@ruby-1.9.2-head/gems/compass-0.11.beta.4/frameworks/blueprint/stylesheets/blueprint/_form.scss */
 body #container form label {
@@ -1457,7 +1457,7 @@ body #container form p {
   display: inline;
   float: left;
   margin-right: 0;
-  width: 710px;
+  width: 712.5px;
   margin-bottom: 0.5em;
 }
 /* line 147, ../../../../.rvm/gems/ruby-1.9.2-p136@ruby-1.9.2-head/gems/compass-0.11.beta.4/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
@@ -1475,7 +1475,7 @@ body #container form #member_street {
   display: inline;
   float: left;
   margin-right: 10px;
-  width: 310px;
+  width: 287.5px;
 }
 /* line 147, ../../../../.rvm/gems/ruby-1.9.2-p136@ruby-1.9.2-head/gems/compass-0.11.beta.4/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
 * html body #container form #member_street {
@@ -1486,7 +1486,7 @@ body #container form #member_city {
   display: inline;
   float: left;
   margin-right: 10px;
-  width: 110px;
+  width: 117.5px;
 }
 /* line 147, ../../../../.rvm/gems/ruby-1.9.2-p136@ruby-1.9.2-head/gems/compass-0.11.beta.4/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
 * html body #container form #member_city {
@@ -1497,7 +1497,7 @@ body #container form #member_state {
   display: inline;
   float: left;
   margin-right: 10px;
-  width: 30px;
+  width: 32.5px;
 }
 /* line 147, ../../../../.rvm/gems/ruby-1.9.2-p136@ruby-1.9.2-head/gems/compass-0.11.beta.4/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
 * html body #container form #member_state {
@@ -1508,7 +1508,7 @@ body #container form #member_zip {
   display: inline;
   float: left;
   margin-right: 0;
-  width: 70px;
+  width: 75px;
 }
 /* line 147, ../../../../.rvm/gems/ruby-1.9.2-p136@ruby-1.9.2-head/gems/compass-0.11.beta.4/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
 * html body #container form #member_zip {
@@ -1548,12 +1548,11 @@ body #container form ol {
   list-style-type: none;
 }
 /* line 528, ../../app/stylesheets/screen.scss */
-body #socnet_links {
-  padding: 1em 0 1px;
+body #socnet_links, body #tweets-anywhere-container {
   display: inline;
   float: left;
   margin-right: 10px;
-  width: 160px;
+  width: 213.125px;
   margin-left: 14px;
   -webkit-border-radius: 8px 8px;
   -moz-border-radius: 8px / 8px;
@@ -1564,71 +1563,84 @@ body #socnet_links {
   background-color: white;
 }
 /* line 147, ../../../../.rvm/gems/ruby-1.9.2-p136@ruby-1.9.2-head/gems/compass-0.11.beta.4/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
-* html body #socnet_links {
+* html body #socnet_links, * html body #tweets-anywhere-container {
   overflow-x: hidden;
 }
-/* line 534, ../../app/stylesheets/screen.scss */
+/* line 535, ../../app/stylesheets/screen.scss */
+body #socnet_links {
+  padding: 1em 0 1px;
+}
+/* line 537, ../../app/stylesheets/screen.scss */
 body #socnet_links h2 {
   font-family: Cantarell, Helvetica Neue, Arial, Helvetica, sans-serif;
 }
-/* line 536, ../../app/stylesheets/screen.scss */
+/* line 539, ../../app/stylesheets/screen.scss */
 body #socnet_links #soc-networks {
   list-style: none;
   padding-left: 0em;
   width: 120px;
 }
-/* line 540, ../../app/stylesheets/screen.scss */
+/* line 543, ../../app/stylesheets/screen.scss */
 body #socnet_links #soc-networks li {
   display: inline;
   float: left;
   margin-right: 10px;
-  width: 140px;
+  width: 191.875px;
   line-height: 1.5;
 }
 /* line 147, ../../../../.rvm/gems/ruby-1.9.2-p136@ruby-1.9.2-head/gems/compass-0.11.beta.4/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
 * html body #socnet_links #soc-networks li {
   overflow-x: hidden;
 }
-/* line 542, ../../app/stylesheets/screen.scss */
+/* line 545, ../../app/stylesheets/screen.scss */
 body #socnet_links #soc-networks li a {
   margin-left: 2em;
 }
-/* line 545, ../../app/stylesheets/screen.scss */
+/* line 548, ../../app/stylesheets/screen.scss */
 body #socnet_links #soc-networks .twitter {
   background: url("/images/logos/twitter.jpg") no-repeat;
 }
-/* line 546, ../../app/stylesheets/screen.scss */
+/* line 549, ../../app/stylesheets/screen.scss */
 body #socnet_links #soc-networks .facebook {
   background: url("/images/logos/facebook.jpg") no-repeat;
 }
-/* line 547, ../../app/stylesheets/screen.scss */
+/* line 550, ../../app/stylesheets/screen.scss */
 body #socnet_links #soc-networks .linkedin {
   background: url("/images/logos/linkedin.jpg") no-repeat;
 }
-/* line 548, ../../app/stylesheets/screen.scss */
+/* line 551, ../../app/stylesheets/screen.scss */
 body #socnet_links #soc-networks .yahoo {
   background: url("/images/logos/yahoo.jpg") no-repeat;
 }
-/* line 552, ../../app/stylesheets/screen.scss */
+/* line 555, ../../app/stylesheets/screen.scss */
 body #social-shares {
   vertical-align: top;
   padding-top: 10px;
 }
-/* line 555, ../../app/stylesheets/screen.scss */
+/* line 558, ../../app/stylesheets/screen.scss */
 body #social-shares .twitter-share-button {
   height: 25px !important;
 }
-/* line 558, ../../app/stylesheets/screen.scss */
-body #tweets-anywhere .jta-tweet-list {
-  height: 300px;
-  overflow: auto;
+/* line 561, ../../app/stylesheets/screen.scss */
+body #tweets-anywhere-container {
+  margin-top: 1em;
+  padding-top: 0.4em;
 }
-/* line 562, ../../app/stylesheets/screen.scss */
+/* line 564, ../../app/stylesheets/screen.scss */
+body #tweets-anywhere-container #tweets-anywhere {
+  margin-left: 0.5em;
+}
+/* line 566, ../../app/stylesheets/screen.scss */
+body #tweets-anywhere-container #tweets-anywhere .jta-tweet-list {
+  overflow: auto;
+  height: 300px;
+}
+/* line 572, ../../app/stylesheets/screen.scss */
 body #flash {
   display: inline;
   float: left;
   margin-right: 0;
-  width: 750px;
+  width: 755px;
   text-align: center;
   padding-top: 1em;
   padding-bottom: 0.5em;
@@ -1638,7 +1650,7 @@ body #flash {
 * html body #flash {
   overflow-x: hidden;
 }
-/* line 568, ../../app/stylesheets/screen.scss */
+/* line 578, ../../app/stylesheets/screen.scss */
 body #flash div {
   display: inline;
   float: left;
@@ -1647,7 +1659,7 @@ body #flash div {
   display: inline;
   float: left;
   position: relative;
-  margin: 0 -40px 1.5em 40px;
+  margin: 0 -42.5px 1.5em 42.5px;
   margin-bottom: 0;
   padding-top: 0.5em;
   padding-bottom: 0.5em;
@@ -1657,12 +1669,12 @@ body #flash div {
 * html body #flash div {
   overflow-x: hidden;
 }
-/* line 576, ../../app/stylesheets/screen.scss */
+/* line 586, ../../app/stylesheets/screen.scss */
 body #flash #flash_notice {
   background-color: yellow;
   color: black;
 }
-/* line 580, ../../app/stylesheets/screen.scss */
+/* line 590, ../../app/stylesheets/screen.scss */
 body #flash #flash_alert {
   background-color: red;
   color: white;

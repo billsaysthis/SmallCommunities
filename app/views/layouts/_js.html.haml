@@ -1,4 +1,6 @@
 = javascript_include_tag :defaults
+= javascript_include_tag "http://platform.twitter.com/anywhere.js?id=APIKey&v=1"
+
 :javascript
 	var _gaq = _gaq || [];
 	_gaq.push(['_setAccount', '#{Setting.retrieve("google-analytics")}']);

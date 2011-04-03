@@ -2,14 +2,14 @@
 // Feel free to delete these if you want keep the defaults:
 
 $blueprint-grid-columns: 24;
-$blueprint-container-size: 950px;
+$blueprint-container-size: 1010px;
 $blueprint-grid-margin: 10px;
 
 // Use this to calculate the width based on the total width.
 // Or you can set $blueprint-grid-width to a fixed value and unset $blueprint-container-size -- it will be calculated for you.
 $blueprint-grid-width: ($blueprint-container-size + $blueprint-grid-margin) / $blueprint-grid-columns - $blueprint-grid-margin;
 
-$sidebar-columns: 5;
+$sidebar-columns: 6;
 $content-columns: $blueprint-grid-columns - $sidebar-columns;
 
 $blueprint-font-family: Cantarell, Helvetica Neue,Arial,Helvetica,sans-serif;

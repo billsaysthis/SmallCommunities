@@ -4,6 +4,7 @@
 		%title= page_title(@context_title)
 		= raw stylesheet_link_tag('screen', :media => 'screen, projection')
 		= raw stylesheet_link_tag('print', :media => 'print')
+		= raw stylesheet_link_tag('jquery.jtweetsanywhere-1.2.1', :media => 'screen, projection')
 		/[if lt IE 8]
 			= raw stylesheet_link_tag('ie', :media => 'screen, projection')
 		= csrf_meta_tag

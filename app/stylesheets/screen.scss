@@ -525,12 +525,15 @@ body {
 		}
 	}
 	
-	#socnet_links {
-	  padding: 1em 0 1px;
+	#socnet_links, #tweets-anywhere-container {
 		@include column($sidebar-columns - 0.75);
 		margin-left: 14px;
 	  @include border-radius(8px, 8px);
 	  background-color: $lt-bgc;
+	  
+	}
+	#socnet_links {
+	  padding: 1em 0 1px;
 	  h2 {font-family: $blueprint-font-family;}
 
 		#soc-networks {
@@ -553,6 +556,18 @@ body {
     vertical-align: top; 
     padding-top:10px;
     .twitter-share-button {height: 25px !important;}
+  }
+  
+  #tweets-anywhere-container {
+    margin-top: 1em;
+    padding-top: 0.4em;
+    #tweets-anywhere {
+      margin-left: 0.5em;
+      .jta-tweet-list {
+        overflow:auto;
+        height: 300px;
+      }
+    }
   }
   #flash {
     @include column($content-columns, true);
