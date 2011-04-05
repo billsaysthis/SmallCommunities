@@ -20,14 +20,14 @@ framework methods and gems not available in Rails 2.
 
 ### Core gems
 
-* Devise for authentication
-* Compass, Sass and Haml for views and programmable CSS
-* jQuery Rails to provide jQuery-based JavaScript helpers
-* IceCube and iCalendar for calendaring
-* RailsAdmin for automatic admin backend
-* RSpec and Cucumber for tests
-* Configatron for configuration file support
-* Rack-Recaptcha for repatchas
+* [Devise](https://github.com/plataformatec/devise) for authentication
+* [Compass](http://compass-style.org), [Sass](http://sass-lang.com) and [Haml](http://haml-lang.com) for views and programmable CSS
+* [jQuery Rails](https://github.com/indirect/jquery-rails) to provide jQuery-based JavaScript helpers
+* [IceCube](https://github.com/seejohnrun/ice_cube) and [iCalendar](http://icalendar.rubyforge.org/) for calendaring
+* [RailsAdmin](https://github.com/sferik/rails_admin) for automatic admin backend
+* [RSpec](http://rspec.info) and [Cucumber](http://cukes.info) for tests
+* [Configatron](https://github.com/markbates/configatron) for configuration file support
+* [Rack-Recaptcha](https://github.com/achiu/rack-recaptcha) for repatchas
 * [mmmenu](https://github.com/snitko/mmmenu) for the Navigation menu
 * Rails_uri_validator and Rails_uri_validator
 * [jTweetsAnywhere](http://thomasbillenstein.com/jTweetsAnywhere/) for displaying tweets
