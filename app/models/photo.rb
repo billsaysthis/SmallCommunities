@@ -1,3 +1,3 @@
 class Photo < ActiveRecord::Base
-  belongs_to :photo_lookup
+  has_and_belongs_to_many :lookups
 end
