@@ -20,6 +20,7 @@ Setting.create({:name => 'default_location_label', :value => 'Name & Street Addr
 Setting.create({:name => 'default_location_url', :value => 'http://example.com', :is_html => true})
 Setting.create({:name => "default_event_title", :value => 'To Be Announced'})
 Setting.create({:name => "default_event_description", :value => 'Date is tentative until program is confirmed.'})
+Setting.create({:name => "default_event_start_time", :value => '6:30 p.m.'})
 Setting.create({:name => "event_length", :value => '150'})
 
 Setting.create!({:name => 'google-analytics', :value => 'UA-21971932-1'})
