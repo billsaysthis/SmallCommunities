@@ -3,10 +3,6 @@ class CreatePhotos < ActiveRecord::Migration
     create_table :photo_lookups do |t|
       t.string :location
     end
-    lookups = ['sidebar_top','sidebar_bottom']
-    lookups.each do |pl|
-      PhotoLookup.create!(:location => pl)
-    end
     
     create_table :photos do |t|
       t.string :filename

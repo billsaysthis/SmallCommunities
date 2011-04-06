@@ -1,8 +1,8 @@
 class Event < ActiveRecord::Base
   has_many :presentations
   has_many :speakers, :through => :presentations
-  has_many :attendances
-  has_many :users, :through => :attendances
+  has_many :rsvps
+  has_many :users, :through => :rsvps
 
   validates :title, :presence => true
   validates :occurs_on, :presence => true
