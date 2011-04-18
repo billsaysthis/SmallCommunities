@@ -2,9 +2,10 @@
 %html
 	%head
 		%title= page_title(@context_title)
-		= raw stylesheet_link_tag('screen', :media => 'screen, projection')
-		= raw stylesheet_link_tag('print', :media => 'print')
 		= raw stylesheet_link_tag('jquery.jtweetsanywhere-1.2.1', :media => 'screen, projection')
+		= raw stylesheet_link_tag('screen', :media => 'screen, projection')
+		= raw stylesheet_link_tag('superfish', :media => 'screen, projection')
+		= raw stylesheet_link_tag('print', :media => 'print')
 		/[if lt IE 8]
 			= raw stylesheet_link_tag('ie', :media => 'screen, projection')
 		= favicon_link_tag
@@ -13,7 +14,7 @@
 		#container
 			%header
 				= render :partial => 'layouts/banner'
-				= render :partial => 'layouts/navigation'
+				%nav= render_navigation :items => @menu, :expand_all => true
 			%section#content_container
 				%sidebar= render :partial => 'layouts/sidebar'
 				%section#content

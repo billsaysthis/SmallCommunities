@@ -5,17 +5,19 @@ class ApplicationController < ActionController::Base
 
   def set_menu
 		nav_links = Linkage.nav.active.tops
-    @menu = Mmmenu.new(:request => request) do |l1|
-      nav_links.each do |nav|
-        if nav.sub_navs.present?
-          l1.add(show_label(nav), nav.url) do |l2|
-            nav.sub_navs.each do |sn|
-              l2.add show_label(sn), sn.url
-            end
-          end
-        else
-          l1.add(show_label(nav), nav.url)
+    @menu = []
+    if user_signed_in? and current_user.admin?
+      @menu << {:key => 'admin', :name => 'Admin', :url => '/admin', :class => 'special'}
+    end
+    nav_links.each do |nav|
+      if nav.sub_navs.present?
+        items = []
+        nav.sub_navs.each do |sn|
+          items << {:key => sn.url.sub(/\//, ''), :name => show_label(sn), :url => sn.url, :class => 'submenu'}
         end
+        @menu << {:key => nav.url.sub(/\//, ''), :name => show_label(nav), :url => nav.url, :items => items}
+      else
+        @menu << {:key => nav.url.sub(/\//, ''), :name => show_label(nav), :url => nav.url}
       end
     end
   end
