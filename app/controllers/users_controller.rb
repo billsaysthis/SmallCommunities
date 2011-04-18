@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    if update_attributes(params[:user])
+    if @user.update_attributes(params[:user])
       flash.now[:notice] = t(:member_update_success)
       redirect_to :back
     else

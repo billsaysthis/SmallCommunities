@@ -1,6 +1,7 @@
 class Linkage < ActiveRecord::Base
+  include URI_Validation
   validate :label, :presence => true
-  validate :url, :presence => true
+  validate :url, :presence => true, :url => true
   validate :link_type, :presence => true
   
   has_many :sub_navs, :class_name => "Linkage", :foreign_key => :parent_id

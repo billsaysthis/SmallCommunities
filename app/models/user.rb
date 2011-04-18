@@ -1,4 +1,7 @@
+require 'uri_validation'
+
 class User < ActiveRecord::Base
+  include URI_Validation
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable, :lockable and :timeoutable
   devise :database_authenticatable, :registerable,
@@ -15,8 +18,13 @@ class User < ActiveRecord::Base
 
   validates :first_name, :presence => true
   validates :last_name, :presence => true
-  # validates :email, :email => true
-  validates :url, :uri => { :schemes => [:http] }
+  validates :url, :url => true
+
+  email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+
+  validates :email, :presence   => true,
+	                  :format     => { :with => email_regex },
+	                  :uniqueness => true
   
   scope :active, joins(:memberships).where('memberships.year = ?', Date.current.year.to_s)
   scope :visible, where("label != ''")

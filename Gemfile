@@ -20,6 +20,7 @@ gem 'jquery-rails', '>= 0.2.6'
 gem "ruby_parser"
 gem 'rack-recaptcha', :require => 'rack/recaptcha'
 gem 'simple-navigation'
+gem "addressable"
 # gem 'unicorn'
 # gem 'capistrano'
 
