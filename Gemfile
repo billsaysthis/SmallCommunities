@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.6'
+gem 'rails', '3.0.7'
 
 # gem 'mysql2'
 gem "sqlite3"
@@ -9,8 +9,6 @@ gem "configatron"
 gem "haml-rails", ">= 0.2"
 gem "devise", ">=1.1.2"
 gem "rails_admin", :git => 'git://github.com/sferik/rails_admin.git'
-gem "rails_email_validator"
-gem "rails_uri_validator"
 gem "ice_cube"
 gem "icalendar"
 gem "compass", ">= 0.11.beta.3" # ">= 0.10.6"
@@ -21,6 +19,7 @@ gem "hpricot"
 gem 'jquery-rails', '>= 0.2.6'
 gem "ruby_parser"
 gem 'rack-recaptcha', :require => 'rack/recaptcha'
+gem 'simple-navigation'
 # gem 'unicorn'
 # gem 'capistrano'
 
