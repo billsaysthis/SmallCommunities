@@ -3,8 +3,8 @@
 - events.each do |ev|
 	- curyear = ev.occurs_on.year
 	- last_month = ev.occurs_on.month == 1 ? 'last' : ''
-	.list-event{:class => last_month + ' ' + cycle('list_odd', 'list_even')}
-		.peDate= ev.occurs_on.to_s(:month_day)
-		.peTitle= link_to raw(ev.title), event_path(ev)
-		.peSpeakers= event_speakers_list(ev.speakers, false)
+	.event.list_row{:class => last_month + ' ' + cycle('list_odd', 'list_even')}
+		.peDate.list_label= ev.occurs_on.to_s(:month_day)
+		.peTitle.list_detail= link_to raw(ev.title), event_path(ev)
+		.peSpeakers.list_detail= event_speakers_list(ev.speakers, false)
 	= show_year(curyear -1, ev.occurs_on.year) if ev.occurs_on.month == 1

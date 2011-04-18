@@ -48,6 +48,10 @@ class User < ActiveRecord::Base
     !logo.blank?
   end
   
+  def admin?
+    is_admin
+  end
+  
   def is_volunteer?
     !volunteer_title.blank?
   end

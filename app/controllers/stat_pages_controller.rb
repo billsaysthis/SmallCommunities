@@ -48,7 +48,7 @@ class StatPagesController < ApplicationController
   end
   
   def about
-    @page = StatPage.where(:title => 'About')
+    @page = StatPage.where(:title => 'About').first
     @context_title = t(:about_link)
   end
   

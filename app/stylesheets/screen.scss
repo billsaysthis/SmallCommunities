@@ -7,6 +7,7 @@
 // Import all the default blueprint modules so that we can access their mixins.
 @import "blueprint";
 @import "blueprint/buttons";
+// @import "blueprint/fancy-type";
 
 // Import the non-default scaffolding module.
 @import "blueprint/scaffolding";
@@ -31,6 +32,7 @@ body {
 	@include blueprint-debug;
 	@include blueprint-interaction;
 	@include blueprint-scaffolding;
+  // @include fancy-type;
 
 	background-color: $margin-bgc; 
 	.strong {font-weight: bold}
@@ -131,7 +133,7 @@ body {
       }
     }
 
-    #navigation {
+    nav {
       @include column($blueprint-grid-columns,true);
       @include min-height(2.2em);
       line-height:2.2em;
@@ -140,48 +142,40 @@ body {
       background: $hilite-bgc;
       color:$dk-bgc;
       margin-top: 1em;
-      z-index: 12;
 
 			> ul {
         @include horizontal-list;
         @include prepend(5);
 			}
-      ul {
-
-        li {
-          @include column(3);
-          @include border(1px, $lt-bgc); 
-          text-align: center; 
-          a {
-          	@include column(3);
-            font-size:0.8em;
-            font-variant: small-caps;
-            letter-spacing: 0.1em;
-            color: $dk-bgc;
-          }
-          &:last-child {
-            border-right: none !important;
-          }
-          &.current, :hover {
-            background:$dk-bgc;
-            color: $lt-bgc;
-						a {
-							color: $lt-bgc;
-						}
-          }
-					ul {
-						display: none;
-						@include no-bullets;
-						padding-left: 0px;
-						
-						li {
-							border-right: none;
-						}
+      li {
+        @include column(3);
+        @include border($lt-bgc, 1px); 
+        text-align: center; 
+        a {
+        	@include column(3);
+          color: $dk-bgc;
+          font-size:0.8em;
+          font-variant: small-caps;
+          letter-spacing: 0.1em;
+        }
+        &.selected {
+          background: $offset-color;
+        }
+        :hover {
+          background:$dk-bgc;
+        }
+        &.selected, :hover {
+          color: $lt-bgc;
+					a {
+						color: $lt-bgc;
 					}
+        }
+        &:last-child {
+          border-right: none;
         }
       }
     }
-    * html #navigation a {width:1%;}
+    * html nav a {width:1%;}
 
 		sidebar {
 			// One third of the grid columns, rounding down. With 24 cols, this is 8.
@@ -384,6 +378,14 @@ body {
         	}
 				}
 
+        .list_row {
+					@include column($content-columns - 1, true);
+  				&.last {border-bottom: none;}
+  				.feDate, .peDate {
+  					@include column(2);
+  					padding-left: 0.4em;
+  				}
+        }
       	.list_even, .list_odd {
   				padding-top: 0.5em;
   				padding-bottom: 0.5em;
@@ -391,6 +393,14 @@ body {
       	.list_even {
       	  background-color: $hilite-bgc;
       	}
+				.list_label {
+				  @include column(3);
+					color: $offset-color;
+				}
+				.list_detail {
+					@include column($content-columns - 5, true);
+					margin-bottom: 0em;
+				}
 
   			#past-events {
 				
@@ -420,18 +430,6 @@ body {
 
   			.list-event {
   				@include column($content-columns - 2, true);
-				
-  				&.last {border-bottom: none;}
-  				.feDate, .peDate {
-  					@include column(2);
-  					padding-left: 0.4em;
-  				}
-  				.feTitle, .peTitle {@include column($content-columns - 5, true);}
-  				.peSpeakers {
-  					@include column($content-columns - 5, true);
-  					@include push(2);
-  					margin-bottom: 0em;
-  				}
   			}
 			}
 		}
@@ -499,7 +497,7 @@ body {
 			#member_zip {@include column(2, true);}
 
 			input[type=submit] {
-				background: $input-bgc url('/images/icons/overlay.png') repeat-x;
+        // background: $input-bgc url('/images/icons/overlay.png') repeat-x;
 				display: inline-block;
 				padding: 5px 10px 6px;
 				color: $lt-bgc;
@@ -560,14 +558,17 @@ body {
   
   #tweets-anywhere-container {
     margin-top: 1em;
+    margin-bottom: 1em;
     padding-top: 0.4em;
     #tweets-anywhere {
       margin-left: 0.5em;
       .jta-tweet-list {
         overflow:auto;
         height: 300px;
+        margin-right: 5px;
       }
     }
+    .jta-tweet-user-screen-name-link {color: $offset-color;}
   }
   #flash {
     @include column($content-columns, true);

@@ -6,4 +6,4 @@
 	.location= location_label(@event)
 	= render :partial => 'events/share_event'
 	= render :partial => 'rsvp_block' if @event.is_current?
-	= link_to( t(:see_rsvps), event_rsvps_path(@event), :id => 'evt-attendees', :title => 'Only visible to admins' ) if (user_signed_in? && current_user.is_admin?) and @event.rsvps.count > 0
+	= link_to( t(:see_rsvps), event_rsvps_path(@event), :id => 'evt-attendees', :title => 'Only visible to admins' ) if (user_signed_in? && current_user.admin?) and @event.rsvps.count > 0

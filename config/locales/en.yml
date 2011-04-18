@@ -43,7 +43,9 @@ en:
   tweet: "Tweet"
   next_meeting_label: 'Our Next Meeting'
   active_member_title: "Active Members"
+  new_profile_title: "Create Your Profile"
   update_profile_title: "Update Your Profile"
+  profile_social_links_title: 'Social Links'
   update_button: "Update"
   join_mailing_list: "Join Our Mailing List"
   contact_name: "Name"
@@ -59,6 +61,7 @@ en:
   facebook_link: 'Facebook'
   yahoo_gorups_link: 'Yahoo! Group'
   twitter_link: 'Twitter'
+  follow: "Follow"
   linkedin_link: 'LinkedIn'
   foursquare_link: "Foursquare"
   street_address: "Street/City/State/Zip"

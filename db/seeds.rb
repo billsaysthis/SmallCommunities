@@ -30,6 +30,7 @@ Setting.create!({:name => 'mailing_list_url', :value => 'http://groups.yahoo.com
 Setting.create({:name => 'top_photos_qty', :value => '2'})
 Setting.create({:name => 'bottom_photos_qty', :value => '6'})
 
+Setting.create({:name => 'has_premium_memberships', :value => '1'})
 Setting.create({:name => 'gold_member_annual', :value => '$500'})
 Setting.create({:name => 'regular_member_annual', :value => '$100'})
 Setting.create({:name => 'renewing_member_annual', :value => '$50'})

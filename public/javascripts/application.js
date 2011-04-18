@@ -1,10 +1,17 @@
 $(function() {
+  $('#flash').fadeOut(2000, "linear");
+
+  $("nav ul").superfish({ 
+    pathClass:  'current',
+    disableHI: true
+  }); 
+  
   $('#tweets-anywhere').jTweetsAnywhere({
     username: 'billsaysthis',
     count: 20,
     showTweetFeed: {
       showProfileImages: false,
-      showUserScreenNames: true,
+      showUserScreenNames: false,
       paging: {
         mode: 'none'
       }

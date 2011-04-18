@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(:version => 20110405234422) do
     t.datetime "updated_at"
   end
 
-  create_table "lookups_photos", :force => true do |t|
+  create_table "lookups_photos", :id => false, :force => true do |t|
     t.integer  "lookup_id"
     t.integer  "photo_id"
     t.datetime "created_at"

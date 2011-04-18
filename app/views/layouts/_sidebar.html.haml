@@ -1,2 +1,2 @@
-= render :partial => "layouts/social_links"
-= render :partial => "layouts/twitter"
+= render :partial => "layouts/social_links" if @socnet_links.present?
+= render :partial => "layouts/twitter" if Setting.retrieve('twitter_account').present?

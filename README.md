@@ -28,8 +28,7 @@ framework methods and gems not available in Rails 2.
 * [RSpec](http://rspec.info) and [Cucumber](http://cukes.info) for tests
 * [Configatron](https://github.com/markbates/configatron) for configuration file support
 * [Rack-Recaptcha](https://github.com/achiu/rack-recaptcha) for repatchas
-* [mmmenu](https://github.com/snitko/mmmenu) for the Navigation menu
-* Rails_uri_validator and Rails_uri_validator
+* [simple-navigation](https://github.com/andi/simple-navigation) for the Navigation menu
 * [jTweetsAnywhere](http://thomasbillenstein.com/jTweetsAnywhere/) for displaying tweets
 * [Cantarell font](http://www.fontsquirrel.com/fonts/Cantarell) by Abattis Fonts from [FontSquirrel](http://www.fontsquirrel.com/)
 
@@ -47,6 +46,12 @@ useful.
 Clone the SmallCommunities GitHub repo:
 
 <pre>   git clone git://github.com/billsaysthis/SmallCommunities.git</pre>
+
+One of the gems, linecache19 (used by ruby-debug), doesn't install properly through Bundler, not clear why. 
+The workaround is to install it manually first, so this step is only necessary if linecache19 
+isn't already on your machine:
+
+<pre>   gem install linecache19 --no-ri --no-rdoc</pre>
 
 Change to the app directory and install the bundle:
 

@@ -6,6 +6,10 @@ class UsersController < ApplicationController
     @users = User.visible.active
   end
 
+  def new
+    redirect_to new_user_registration_path
+  end
+  
   def edit
   end
 

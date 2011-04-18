@@ -572,6 +572,11 @@
 	defaultMainDecorator = function(options)
 	{
 		// defines the default sequence of the widget's elements
+		if (options._followButtonElement)
+		{
+			options._baseElement.append(options._followButtonElement);
+		}
+
 		if (options._tweetFeedElement)
 		{
 			options._baseElement.append(options._tweetFeedElement);
@@ -590,11 +595,6 @@
 		if (options._loginInfoElement)
 		{
 			options._baseElement.append(options._loginInfoElement);
-		}
-
-		if (options._followButtonElement)
-		{
-			options._baseElement.append(options._followButtonElement);
 		}
 
 		if (options._tweetBoxElement)

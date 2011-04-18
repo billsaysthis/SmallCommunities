@@ -6,3 +6,4 @@ tmp/**/*
 .idea/*
 config/initializers/rack_recaptcha.rb
 .rvmrc
+tmp/*.*
