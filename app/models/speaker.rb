@@ -1,3 +1,4 @@
+require 'uri_validation'
 class Speaker < ActiveRecord::Base
   include URI_Validation
   has_many :presentations

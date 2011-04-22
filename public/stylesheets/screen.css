@@ -857,7 +857,7 @@ body #container #memberRSVP a, body #container #ygCFLink, body #container #evt-a
   text-decoration: none;
   cursor: pointer;
   padding: 5px 10px 5px 7px;
-  background-color: white;
+  background-color: #e0e0e0;
   border-color: #101010 black black #101010;
   color: black;
 }

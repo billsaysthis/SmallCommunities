@@ -27,6 +27,7 @@ class Event < ActiveRecord::Base
     end
   end
   
+  # TODO This needs to calculate the next logical date from Date.current, not the next logical date after the last event in the DB
   def self.tba
     last_event = Event.where("occurs_on < ?", Date.current).limit(1).order("occurs_on DESC").first
     last_plus_one = last_event.present? ? self.next_event(last_event.occurs_on) : self.next_event(Date.current.beginning_of_month)

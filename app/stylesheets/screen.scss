@@ -220,7 +220,7 @@ body {
 		#memberRSVP a, #ygCFLink, #evt-attendees {
 			@include border-radius(4px);
 			@include anchor-button();
-			@include button-colors($dk-bgc, $lt-bgc, $dk-bgc);
+			@include button-colors($dk-bgc, $hilite-bgc, $dk-bgc);
 			@include button-hover-colors($dk-bgc, $lt-bgc, $dk-bgc, $dk-bgc);
 		}
 

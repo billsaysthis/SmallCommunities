@@ -7,7 +7,7 @@ $(function() {
   }); 
   
   $('#tweets-anywhere').jTweetsAnywhere({
-    username: 'billsaysthis',
+    username: scTwitterAccount,
     count: 20,
     showTweetFeed: {
       showProfileImages: false,

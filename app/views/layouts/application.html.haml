@@ -9,6 +9,11 @@
 		/[if lt IE 8]
 			= raw stylesheet_link_tag('ie', :media => 'screen, projection')
 		= favicon_link_tag
+		/ Need the following block to pull in the appropriate Twitter account from Settings
+		:erb
+			<script>
+				var scTwitterAccount = "<%= Setting.retrieve('twitter_account') %>"
+			</script>
 		= csrf_meta_tag
 	%body
 		#container
