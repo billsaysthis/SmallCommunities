@@ -217,7 +217,7 @@ body {
 			@include min-height(500px);
 		}
 		
-		#memberRSVP a, #ygCFLink, #evt-attendees {
+		.button-like {
 			@include border-radius(4px);
 			@include anchor-button();
 			@include button-colors($dk-bgc, $hilite-bgc, $dk-bgc);

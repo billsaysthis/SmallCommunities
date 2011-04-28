@@ -7,6 +7,8 @@ SmallCommunities::Application.routes.draw do
   resources :events do
     member do
       get 'calendar'
+      get 'soldout'
+      get 'tix_atdoor'
       post 'rsvp'
     end
   end

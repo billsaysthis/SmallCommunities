@@ -1,9 +1,9 @@
 #event-infobox-inner
 	= special_event_date(@event) 
 	.strong.big
-		= raw @event.occurs_on.to_s(:basic) + ", " + Setting.retrieve('default_event_start_time') + " "
-		.calLink= add_to_cal_link(@event.id)
+		= time_string @event
 	.location= location_label(@event)
 	= render :partial => 'events/share_event'
-	= render :partial => 'rsvp_block' if @event.is_current?
-	= link_to( t(:see_rsvps), event_rsvps_path(@event), :id => 'evt-attendees', :title => 'Only visible to admins' ) if (user_signed_in? && current_user.admin?) and @event.rsvps.count > 0
+	- if @event.is_current?
+		= render :partial => 'rsvp_block'
+		- render :partial => 'event_admin_buttons' if admin_signed_in?

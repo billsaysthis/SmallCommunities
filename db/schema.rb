@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110405234422) do
+ActiveRecord::Schema.define(:version => 20110427231806) do
 
   create_table "events", :force => true do |t|
     t.string   "title"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(:version => 20110405234422) do
     t.boolean  "show_sponsors",   :default => true
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "status",          :default => "on_sale"
   end
 
   create_table "linkages", :force => true do |t|

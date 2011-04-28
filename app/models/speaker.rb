@@ -5,8 +5,8 @@ class Speaker < ActiveRecord::Base
   has_many :events, :through => :presentations
   
   validates :name, :presence => true
-  validates :url, :uri => true
-  validates :image_url, :uri => true
+  validates :url, :url => true
+  validates :image_url, :url => true
   
   scope :past, joins(:events).where('events.occurs_on > ?',Date.current).order("events.occurs_on DESC")
 end

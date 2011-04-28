@@ -17,7 +17,7 @@ module EventsHelper
     end
   end
   
-  def event_speakers_list(speakers, needs_with=true)
+  def event_speakers_list speakers, needs_with=true
     spkrs = []
     speakers.each do |speaker|
       if speaker.url == ''
@@ -30,12 +30,16 @@ module EventsHelper
 	  raw(wth + spkrs.to_sentence)
   end
   
-  def show_year(curyear, evt_year)
+  def show_year curyear, evt_year
     curyear != evt_year ? content_tag(:div, content_tag(:div, curyear), :class => 'curyear') : ''
   end
   
-  def short_desc_link(event)
+  def short_desc_link event
     spkrs = event_speakers_list(event[:speakers], false) unless event[:speakers] == ''
     link_to(event[:title], event[:url]) + ' ' + spkrs
+  end
+  
+  def time_string event
+    raw event.occurs_on.to_s(:basic) + ", " + Setting.retrieve('default_event_start_time') + " "
   end
 end

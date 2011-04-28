@@ -1,7 +1,7 @@
 %h1= t(:contact_link)
 
 - if @mailing_list_url.present?
-	#join-mailing-list= link_to t(:join_mailing_list), @mailing_list_url, :id => "ygCFLink"
+	#join-mailing-list= link_to t(:join_mailing_list), @mailing_list_url, :id => "ygCFLink", :class => 'button-like
 
 = form_tag contact_url, :id => 'contact-form', :method => 'POST' do
 	= label_tag :yourname, t(:contact_name)

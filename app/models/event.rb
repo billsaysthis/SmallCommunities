@@ -4,8 +4,12 @@ class Event < ActiveRecord::Base
   has_many :rsvps
   has_many :users, :through => :rsvps
 
+  EVT_ACTIVE_STATUSES = %w(on_sale at_door)
+  EVT_INACTIVE_STATUSES = %w(sold_out past)
+  
   validates :title, :presence => true
   validates :occurs_on, :presence => true
+  validates :status, :inclusion => {:in => EVT_ACTIVE_STATUSES + EVT_INACTIVE_STATUSES}
   validates :page_template, :presence => true
   
   scope :future_events, lambda {where("occurs_on > ?", Date.current).order("occurs_on DESC")}
@@ -20,11 +24,28 @@ class Event < ActiveRecord::Base
   end
   
   def is_current?
-    if Event.current_event.present?
-      occurs_on > Event.current_event.occurs_on
-    else
-      true
-    end
+    Event.current_event.present? ? Event.current_event == self : false
+  end
+  
+  def change_status(new_status)
+    status = new_status
+    save!
+  end
+  
+  def active?
+    EVT_ACTIVE_STATUSES.include? status
+  end
+  
+  def on_sale?
+    status == 'on_sale'
+  end
+  
+  def soldout?
+    status == 'sold_out'
+  end
+  
+  def at_door?
+    status == 'at_door'
   end
   
   # TODO This needs to calculate the next logical date from Date.current, not the next logical date after the last event in the DB
@@ -54,5 +75,9 @@ class Event < ActiveRecord::Base
   def self.next_event last_date
     # defaults to second Tuesday of the next month
     (last_date + 1.month).beginning_of_month.next_week + 1.day
+  end
+  
+  def check_status
+    change_status('past') if occurs_on < Date.current and status != 'past'
   end
 end

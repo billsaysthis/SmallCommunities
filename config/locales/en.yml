@@ -34,6 +34,8 @@ en:
   member_rsvp_label: 'Member RSVP'
   thanks_for_rsvp: 'Thanks for the RSVP!'
   see_rsvps: 'See RSVPs'
+  mark_soldout: 'Mark Sold Out'
+  mark_atdoor: 'Mark Tix at Door'
   guest: "Guest"
   student_senior: "Student/Senior"
   advance_door: "Advance/Door"
