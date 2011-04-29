@@ -29,7 +29,9 @@ framework methods and gems not available in Rails 2.
 * [Configatron](https://github.com/markbates/configatron) for configuration file support
 * [Rack-Recaptcha](https://github.com/achiu/rack-recaptcha) for repatchas
 * [simple-navigation](https://github.com/andi/simple-navigation) for the Navigation menu
+* [Superfish](http://users.tpg.com.au/j_birch/plugins/superfish) navigation menu JavaScript
 * [jTweetsAnywhere](http://thomasbillenstein.com/jTweetsAnywhere/) for displaying tweets
+* [Apprise](http://thrivingkings.com/apprise/) for better JavaScript dialogs
 * [Cantarell font](http://www.fontsquirrel.com/fonts/Cantarell) by Abattis Fonts from [FontSquirrel](http://www.fontsquirrel.com/)
 
 ### Theming and Text Customization

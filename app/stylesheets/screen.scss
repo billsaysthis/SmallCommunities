@@ -35,9 +35,9 @@ body {
   // @include fancy-type;
 
 	background-color: $margin-bgc; 
-	.strong {font-weight: bold}
+	.strong {font-weight: bold;}
 	.big {font-size: $big-text-size;}
-
+  .inner-content-columns {@include column_last(1);}
 	
 	#container {
 		@include container;
@@ -69,67 +69,52 @@ body {
 			color:$lt-bgc;
 			padding-top: 1em;
 
-			a {
-				color: $lt-bgc;
-			}
+			a {color: $lt-bgc;}
 		}
 	
 
     header {
-      @include column($blueprint-grid-columns);
+      @include column($blueprint-grid-columns, last);
       font-size: $body-text-size;
 
-      #banner {
-        @include column($blueprint-grid-columns, last);
+      #banner-img {
+        @include column(5);
+        margin-top: 4px; 
+        margin-left: 14px; 
+      }
 
-        #banner-img {
-          @include column(5);
-          margin-top: 4px; 
-          margin-left: 14px; 
-          z-index: 120;
+      #org_title, #tagline {
+        font-family: $blueprint-font-family;
+        @include column(11);
+        @include push(1);
+      }
 
-          #logoimg {
-            width: 100%;
-          }
+      #org_title {
+        padding-top:14px;
+        font-size:2.6em;
+        font-weight:normal;
+        letter-spacing: 0px;
+        margin-bottom: 0em;
+        a {color: $dk-bgc;}
+      }
+
+      #login-block {
+        @include column(6, true);
+        @include push(2);
+        margin-top: -8px;
+        a {
+    			@include std_button();
+          font-size: $btn-text-size;
         }
+      }
 
-        #org_title, #tagline {
-          font-family: $blueprint-font-family;
-          @include column(11);
-          @include push(1);
-        }
-
-        #org_title {
-          padding-top:14px;
-          font-size:2.6em;
-          font-weight:normal;
-          letter-spacing: 0px;
-          margin-bottom: 0em;
-          a {color: $dk-bgc;}
-        }
-
-        #login-block {
-          @include column(6, true);
-          @include push(2);
-          margin-top: -8px;
-          a {
-      			@include border-bottom-radius(4px);
-      			@include anchor-button();
-      			@include button-colors($dk-bgc, $hilite-bgc, $dk-bgc);
-      			@include button-hover-colors($hilite-bgc, $dk-bgc, $dk-bgc, $dk-bgc);
-            font-size: $btn-text-size;
-            color: $dk-bgc;
-          }
-        }
-
-        #tagline {
-          font-size:1.8em;
-          margin-top: 8px;
-          margin-bottom: 0em;
-          color: $dk-bgc;
-          letter-spacing: 1px;
-          font-weight: normal;
-        }
+      #tagline {
+        font-size:1.8em;
+        margin-top: 8px;
+        margin-bottom: 0em;
+        color: $dk-bgc;
+        letter-spacing: 1px;
+        font-weight: normal;
       }
     }
 
@@ -196,12 +181,12 @@ body {
 
 			ul {
 				list-style-position: inside; list-style-type: none; margin-left: 6px;
-				li {margin-bottom: 5px;}
 				font-size: 0.8em; 
 				line-height: 1;
+				li {margin-bottom: 5px;}
 			}
 
-			.eventPhotos {
+			.photoblock {
 				@include column($sidebar-columns, last);
 				padding-top: 10px;
 
@@ -218,10 +203,7 @@ body {
 		}
 		
 		.button-like {
-			@include border-radius(4px);
-			@include anchor-button();
-			@include button-colors($dk-bgc, $hilite-bgc, $dk-bgc);
-			@include button-hover-colors($dk-bgc, $lt-bgc, $dk-bgc, $dk-bgc);
+			@include std_button();
 		}
 
 		#content {
@@ -231,106 +213,25 @@ body {
 			
 			#content-inner {
 				@include prepend(1);
-				@include column($content-columns - 1, true);
+				@extend .inner-content-columns;
 				padding-top: 20px;
-				background-color: $lt-bgc;
 				@include min-height(490px);
+				background-color: $lt-bgc;
 				
-				#current-text {font-size: 1.7em; margin-bottom: 10px;}
-
 				h2, .page-title {
 					margin-bottom: 10px;
-					font-size: 2em;
 					letter-spacing:-1px;
 					line-height: 1.0;
 					color: $dk-bgc;
 					@extend .strong;
 				}
+				h3 {margin: 20px 0px; font-size: 1.6em; font-weight: normal;}
 
 				.page-title {font-size: 30px;}
-				#event-title {@include column($content-columns - 1, true);}
-				h2 a {font-weight: normal;}
-				h3 {margin: 20px 0px; font-size: 1.6em; font-weight: normal;}
-				
-				.is-special {
-				  color: $err-bgc; 
-				  font-variant: small_caps; 
-				  margin-bottom: 10px;
-				  font-size: $med-text-size;
-				}
-				#speaker-names {
-					font-size: 1.7em;
-					color: $dk-bgc;
-					line-height: 1.2em;
-					a {
-						font-weight: normal;
-						color: $dk-bgc;
-					}
-				}
-
-				#msgHolder {
-					@include push(1);
-					@include prepend(1);
-					@include column($content-columns - 5, true);
-					margin-top: 10px;
-					border: 3px solid yellow;
-					background-color: $dk-bgc;
-					color: rgb(192, 192, 192);
-					font-size: $lg-text-size;
-					@extend .strong;
-					display: none;
-					padding-top: 0.6em;
-					padding-bottom: 0.6em;
-				}
-				
-				#event-infobox {
-					@include column($content-columns - 7, true);
-					color: $body-text;
-					
-					line-height:1.5em;
-					margin-top:5px;
-					margin-bottom:10px;
-					border-top: $thick-border;
-					border-bottom: $thick-border;
-					
-					.location a, .calLink {font-weight: normal;}
-					.calLink {
-            font-size: $btn-text-size;
-            padding: 5px;
-						&:hover {
-						  background-color: $hilite-bgc;
-          		color: $dk-bgc;
-						}
-					}
-				}
-
-				.rsvpdiv {
-					margin-top: 0.5em;
-				  border-top: $thick-border;
-					@include column($content-columns - 1, true);
-					margin-bottom: 1em;
-					
-					#regularPPL {
-					  @include column(($content-columns - 8) / 2);
-					}
-					#studentPPL {
-					  @include column(($content-columns - 8) / 2, true);
-					}
-					.extra-bottom {padding-bottom: 6px;}
-				}
-				
-				#meeting-description, #speaker-description {
-					@include column($content-columns - 2, true);
-				}
-				
-				.speaker {
-					margin-top: 1em;
-					.speaker-image {
-						float: left; 
-						margin-right: 20px; 
-						margin-top: 4px;
-						img {width: 160px;}
-					}
+				#event-title {@extend .inner-content-columns;}
+				h2 a {
+				  font-weight: normal;
+				  font-size: 2em;
 				}
 				
 				.gen_page {
@@ -345,98 +246,141 @@ body {
 						letter-spacing: normal;
 					}
 					
-					#leadership-photos {
-						img {margin-right: 10px;}
-					}
-					
-					.leaders_list {
-						@include column($content-columns - 1, true);
-						
-						.leader_label {
-							@include column(3);
-							@extend .strong;
-						}
-						.leader_link {
-							@include column($content-columns - 4,true);
-						}
-					}
-					
-					.member {
-					  @include column($content-columns - 1, true);
+					.user {
 					  margin-bottom: 2px;
-					  
-					  div {
-					    margin-bottom: 0px;
-        	  }
-          	.member_name {
-          	  @include column(4);
-          	  padding-left: 0.4em;
-          	}
-          	.member_link {
-          	  @include column($content-columns - 6, true);
-          	}
+					  div {margin-bottom: 0px;}
         	}
 				}
-
-        .list_row {
-					@include column($content-columns - 1, true);
-  				&.last {border-bottom: none;}
-  				.feDate, .peDate {
-  					@include column(2);
-  					padding-left: 0.4em;
-  				}
-        }
-      	.list_even, .list_odd {
-  				padding-top: 0.5em;
-  				padding-bottom: 0.5em;
-				}
-      	.list_even {
-      	  background-color: $hilite-bgc;
-      	}
-				.list_label {
-				  @include column(3);
-					color: $offset-color;
-				}
-				.list_detail {
-					@include column($content-columns - 5, true);
-					margin-bottom: 0em;
-				}
-
-  			#past-events {
-				
-  				.curyear {
-  					@include column($content-columns - 2, true);
-  					font-size: $med-text-size;
-  					background-color: $dk-bgc;
-  					color: $lt-bgc;
-  					margin-top: 0.5em;
-  					margin-bottom: 0.5em;
-					
-  					div {
-  						@include column($content-columns - 3, true);
-  						padding-left: 0.4em;
-  						@extend .strong;
-  						margin-bottom: 0em;
-  						letter-spacing: .2em;
-  					}
-  				}
-  				.list-event {
-    				margin-bottom: 0.4em;
-    				div {
-      				margin-bottom: 0em;
-    				}
-  				}
-  			}
-
-  			.list-event {
-  				@include column($content-columns - 2, true);
-  			}
 			}
 		}
 		
+		#current-text {font-size: 1.7em; margin-bottom: 10px;}
+
+		.is-special {
+		  color: $err-bgc; 
+		  font-variant: small_caps; 
+		  margin-bottom: 10px;
+		  font-size: $med-text-size;
+		}
+		#speaker-names {
+			font-size: 1.7em;
+			color: $dk-bgc;
+			line-height: 1.2em;
+			a {
+				font-weight: normal;
+				color: $dk-bgc;
+			}
+		}
+
+		#msgHolder {
+			@include push(1);
+			@include prepend(1);
+			@include column_last(5);
+			margin-top: 10px;
+			border: 3px solid yellow;
+			background-color: $dk-bgc;
+			color: rgb(192, 192, 192);
+			font-size: $lg-text-size;
+			@extend .strong;
+			display: none;
+			padding-top: 0.6em;
+			padding-bottom: 0.6em;
+		}
+		
+		#event-infobox {
+			@include column_last(7);
+			color: $body-text;
+			
+			line-height:1.5em;
+			margin-top:5px;
+			margin-bottom:10px;
+			border-top: $thick-border;
+			border-bottom: $thick-border;
+			
+			.location a, .calLink {font-weight: normal;}
+			.calLink {
+        font-size: $btn-text-size;
+        padding: 5px;
+				&:hover {
+				  background-color: $hilite-bgc;
+      		color: $dk-bgc;
+				}
+			}
+		}
+
+		.rsvpdiv {
+			margin-top: 0.5em;
+		  border-top: $thick-border;
+			@extend .inner-content-columns;
+			margin-bottom: 1em;
+			
+			#regularPPL {
+			  @include column(5);
+			}
+			#studentPPL {
+			  @include column_last(5);
+			}
+			.extra-bottom {padding-bottom: 6px;}
+		}
+		
+		#meeting-description, #speaker-description {
+			@include column_last(2);
+		}
+		
+		.speaker {
+			margin-top: 1em;
+			.speaker-image {
+				float: left; 
+				margin-right: 20px; 
+				margin-top: 4px;
+				img {width: 160px;}
+			}
+		}
+		
+    .list_row {
+			@extend .inner-content-columns;
+			&.last {border-bottom: none;}
+			.event-date {
+				@include column(2);
+				padding-left: 0.4em;
+			}
+    }
+  	.list_even, .list_odd {
+			padding-top: 0.5em;
+			padding-bottom: 0.5em;
+		}
+  	.list_even {
+  	  background-color: $hilite-bgc;
+  	}
+		.list_label {
+		  @include column(3);
+			color: $offset-color;
+		}
+		.list_detail {
+			@include column_last(5);
+			margin-bottom: 0em;
+		}
+
+		.list-group-header {
+			@include column_last(2);
+			font-size: $med-text-size;
+			background-color: $dk-bgc;
+			color: $lt-bgc;
+			margin-top: 0.5em;
+			margin-bottom: 0.5em;
+		
+			div {
+				@include column_last(3);
+				padding-left: 0.4em;
+				@extend .strong;
+				margin-bottom: 0em;
+				letter-spacing: .2em;
+			}
+		}
+
   	#contact-form {
   	  display: block;
-   		@include column($content-columns - 1, true);
+   		@extend .inner-content-columns;
    		label {@include column(2);}
    		input[type=submit] {margin-top: 10px;}
  		}
@@ -472,7 +416,7 @@ body {
 		
 		form {
 			@include blueprint-form;
-			@include column($content-columns - 1, true);
+			@extend .inner-content-columns;
 
 			fieldset {
 				border: 0;
@@ -483,7 +427,7 @@ body {
 			}
 			
 			p {
-			  @include column($content-columns - 1, true);
+			  @extend .inner-content-columns;
 			  margin-bottom: 0.5em;
 			}
 			.reg_label {
@@ -577,7 +521,7 @@ body {
     padding-bottom: 0.5em;
     background-color: $lt-bgc;
     & div {
-      @include column($content-columns - 2, true);
+      @include column_last(2);
       @include push(1);
       margin-bottom: 0;
       padding-top: 0.5em;

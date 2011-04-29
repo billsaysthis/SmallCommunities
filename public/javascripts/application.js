@@ -19,9 +19,8 @@ $(function() {
     onDataRequestHandler: function(stats) {
       if (stats.dataRequestCount < 11) {
         return true;
-      }
-      else {
-        alert("To avoid struggling with Twitter's rate limit, we stop loading data after 10 API calls.");
+      } else {
+        apprise("To avoid struggling with Twitter's rate limit, we stop loading data after 10 API calls.");
       }
     }
   });

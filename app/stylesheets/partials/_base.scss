@@ -12,6 +12,10 @@ $blueprint-grid-width: ($blueprint-container-size + $blueprint-grid-margin) / $b
 $sidebar-columns: 6;
 $content-columns: $blueprint-grid-columns - $sidebar-columns;
 
+@mixin column_last($subtract) {
+  @include column($content-columns - $subtract, true);
+}
+
 $blueprint-font-family: Cantarell, Helvetica Neue,Arial,Helvetica,sans-serif;
 $hdr-font: Cantarell;
 $blueprint_font_size: 16px;
@@ -35,6 +39,13 @@ $input-hover-bgc: #111;
 $std-border: 2px solid $border-main;
 $thin-border: 1px solid $border-main;
 $thick-border: 3px solid $border-main;
+
+@mixin std_button {
+	@include border-radius(4px);
+	@include anchor-button();
+	@include button-colors($dk-bgc, $hilite-bgc, $dk-bgc);
+	@include button-hover-colors($hilite-bgc, $dk-bgc, $dk-bgc, $dk-bgc);
+}
 
 $btn-text-size: 60%;
 $body-text-size: 90%;

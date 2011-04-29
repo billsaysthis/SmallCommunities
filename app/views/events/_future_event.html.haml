@@ -1,3 +1,3 @@
 .event.list_row{:class => cycle('list_odd', 'list_even')}
-	.feDate.list_label= future_event[:occurs_on]
-	.feTitle.list_detail= short_desc_link(future_event)
+	.event-date.list_label= future_event[:occurs_on]
+	.list_detail= short_desc_link(future_event)
