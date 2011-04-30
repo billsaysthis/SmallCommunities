@@ -3,7 +3,7 @@
 
 # Admin user
 # Please change these defaults!!!
-User.create({:last_name => 'Admin', :first_name =>'I.M.', :password => '123456', :email => 'admin@example.com', :is_admin => true})
+User.create({:last_name => 'Admin', :first_name =>'I.M.', :password => '123456', :email => 'admin@example.com', :is_admin => true, :url => 'http://example.com'})
 u = User.find_by_email('admin@example.com')
 u.memberships.create(:year => Date.current.year.to_s, :mtype => 'gold')
 
