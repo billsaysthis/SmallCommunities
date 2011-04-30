@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
   attr_accessible :first_name, :last_name, :url, :street, :city, :state, :zip, :phone, :label, :url, :logo, :joined_on
-  attr_accessible :twitter, :facebook, :linkedin, :foursquare, :volunteer_title
+  attr_accessible :twitter, :facebook, :linkedin, :foursquare, :volunteer_title, :is_admin
 
   validates :first_name, :presence => true
   validates :last_name, :presence => true
