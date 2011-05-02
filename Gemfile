@@ -29,7 +29,7 @@ group :development, :test do
   # gem 'ruby-debug'
   gem 'ruby-debug19'
   gem "rspec-rails", ">=2.0.1"
-#   gem 'webrat'
+  gem 'webrat'
 end
 
 group :test do
@@ -38,4 +38,5 @@ group :test do
   gem "cucumber-rails", ">=0.3.2"
   gem "capybara", ">=0.3.6"
   gem "database_cleaner", ">=0.5.0"
+  gem "factory_girl_rails"
 end
