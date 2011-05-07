@@ -1,0 +1,478 @@
+/**
+*	O
+*	 \ HOLMES
+*
+*	------------------------
+*
+*	Holmes is stand-alone diagnostic CSS stylesheet that will highlight
+*	potentially invalid or erroneous HTML(5) markup
+*
+*	@author 		Luke Williams
+*	@contributors	Anthony Mann (hover based debug info)
+*	@author_url		http://www.red-root.com
+*	@project_url	http://github.com/redroot/holmes/
+*	@version		1.0.1 (25/04/2011)
+*
+*	@copyright 		Copyright Luke Williams 2011-
+*
+*	------------------------
+*
+*	How does it work?
+*
+*	Adding the class 'holmes-debug' to any element, ideally the body or html tag,
+*	will set debug styles for any elements within that element. 
+*
+*	e.g.: 
+*	<body class="holmes-debug">
+*
+*	------------------------
+*
+*	Debug colours and what they mean
+*
+*	- RED 			denotes an error, invalid markup or a missing attribute
+*	- YELLOW 		denotes a warning, so potentionally erroneous markup or bad practice
+*	- DARK GREY		denotes a deprecated element or element with deprecated or Non-W3C attributes
+*
+*	-------------------------
+*
+*	Notes
+*
+*	- 	I have chosen to keep all separate types of diagnostis separate, despite sharing
+*		common CSS styles, to maintain readability
+*
+*	- 	Getting pretty long so I've split it into outlines/borders and then Anthony's debug info, first
+*		the style, then the content
+*
+*/
+/* ====================================================== */
+/* = OUTLINES / BORDERS ================================= */
+/* ====================================================== */
+/**************
+	LINKS 
+**************/
+/* Errors */
+/* line 61, ../../app/stylesheets/holmes.scss */
+.holmes-debug a:not([href]), .holmes-debug a[href=""] {
+  outline: 2px solid red;
+}
+/* line 63, ../../app/stylesheets/holmes.scss */
+.holmes-debug a[href="#"], .holmes-debug a[href^="javascript"], .holmes-debug a:not([title]), .holmes-debug a[title=""] {
+  outline: 2px solid #fd0;
+}
+/* line 66, ../../app/stylesheets/holmes.scss */
+.holmes-debug img:not([alt]), .holmes-debug img[alt=""] {
+  outline: 2px solid red;
+}
+/* line 69, ../../app/stylesheets/holmes.scss */
+.holmes-debug label:not([for]), .holmes-debug label[for=""] {
+  outline: 2px solid red;
+}
+/* line 72, ../../app/stylesheets/holmes.scss */
+.holmes-debug input:not([name]), .holmes-debug input[name=""] {
+  outline: 2px solid red;
+}
+/* line 75, ../../app/stylesheets/holmes.scss */
+.holmes-debug select:not([name]), .holmes-debug select[name=""] {
+  outline: 2px solid red;
+}
+/* line 78, ../../app/stylesheets/holmes.scss */
+.holmes-debug textarea:not([name]), .holmes-debug textarea[name=""] {
+  outline: 2px solid red;
+}
+/* line 81, ../../app/stylesheets/holmes.scss */
+.holmes-debug abbr:not([title]), .holmes-debug abbr[title=""] {
+  outline: 2px solid red;
+}
+/* line 83, ../../app/stylesheets/holmes.scss */
+.holmes-debug [class=""], .holmes-debug [id=""] {
+  outline: 2px solid red;
+}
+/* line 86, ../../app/stylesheets/holmes.scss */
+.holmes-debug table:not([summary]), .holmes-debug table[summary=""] {
+  outline: 2px solid red;
+}
+/* line 88, ../../app/stylesheets/holmes.scss */
+.holmes-debug [style] {
+  outline: 2px solid #fd0;
+}
+/* line 90, ../../app/stylesheets/holmes.scss */
+.holmes-debug applet, .holmes-debug acronym, .holmes-debug center, .holmes-debug dir, .holmes-debug font, .holmes-debug strike, .holmes-debug u, .holmes-debug big, .holmes-debug tt, .holmes-debug marquee, .holmes-debug plaintext, .holmes-debug xmp {
+  border: 2px solid darkgrey;
+}
+
+/**************
+	IMAGES 
+**************/
+/*************************
+	MISC ATTRIBUTES
+**************************/
+/* 
+	Warnings here, for inline styles and event calls, 
+	ideally they should be external (CSS) and JS applied by JS scripts,
+	keep markup purely presentational!
+	(not sure about the js yet)
+*/
+/*************************************************************************
+	DEPRECATED & NON-W3C CONTENT ELEMENTS (darkgrey)
+	Based largely on http://www.w3.org/TR/html5/obsolete.html#obsolete
+*************************************************************************/
+/* line 114, ../../app/stylesheets/holmes.scss */
+body.holmes-debug[bgproperties], body.holmes-debug[topmargin], body.holmes-debug[rightmargin], body.holmes-debug[bottommargin], body.holmes-debug[leftmargin] {
+  outline: 2px solid darkgrey;
+}
+
+/* line 119, ../../app/stylesheets/holmes.scss */
+.holmes-debug *[bordercolor], .holmes-debug *[bordercolordark], .holmes-debug *[bordercolorlight] {
+  border: 2px solid darkgrey;
+}
+/* line 121, ../../app/stylesheets/holmes.scss */
+.holmes-debug table[frame] {
+  border: 2px solid darkgrey;
+}
+/* line 123, ../../app/stylesheets/holmes.scss */
+.holmes-debug div:empty, .holmes-debug span:empty, .holmes-debug li:empty, .holmes-debug p:empty, .holmes-debug td:empty, .holmes-debug th:empty {
+  border: 2px solid #fd0;
+}
+/* line 126, ../../app/stylesheets/holmes.scss */
+.holmes-debug a[href="#"]:hover::after, .holmes-debug a[href^="javascript"]:hover::after, .holmes-debug a:not([title]):hover::after, .holmes-debug a[title=""]:hover::after {
+  border-radius: 0.5em;
+  display: block;
+  padding: 1em;
+  margin: 1em;
+  background: #fd0;
+  position: fixed;
+  color: #000;
+  left: 0px;
+  top: 0px;
+  z-index: 9999;
+}
+/* line 137, ../../app/stylesheets/holmes.scss */
+.holmes-debug div:empty:hover::after, .holmes-debug span:empty:hover::after, .holmes-debug li:empty:hover::after, .holmes-debug p:empty:hover::after, .holmes-debug td:empty:hover::after, .holmes-debug th:empty:hover::after, .holmes-debug [style]:hover::after {
+  border-radius: 0.5em;
+  display: block;
+  padding: 1em;
+  margin: 1em;
+  background: #fd0;
+  position: fixed;
+  color: #000;
+  left: 0px;
+  top: 0px;
+  z-index: 9999;
+}
+/* line 149, ../../app/stylesheets/holmes.scss */
+.holmes-debug a:not([href]):hover::after, .holmes-debug a[href=""]:hover::after {
+  border-radius: 0.5em;
+  display: block;
+  padding: 1em;
+  margin: 1em;
+  background: red;
+  position: fixed;
+  color: #000;
+  left: 0px;
+  top: 0px;
+  z-index: 9999;
+  text-decoration: none;
+}
+/* line 162, ../../app/stylesheets/holmes.scss */
+.holmes-debug img:not([alt]):hover:after, .holmes-debug img[alt=""]:hover::after {
+  border-radius: 0.5em;
+  display: block;
+  padding: 1em;
+  margin: 1em;
+  background: red;
+  position: fixed;
+  color: #000;
+  left: 0px;
+  top: 0px;
+  z-index: 9999;
+  text-decoration: none;
+}
+/* line 175, ../../app/stylesheets/holmes.scss */
+.holmes-debug label:not([for]):hover::after, .holmes-debug label[for=""]:hover::after {
+  border-radius: 0.5em;
+  display: block;
+  padding: 1em;
+  margin: 1em;
+  background: red;
+  position: fixed;
+  color: #000;
+  left: 0px;
+  top: 0px;
+  z-index: 9999;
+  text-decoration: none;
+}
+/* line 188, ../../app/stylesheets/holmes.scss */
+.holmes-debug input:not([name]):hover::after, .holmes-debug input[name=""]:hover::after {
+  border-radius: 0.5em;
+  display: block;
+  padding: 1em;
+  margin: 1em;
+  background: red;
+  position: fixed;
+  color: #000;
+  left: 0px;
+  top: 0px;
+  z-index: 9999;
+  text-decoration: none;
+}
+/* line 201, ../../app/stylesheets/holmes.scss */
+.holmes-debug select:not([name]):hover::after, .holmes-debug select[name=""]:hover::after {
+  border-radius: 0.5em;
+  display: block;
+  padding: 1em;
+  margin: 1em;
+  background: red;
+  position: fixed;
+  color: #000;
+  left: 0px;
+  top: 0px;
+  z-index: 9999;
+  text-decoration: none;
+}
+/* line 214, ../../app/stylesheets/holmes.scss */
+.holmes-debug textarea:not([name]):hover::after, .holmes-debug textarea[name=""]:hover::after {
+  border-radius: 0.5em;
+  display: block;
+  padding: 1em;
+  margin: 1em;
+  background: red;
+  position: fixed;
+  color: #000;
+  left: 0px;
+  top: 0px;
+  z-index: 9999;
+  text-decoration: none;
+}
+/* line 227, ../../app/stylesheets/holmes.scss */
+.holmes-debug abbr:not([title]):hover::after, .holmes-debug abbr[title=""]:hover::after {
+  border-radius: 0.5em;
+  display: block;
+  padding: 1em;
+  margin: 1em;
+  background: red;
+  position: fixed;
+  color: #000;
+  left: 0px;
+  top: 0px;
+  z-index: 9999;
+  text-decoration: none;
+}
+/* line 239, ../../app/stylesheets/holmes.scss */
+.holmes-debug [class=""]:hover::after, .holmes-debug [id=""]:hover::after {
+  border-radius: 0.5em;
+  display: block;
+  padding: 1em;
+  margin: 1em;
+  background: red;
+  position: fixed;
+  color: #000;
+  left: 0px;
+  top: 0px;
+  z-index: 9999;
+  text-decoration: none;
+}
+/* line 252, ../../app/stylesheets/holmes.scss */
+.holmes-debug table:not([summary]):hover::after, .holmes-debug table[summary=""]:hover::after {
+  border-radius: 0.5em;
+  display: block;
+  padding: 1em;
+  margin: 1em;
+  background: red;
+  position: fixed;
+  color: #000;
+  left: 0px;
+  top: 0px;
+  z-index: 9999;
+  text-decoration: none;
+}
+/* line 264, ../../app/stylesheets/holmes.scss */
+.holmes-debug applet:hover::after, .holmes-debug acronym:hover::after, .holmes-debug center:hover::after, .holmes-debug dir:hover::after, .holmes-debug font:hover::after, .holmes-debug strike:hover::after, .holmes-debug u:hover::after, .holmes-debug big:hover::after, .holmes-debug tt:hover::after, .holmes-debug marquee:hover::after, .holmes-debug plaintext:hover::after, .holmes-debug xmp:hover::after {
+  border-radius: 0.5em;
+  display: block;
+  padding: 1em;
+  margin: 1em;
+  background: red;
+  position: fixed;
+  background: darkgrey;
+  color: #000;
+  left: 0px;
+  top: 0px;
+  z-index: 9999;
+}
+/* line 277, ../../app/stylesheets/holmes.scss */
+.holmes-debug *[bordercolor]:hover::after, .holmes-debug *[bordercolordark]:hover::after, .holmes-debug *[bordercolorlight]:hover::after {
+  border-radius: 0.5em;
+  display: block;
+  padding: 1em;
+  margin: 1em;
+  background: red;
+  position: fixed;
+  background: darkgrey;
+  color: #000;
+  left: 0px;
+  top: 0px;
+  z-index: 9999;
+}
+/* line 289, ../../app/stylesheets/holmes.scss */
+.holmes-debug table[frame]:hover::after {
+  border-radius: 0.5em;
+  display: block;
+  padding: 1em;
+  margin: 1em;
+  background: red;
+  position: fixed;
+  background: darkgrey;
+  color: #000;
+  left: 0px;
+  top: 0px;
+  z-index: 9999;
+}
+
+/*********************
+	EMPTY ELEMENTS (warning level for now)
+**********************/
+/* ====================================================== */
+/* = MESSAGES STYLES ==================================== */
+/* ====================================================== */
+/* ================== */
+/* = Warning Style = */
+/* ================== */
+/* - LINKS - */
+/* =============== */
+/* = Error Style = */
+/* =============== */
+/* - LINKS - */
+/* ===================== */
+/* = Deprecated Styles = */
+/* ===================== */
+/* - DEPRECATED & NON-W3C CONTENT ELEMENTS - */
+/* ================================ */
+/* = Deprecated body style Styles = */
+/* ================================ */
+/* line 333, ../../app/stylesheets/holmes.scss */
+body.holmes-debug[bgproperties]:hover::after, body.holmes-debug[topmargin]:hover::after, body.holmes-debug[rightmargin]:hover::after, body.holmes-debug[bottommargin]:hover::after, body.holmes-debug[leftmargin]:hover::after {
+  border-radius: 0.5em;
+  display: block;
+  padding: 1em;
+  margin: 1em;
+  background: red;
+  position: fixed;
+  background: darkgrey;
+  color: #000;
+  bottom: 0px;
+  right: 0px;
+  z-index: 9999;
+  /* Bottom right due to whole body coverage */
+}
+
+/* Fixes the case where a table may contain both errors and warnings - potentially other cases of this elsewhere */
+/* line 350, ../../app/stylesheets/holmes.scss */
+.holmes-debug td:empty:hover::after, .holmes-debug th:empty:hover::after {
+  top: 4em;
+}
+/* line 353, ../../app/stylesheets/holmes.scss */
+.holmes-debug a:not([href]):hover::after, .holmes-debug a[href=""]:hover::after {
+  content: 'Missing href attribute';
+}
+/* line 355, ../../app/stylesheets/holmes.scss */
+.holmes-debug a[href="#"]:hover:after {
+  content: "href='#'";
+}
+/* line 357, ../../app/stylesheets/holmes.scss */
+.holmes-debug a[href^="javascript"]:hover:after {
+  content: 'Href has javascript';
+}
+/* line 359, ../../app/stylesheets/holmes.scss */
+.holmes-debug a:not([title]):hover::after, .holmes-debug a[title=""]:hover::after {
+  content: 'Missing title attribute';
+}
+/* line 362, ../../app/stylesheets/holmes.scss */
+.holmes-debug img:not([alt]):hover::after, .holmes-debug img[alt=""]:hover::after {
+  content: 'Missing alt attribute';
+}
+/* line 365, ../../app/stylesheets/holmes.scss */
+.holmes-debug label:not([for]):hover::after, .holmes-debug label[for=""]:hover::after {
+  content: 'Missing for attribute';
+}
+/* line 368, ../../app/stylesheets/holmes.scss */
+.holmes-debug input:not([name]):hover::after, .holmes-debug input[name=""]:hover::after {
+  content: 'Missing name attribute';
+}
+/* line 371, ../../app/stylesheets/holmes.scss */
+.holmes-debug select:not([name]):hover::after, .holmes-debug select[name=""]:hover::after {
+  content: 'Missing name attribute';
+}
+/* line 374, ../../app/stylesheets/holmes.scss */
+.holmes-debug textarea:not([name]):hover::after, .holmes-debug textarea[name=""]:hover::after {
+  content: 'Missing name attribute';
+}
+/* line 377, ../../app/stylesheets/holmes.scss */
+.holmes-debug abbr:not([title]):hover::after, .holmes-debug abbr[title=""]:hover::after {
+  content: 'Missing title attribute';
+}
+/* line 379, ../../app/stylesheets/holmes.scss */
+.holmes-debug [class=""]:hover::after {
+  content: 'Blank class attribute';
+}
+/* line 381, ../../app/stylesheets/holmes.scss */
+.holmes-debug [id=""]:hover::after {
+  content: 'Blank id attribute';
+}
+/* line 384, ../../app/stylesheets/holmes.scss */
+.holmes-debug table:not([summary]):hover::after, .holmes-debug table[summary=""]:hover::after {
+  content: 'Missing summary attribute';
+}
+/* line 386, ../../app/stylesheets/holmes.scss */
+.holmes-debug [style]:hover::after {
+  content: 'Element has inline styles';
+}
+/* line 388, ../../app/stylesheets/holmes.scss */
+.holmes-debug applet:hover::after, .holmes-debug acronym:hover::after, .holmes-debug center:hover::after, .holmes-debug dir:hover::after, .holmes-debug font:hover::after, .holmes-debug strike:hover::after, .holmes-debug u:hover::after, .holmes-debug big:hover::after, .holmes-debug tt:hover::after, .holmes-debug marquee:hover::after, .holmes-debug plaintext:hover::after, .holmes-debug xmp:hover::after {
+  content: 'Deprecated or Non-W3C element';
+}
+
+/* ====================================================== */
+/* = MESSAGES CONTENT =================================== */
+/* ====================================================== */
+/**************
+	LINKS
+**************/
+/**************
+	IMAGES 
+**************/
+/*************************
+	MISC ATTRIBUTES
+**************************/
+/*************************************************************************
+	DEPRECATED & NON-W3C CONTENT ELEMENTS (darkgrey)
+	Based largely on http://www.w3.org/TR/html5/obsolete.html#obsolete
+*************************************************************************/
+/************************************************************************
+	DEPRECATED NON-W3C ATTRIBUTES (darkgrey)
+	Based largely on http://www.w3.org/TR/html5/obsolete.html#obsolete
+************************************************************************/
+/* line 418, ../../app/stylesheets/holmes.scss */
+body.holmes-debug[bgproperties]:hover::after {
+  content: 'Deprecated or Non-W3C body attribute bgproperties';
+}
+/* line 420, ../../app/stylesheets/holmes.scss */
+body.holmes-debug[topmargin]:hover::after, body.holmes-debug[rightmargin]:hover::after, body.holmes-debug[bottommargin]:hover::after, body.holmes-debug[leftmargin]:hover::after {
+  content: 'Deprecated or Non-W3C body attribute *margin';
+}
+
+/* line 425, ../../app/stylesheets/holmes.scss */
+.holmes-debug *[bordercolor]:hover::after, .holmes-debug *[bordercolordark]:hover::after, .holmes-debug *[bordercolorlight]:hover::after {
+  content: 'Deprecated or Non-W3C body attribute bordercolor';
+}
+/* line 427, ../../app/stylesheets/holmes.scss */
+.holmes-debug table[frame]:hover::after {
+  content: 'Deprecated or Non-W3C body attribute bordercolor';
+}
+/* line 429, ../../app/stylesheets/holmes.scss */
+.holmes-debug div:empty:hover::after, .holmes-debug span:empty:hover::after, .holmes-debug li:empty:hover::after, .holmes-debug p:empty:hover::after, .holmes-debug td:empty:hover::after, .holmes-debug th:empty:hover::after {
+  content: 'Empty element!';
+}
+
+/*********************
+	EMPTY ELEMENTS (warning level for now)
+**********************/

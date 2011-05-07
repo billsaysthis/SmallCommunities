@@ -74,7 +74,7 @@ class Event < ActiveRecord::Base
   
   def self.next_event last_date
     # defaults to second Tuesday of the next month
-    (last_date + 1.month).beginning_of_month.next_week + 1.day
+    last_date.month.next.second_tuesday
   end
   
   def check_status

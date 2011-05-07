@@ -1,0 +1,434 @@
+@charset "UTF-8";
+
+/**
+*	O
+*	 \ HOLMES
+*
+*	------------------------
+*
+*	Holmes is stand-alone diagnostic CSS stylesheet that will highlight
+*	potentially invalid or erroneous HTML(5) markup
+*
+*	@author 		Luke Williams
+*	@contributors	Anthony Mann (hover based debug info)
+*	@author_url		http://www.red-root.com
+*	@project_url	http://github.com/redroot/holmes/
+*	@version		1.0.1 (25/04/2011)
+*
+*	@copyright 		Copyright Luke Williams 2011-
+*
+*	------------------------
+*
+*	How does it work?
+*
+*	Adding the class 'holmes-debug' to any element, ideally the body or html tag,
+*	will set debug styles for any elements within that element. 
+*
+*	e.g.: 
+*	<body class="holmes-debug">
+*
+*	------------------------
+*
+*	Debug colours and what they mean
+*
+*	- RED 			denotes an error, invalid markup or a missing attribute
+*	- YELLOW 		denotes a warning, so potentionally erroneous markup or bad practice
+*	- DARK GREY		denotes a deprecated element or element with deprecated or Non-W3C attributes
+*
+*	-------------------------
+*
+*	Notes
+*
+*	- 	I have chosen to keep all separate types of diagnostis separate, despite sharing
+*		common CSS styles, to maintain readability
+*
+*	- 	Getting pretty long so I've split it into outlines/borders and then Anthony's debug info, first
+*		the style, then the content
+*
+*/
+/* ====================================================== */
+/* = OUTLINES / BORDERS ================================= */
+/* ====================================================== */
+
+/**************
+	LINKS 
+**************/
+
+/* Errors */
+
+.holmes-debug {
+  a {
+    &:not([href]), &[href=""] {
+      outline: 2px solid red; }
+    &[href="#"], &[href^="javascript"], &:not([title]), &[title=""] {
+      outline: 2px solid #fd0; } }
+  img {
+    &:not([alt]), &[alt=""] {
+      outline: 2px solid red; } }
+  label {
+    &:not([for]), &[for=""] {
+      outline: 2px solid red; } }
+  input {
+    &:not([name]), &[name=""] {
+      outline: 2px solid red; } }
+  select {
+    &:not([name]), &[name=""] {
+      outline: 2px solid red; } }
+  textarea {
+    &:not([name]), &[name=""] {
+      outline: 2px solid red; } }
+  abbr {
+    &:not([title]), &[title=""] {
+      outline: 2px solid red; } }
+  [class=""], [id=""] {
+    outline: 2px solid red; }
+  table {
+    &:not([summary]), &[summary=""] {
+      outline: 2px solid red; } }
+  [style] {
+    outline: 2px solid #fd0; }
+  applet, acronym, center, dir, font, strike, u, big, tt, marquee, plaintext, xmp {
+    border: 2px solid darkgrey; } }
+
+/**************
+	IMAGES 
+**************/
+
+/*************************
+	MISC ATTRIBUTES
+**************************/
+
+/* 
+	Warnings here, for inline styles and event calls, 
+	ideally they should be external (CSS) and JS applied by JS scripts,
+	keep markup purely presentational!
+	(not sure about the js yet)
+*/
+
+/*************************************************************************
+	DEPRECATED & NON-W3C CONTENT ELEMENTS (darkgrey)
+	Based largely on http://www.w3.org/TR/html5/obsolete.html#obsolete
+*************************************************************************/
+
+body.holmes-debug {
+  &[bgproperties], &[topmargin], &[rightmargin], &[bottommargin], &[leftmargin] {
+    outline: 2px solid darkgrey; } }
+
+.holmes-debug {
+  * {
+    &[bordercolor], &[bordercolordark], &[bordercolorlight] {
+      border: 2px solid darkgrey; } }
+  table[frame] {
+    border: 2px solid darkgrey; }
+  div:empty, span:empty, li:empty, p:empty, td:empty, th:empty {
+    border: 2px solid #fd0; }
+  a {
+    &[href="#"]:hover::after, &[href^="javascript"]:hover::after, &:not([title]):hover::after, &[title=""]:hover::after {
+      border-radius: 0.5em;
+      display: block;
+      padding: 1em;
+      margin: 1em;
+      background: #fd0;
+      position: fixed;
+      color: #000;
+      left: 0px;
+      top: 0px;
+      z-index: 9999; } }
+  div:empty:hover::after, span:empty:hover::after, li:empty:hover::after, p:empty:hover::after, td:empty:hover::after, th:empty:hover::after, [style]:hover::after {
+    border-radius: 0.5em;
+    display: block;
+    padding: 1em;
+    margin: 1em;
+    background: #fd0;
+    position: fixed;
+    color: #000;
+    left: 0px;
+    top: 0px;
+    z-index: 9999; }
+  a {
+    &:not([href]):hover::after, &[href=""]:hover::after {
+      border-radius: 0.5em;
+      display: block;
+      padding: 1em;
+      margin: 1em;
+      background: red;
+      position: fixed;
+      color: #000;
+      left: 0px;
+      top: 0px;
+      z-index: 9999;
+      text-decoration: none; } }
+  img {
+    &:not([alt]):hover:after, &[alt=""]:hover::after {
+      border-radius: 0.5em;
+      display: block;
+      padding: 1em;
+      margin: 1em;
+      background: red;
+      position: fixed;
+      color: #000;
+      left: 0px;
+      top: 0px;
+      z-index: 9999;
+      text-decoration: none; } }
+  label {
+    &:not([for]):hover::after, &[for=""]:hover::after {
+      border-radius: 0.5em;
+      display: block;
+      padding: 1em;
+      margin: 1em;
+      background: red;
+      position: fixed;
+      color: #000;
+      left: 0px;
+      top: 0px;
+      z-index: 9999;
+      text-decoration: none; } }
+  input {
+    &:not([name]):hover::after, &[name=""]:hover::after {
+      border-radius: 0.5em;
+      display: block;
+      padding: 1em;
+      margin: 1em;
+      background: red;
+      position: fixed;
+      color: #000;
+      left: 0px;
+      top: 0px;
+      z-index: 9999;
+      text-decoration: none; } }
+  select {
+    &:not([name]):hover::after, &[name=""]:hover::after {
+      border-radius: 0.5em;
+      display: block;
+      padding: 1em;
+      margin: 1em;
+      background: red;
+      position: fixed;
+      color: #000;
+      left: 0px;
+      top: 0px;
+      z-index: 9999;
+      text-decoration: none; } }
+  textarea {
+    &:not([name]):hover::after, &[name=""]:hover::after {
+      border-radius: 0.5em;
+      display: block;
+      padding: 1em;
+      margin: 1em;
+      background: red;
+      position: fixed;
+      color: #000;
+      left: 0px;
+      top: 0px;
+      z-index: 9999;
+      text-decoration: none; } }
+  abbr {
+    &:not([title]):hover::after, &[title=""]:hover::after {
+      border-radius: 0.5em;
+      display: block;
+      padding: 1em;
+      margin: 1em;
+      background: red;
+      position: fixed;
+      color: #000;
+      left: 0px;
+      top: 0px;
+      z-index: 9999;
+      text-decoration: none; } }
+  [class=""]:hover::after, [id=""]:hover::after {
+    border-radius: 0.5em;
+    display: block;
+    padding: 1em;
+    margin: 1em;
+    background: red;
+    position: fixed;
+    color: #000;
+    left: 0px;
+    top: 0px;
+    z-index: 9999;
+    text-decoration: none; }
+  table {
+    &:not([summary]):hover::after, &[summary=""]:hover::after {
+      border-radius: 0.5em;
+      display: block;
+      padding: 1em;
+      margin: 1em;
+      background: red;
+      position: fixed;
+      color: #000;
+      left: 0px;
+      top: 0px;
+      z-index: 9999;
+      text-decoration: none; } }
+  applet:hover::after, acronym:hover::after, center:hover::after, dir:hover::after, font:hover::after, strike:hover::after, u:hover::after, big:hover::after, tt:hover::after, marquee:hover::after, plaintext:hover::after, xmp:hover::after {
+    border-radius: 0.5em;
+    display: block;
+    padding: 1em;
+    margin: 1em;
+    background: red;
+    position: fixed;
+    background: darkgrey;
+    color: #000;
+    left: 0px;
+    top: 0px;
+    z-index: 9999; }
+  * {
+    &[bordercolor]:hover::after, &[bordercolordark]:hover::after, &[bordercolorlight]:hover::after {
+      border-radius: 0.5em;
+      display: block;
+      padding: 1em;
+      margin: 1em;
+      background: red;
+      position: fixed;
+      background: darkgrey;
+      color: #000;
+      left: 0px;
+      top: 0px;
+      z-index: 9999; } }
+  table[frame]:hover::after {
+    border-radius: 0.5em;
+    display: block;
+    padding: 1em;
+    margin: 1em;
+    background: red;
+    position: fixed;
+    background: darkgrey;
+    color: #000;
+    left: 0px;
+    top: 0px;
+    z-index: 9999; } }
+
+/*********************
+	EMPTY ELEMENTS (warning level for now)
+**********************/
+
+/* ====================================================== */
+/* = MESSAGES STYLES ==================================== */
+/* ====================================================== */
+
+/* ================== */
+/* = Warning Style = */
+/* ================== */
+
+/* - LINKS - */
+
+/* =============== */
+/* = Error Style = */
+/* =============== */
+
+/* - LINKS - */
+
+/* ===================== */
+/* = Deprecated Styles = */
+/* ===================== */
+
+/* - DEPRECATED & NON-W3C CONTENT ELEMENTS - */
+
+/* ================================ */
+/* = Deprecated body style Styles = */
+/* ================================ */
+
+body.holmes-debug {
+  &[bgproperties]:hover::after, &[topmargin]:hover::after, &[rightmargin]:hover::after, &[bottommargin]:hover::after, &[leftmargin]:hover::after {
+    border-radius: 0.5em;
+    display: block;
+    padding: 1em;
+    margin: 1em;
+    background: red;
+    position: fixed;
+    background: darkgrey;
+    color: #000;
+    bottom: 0px;
+    right: 0px;
+    z-index: 9999;
+    /* Bottom right due to whole body coverage */ } }
+
+/* Fixes the case where a table may contain both errors and warnings - potentially other cases of this elsewhere */
+
+.holmes-debug {
+  td:empty:hover::after, th:empty:hover::after {
+    top: 4em; }
+  a {
+    &:not([href]):hover::after, &[href=""]:hover::after {
+      content: 'Missing href attribute'; }
+    &[href="#"]:hover:after {
+      content: "href='#'"; }
+    &[href^="javascript"]:hover:after {
+      content: 'Href has javascript'; }
+    &:not([title]):hover::after, &[title=""]:hover::after {
+      content: 'Missing title attribute'; } }
+  img {
+    &:not([alt]):hover::after, &[alt=""]:hover::after {
+      content: 'Missing alt attribute'; } }
+  label {
+    &:not([for]):hover::after, &[for=""]:hover::after {
+      content: 'Missing for attribute'; } }
+  input {
+    &:not([name]):hover::after, &[name=""]:hover::after {
+      content: 'Missing name attribute'; } }
+  select {
+    &:not([name]):hover::after, &[name=""]:hover::after {
+      content: 'Missing name attribute'; } }
+  textarea {
+    &:not([name]):hover::after, &[name=""]:hover::after {
+      content: 'Missing name attribute'; } }
+  abbr {
+    &:not([title]):hover::after, &[title=""]:hover::after {
+      content: 'Missing title attribute'; } }
+  [class=""]:hover::after {
+    content: 'Blank class attribute'; }
+  [id=""]:hover::after {
+    content: 'Blank id attribute'; }
+  table {
+    &:not([summary]):hover::after, &[summary=""]:hover::after {
+      content: 'Missing summary attribute'; } }
+  [style]:hover::after {
+    content: 'Element has inline styles'; }
+  applet:hover::after, acronym:hover::after, center:hover::after, dir:hover::after, font:hover::after, strike:hover::after, u:hover::after, big:hover::after, tt:hover::after, marquee:hover::after, plaintext:hover::after, xmp:hover::after {
+    content: 'Deprecated or Non-W3C element'; } }
+
+/* ====================================================== */
+/* = MESSAGES CONTENT =================================== */
+/* ====================================================== */
+
+/**************
+	LINKS
+**************/
+
+/**************
+	IMAGES 
+**************/
+
+/*************************
+	MISC ATTRIBUTES
+**************************/
+
+/*************************************************************************
+	DEPRECATED & NON-W3C CONTENT ELEMENTS (darkgrey)
+	Based largely on http://www.w3.org/TR/html5/obsolete.html#obsolete
+*************************************************************************/
+
+/************************************************************************
+	DEPRECATED NON-W3C ATTRIBUTES (darkgrey)
+	Based largely on http://www.w3.org/TR/html5/obsolete.html#obsolete
+************************************************************************/
+
+body.holmes-debug {
+  &[bgproperties]:hover::after {
+    content: 'Deprecated or Non-W3C body attribute bgproperties'; }
+  &[topmargin]:hover::after, &[rightmargin]:hover::after, &[bottommargin]:hover::after, &[leftmargin]:hover::after {
+    content: 'Deprecated or Non-W3C body attribute *margin'; } }
+
+.holmes-debug {
+  * {
+    &[bordercolor]:hover::after, &[bordercolordark]:hover::after, &[bordercolorlight]:hover::after {
+      content: 'Deprecated or Non-W3C body attribute bordercolor'; } }
+  table[frame]:hover::after {
+    content: 'Deprecated or Non-W3C body attribute bordercolor'; }
+  div:empty:hover::after, span:empty:hover::after, li:empty:hover::after, p:empty:hover::after, td:empty:hover::after, th:empty:hover::after {
+    content: 'Empty element!'; } }
+
+/*********************
+	EMPTY ELEMENTS (warning level for now)
+**********************/
