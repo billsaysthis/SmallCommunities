@@ -21,6 +21,10 @@ Setting.create({:name => 'default_location_url', :value => 'http://example.com',
 Setting.create({:name => "default_event_title", :value => 'To Be Announced'})
 Setting.create({:name => "default_event_description", :value => 'Date is tentative until program is confirmed.'})
 Setting.create({:name => "default_event_start_time", :value => '6:30 p.m.'})
+# default day to calculate next meeting date if not found in DB
+# specify week of month as an in, day of week as string
+Setting.create({:name => "default_next_event_date", :value => 'w:2,d:tuesday'})
+# Length of regular events in minutes
 Setting.create({:name => "event_length", :value => '150'})
 
 Setting.create!({:name => 'google-analytics', :value => 'UA-21971932-1'})
