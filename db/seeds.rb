@@ -1,12 +1,6 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 
-# Admin user
-# Please change these defaults!!!
-User.create({:last_name => 'Admin', :first_name =>'I.M.', :password => '123456', :email => 'admin@example.com', :is_admin => true, :url => 'http://example.com', :label => 'example.com'})
-u = User.find_by_email('admin@example.com')
-u.memberships.create(:year => Date.current.year.to_s, :mtype => 'gold')
-
 # Basic Settings
 Setting.create({:name => 'current_year', :value => Date.current.year.to_s})
 Setting.create({:name => 'long_name', :value => 'Small Communities'})
@@ -34,6 +28,7 @@ Setting.create!({:name => 'mailing_list_url', :value => 'http://groups.yahoo.com
 Setting.create({:name => 'top_photos_qty', :value => '2'})
 Setting.create({:name => 'bottom_photos_qty', :value => '6'})
 
+Setting.create({:name => 'earliest_valid_year', :value => '2006'})
 Setting.create({:name => 'has_premium_memberships', :value => '1'})
 Setting.create({:name => 'gold_member_annual', :value => '$500'})
 Setting.create({:name => 'regular_member_annual', :value => '$100'})
@@ -50,6 +45,12 @@ Setting.create({:name => 'student_ppc', :value => 'PayPal button code'})
 # Initial Pages
 StatPage.create({:title => "About", :content1 => 'Replace with your own content', :active => true})
 StatPage.create({:title => "Membership", :content1 => 'Replace with your own content', :active => true})
+
+# Admin user
+# Please change these defaults!!!
+User.create({:last_name => 'Admin', :first_name =>'I.M.', :password => '123456', :email => 'admin@example.com', :is_admin => true, :url => 'http://example.com', :label => 'example.com'})
+u = User.find_by_email('admin@example.com')
+u.memberships.create(:year => Date.current.year.to_s, :mtype => 'gold')
 
 # Sample Links
 Linkage.create({:label => 'about_link', :url => '/about', :position => 1, :link_type => 'nav'})
