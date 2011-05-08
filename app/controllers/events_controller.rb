@@ -54,7 +54,10 @@ class EventsController < ApplicationController
   protected
   def setup
     @event = params[:id].blank? ? Event.current_event : Event.find(params[:id])
+    # if no specific event requested and no next event in dba,
+    # fabricate one for this request
     @event ||= Event.tba
+    # checks if Event should be moved to 'past' status
     @event.check_status
     @context_title = @event.title
     @show_rsvp = user_signed_in? and current_user.rsvps.present? and current_user.rsvps.where(:event_id => @event.id).blank?
