@@ -6,6 +6,7 @@ module URI_Validation
   #
   class UrlValidator < ActiveModel::EachValidator
     def validate_each(record, attribute, value)
+      return true unless value.present?
       begin
         uri = Addressable::URI.parse(value)
 
