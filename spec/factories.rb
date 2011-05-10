@@ -26,3 +26,15 @@ Factory.define :social_user, :parent => :user do |user|
   user.linkedin "http://linkedin.com/#!/example"
   user.foursquare "http://foursquare.com/#!/example"
 end
+
+Factory.define :event do |event|
+  event.title "This is a Title"
+  event.occurs_on Date.current + 1.month
+  event.status 'on_sale'
+  event.page_template "event"
+end
+
+Factory.define :setting do |setting|
+  setting.name "Setting name"
+  setting.value "Setting value"
+end

@@ -51,7 +51,7 @@ class Event < ActiveRecord::Base
   # TODO This needs to calculate the next logical date from Date.current, not the next logical date after the last event in the DB
   def self.tba
     last_event = Event.where("occurs_on < ?", Date.current).limit(1).order("occurs_on DESC").first
-    last_plus_one = self.next_event(last_event.occurs_on || Date.current.beginning_of_month)
+    last_plus_one = self.next_event(last_event.present? ? last_event.occurs_on : Date.current.beginning_of_month)
     # 'To Be Announced', 'Date is tentative until program is confirmed.'
     Event.new({:title => Setting.retrieve('default_event_title'), :page_template => 'event', :occurs_on => last_plus_one, :description => Setting.retrieve('default_event_description')})
   end

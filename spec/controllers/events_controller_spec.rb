@@ -1,7 +1,10 @@
 require 'spec_helper'
 
 describe EventsController do
-
+  before :all do
+    Setting.create({:name => "default_next_event_date", :value => 'w:2,d:tuesday'})
+  end
+  
   describe "GET 'index'" do
     it "should be successful" do
       get 'index'
@@ -25,14 +28,8 @@ describe EventsController do
 
   describe "GET 'show'" do
     it "should be successful" do
-      get 'show'
-      response.should be_success
-    end
-  end
-
-  describe "GET 'setup'" do
-    it "should be successful" do
-      get 'setup'
+      evt = Factory(:event)
+      get 'show', :id => evt.id
       response.should be_success
     end
   end

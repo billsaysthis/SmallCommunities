@@ -37,7 +37,7 @@ class User < ActiveRecord::Base
 
   # should probably be a scope...
   def self.current_sponsors
-    User.all.each {|u| configatron.premium_memberships.include?(u.memberships.current.first.mtype)}
+    User.all.each {|u| u.memberships.present? ? configatron.premium_memberships.include?(u.memberships.current.first.mtype) : nil}
   end
   
   def name
@@ -60,7 +60,7 @@ class User < ActiveRecord::Base
     is_admin
   end
   
-  def is_volunteer?
+  def volunteer?
     !volunteer_title.blank?
   end
 
