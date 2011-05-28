@@ -33,6 +33,7 @@ describe Event do
     evt.should be_valid
   end
 
+  # TODO This should be more rigorous and better test the default date algorithm 
   it "should build a next scheduled event according to default event date setting if none is in the db" do
     evt = Event.tba
     evt.should be_valid
