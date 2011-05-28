@@ -25,8 +25,8 @@ module EventsHelper
       else
 		    spkrs << link_to(speaker.name, speaker.url)
 	    end
-	  end
-	  wth = speakers.size > 0 ? needs_with ? t(:with) + ' ' : t(:with) + ' ' : ''
+	  end if speakers.present?
+	  wth = speakers.present? ? needs_with ? t(:with) + ' ' : t(:with) + ' ' : ''
 	  raw(wth + spkrs.to_sentence)
   end
   

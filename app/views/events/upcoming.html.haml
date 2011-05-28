@@ -1,4 +1,4 @@
 #future-events
 	%h2= raw(Setting.retrieve('current_year') + " &#x2721; " + t(:schedule))
-	%p t(:standard_meeting_explainer)
+	%p= t(:standard_meeting_explainer)
 	= render :partial => "future_event", :collection => @events

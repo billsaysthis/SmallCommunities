@@ -11,6 +11,10 @@ class EventsController < ApplicationController
 
   def upcoming
     @events = Event.current_year
+    if @events.blank?
+      flash.notice = "There are no upcoming events scheduled"
+      redirect_to :back
+    end
   end
 
   def show
