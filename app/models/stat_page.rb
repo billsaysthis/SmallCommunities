@@ -8,6 +8,7 @@ class StatPage < ActiveRecord::Base
   default_scope order("title")
   
   def valid_building_blocks
+    return if content_block.blank?
     # In content field we may see strings of the following form
     # {{block name,param1,param2}}
     # This gets validated against an entry in the Lookup table

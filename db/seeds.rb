@@ -43,8 +43,8 @@ Setting.create({:name => 'renewing_ppc', :value => 'PayPal button code'})
 Setting.create({:name => 'student_ppc', :value => 'PayPal button code'})
 
 # Initial Pages
-StatPage.create({:title => "About", :content1 => 'Replace with your own content', :active => true})
-StatPage.create({:title => "Membership", :content1 => 'Replace with your own content', :active => true})
+StatPage.create({:title => "About", :content_block => 'Replace with your own content', :active => true})
+StatPage.create({:title => "Membership", :content_block => 'Replace with your own content', :active => true})
 
 # Admin user
 # Please change these defaults!!!
@@ -63,6 +63,6 @@ Linkage.create({:label => 'members_link', :url => '/members', :position => 3, :l
 Linkage.create({:label => 'future_events_link', :url => '/upcoming_events', :position => 4, :link_type => 'nav'})
            
 Linkage.create({:label => 'facebook_link', :url => 'http://www.facebook.com/group.php?gid=5783743884', :position => 1, :link_type => 'social'})
-Linkage.create({:label => 'yahoo_gorups_link', :url => 'http://groups.yahoo.com/group/JHTCmembers', :position => 2, :link_type => 'social'})
+Linkage.create({:label => 'yahoo_groups_link', :url => 'http://groups.yahoo.com/group/JHTCmembers', :position => 2, :link_type => 'social'})
 Linkage.create({:label => 'twitter_link', :url => 'http://www.twitter.com/billsaysthis', :position => 3, :link_type => 'social'})
 Linkage.create({:label => 'linkedin_link', :url => 'http://www.linkedin.com/groups?gid=110955', :position => 4, :link_type => 'social'})
