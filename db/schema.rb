@@ -63,6 +63,10 @@ ActiveRecord::Schema.define(:version => 20110529021428) do
     t.datetime "updated_at"
   end
 
+  create_table "photo_lookups", :force => true do |t|
+    t.string "location"
+  end
+
   create_table "photos", :force => true do |t|
     t.string   "filename"
     t.boolean  "active"
