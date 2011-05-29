@@ -76,6 +76,11 @@ class Event < ActiveRecord::Base
     change_status('past') if occurs_on < Date.current and status != 'past'
   end
   
+  # for RailsAdmin dropdown
+  def status_enum
+    %w(on_sale at_door sold_out past)
+  end
+  
   private
   def self.next_event last_date
     # defaults to second Tuesday of the next month
