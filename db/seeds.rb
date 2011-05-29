@@ -43,8 +43,8 @@ Setting.create({:name => 'renewing_ppc', :value => 'PayPal button code'})
 Setting.create({:name => 'student_ppc', :value => 'PayPal button code'})
 
 # Initial Pages
-StatPage.create({:title => "About", :content => 'Replace with your own content', :active => true})
-StatPage.create({:title => "Membership", :content => 'Replace with your own content', :active => true})
+StatPage.create({:title => "About", :content_block => 'Replace with your own content', :active => true})
+StatPage.create({:title => "Membership", :content_block => 'Replace with your own content', :active => true})
 
 # Admin user
 # Please change these defaults!!!
