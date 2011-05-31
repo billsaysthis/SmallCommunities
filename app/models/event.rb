@@ -12,15 +12,62 @@ class Event < ActiveRecord::Base
   validates :status, :inclusion => {:in => EVT_ACTIVE_STATUSES + EVT_INACTIVE_STATUSES}
   validates :page_template, :presence => true
   
-  scope :future_events, lambda {where("occurs_on > ?", Date.current).order("occurs_on DESC")}
-  scope :past_events, lambda {where("occurs_on < ?", Date.current).order("occurs_on DESC")}
-  scope :current_year, lambda {where(:occurs_on => Date.current.beginning_of_year..Date.current.end_of_year).order(:occurs_on)}
-  scope :current, lambda {where("occurs_on > ?", Date.current).order(:occurs_on).limit(1)}
-  
   attr_accessible :title, :subtitle, :occurs_on, :special_paypal, :regular_paypal, :description, :page_template
 
-  def self.current_event
-    Event.current.first
+  class << self
+    def future_events
+      where("occurs_on > ?", Date.current).order("occurs_on DESC")
+    end
+
+    def past_events
+      where("occurs_on < ?", Date.current).order("occurs_on DESC")
+    end
+
+    def current_year
+      where(:occurs_on => Date.current.beginning_of_year..Date.current.end_of_year).order(:occurs_on)
+    end
+
+    def current
+      where("occurs_on > ?", Date.current).order(:occurs_on).limit(1)
+    end
+
+    def current_event
+      Event.current.first
+    end
+
+    # TODO This needs to calculate the next logical date from Date.current, not the next logical date after the last event in the DB
+    def tba
+      last_event = Event.where("occurs_on < ?", Date.current).limit(1).order("occurs_on DESC").first
+      last_plus_one = self.next_event(last_event.present? ? last_event.occurs_on : Date.current.beginning_of_month)
+      # 'To Be Announced', 'Date is tentative until program is confirmed.'
+      Event.new({:title => Setting.retrieve('default_event_title'), :page_template => 'event', :occurs_on => last_plus_one, :description => Setting.retrieve('default_event_description')})
+    end
+
+    def next_event last_date
+      # defaults to second Tuesday of the next month
+      nm = last_date.next_week(self.default_meeting_day)
+      until valid_next_event_date(nm)
+        nm = nm.next_week(self.default_meeting_day)
+      end
+      nm
+    end
+
+    def valid_next_event_date nxdt
+      dmw = self.default_meeting_week
+      stdt = dmw*7 || 1
+      eddt = stdt + 7
+      nxdt >= Date.current and ((nxdt.day > stdt) and (nxdt.day < eddt))
+    end
+
+    def default_meeting_day
+      # 'w:2,d:tuesday'
+      Setting.find_by_name("default_next_event_date").value.split(",").last.split(":").last.to_sym
+    end
+
+    def default_meeting_week
+      # 'w:2,d:tuesday'
+      Setting.find_by_name("default_next_event_date").value.split(",").first.split(":").last.to_i - 1
+    end
   end
   
   def is_current?
@@ -48,14 +95,6 @@ class Event < ActiveRecord::Base
     status == 'at_door'
   end
   
-  # TODO This needs to calculate the next logical date from Date.current, not the next logical date after the last event in the DB
-  def self.tba
-    last_event = Event.where("occurs_on < ?", Date.current).limit(1).order("occurs_on DESC").first
-    last_plus_one = self.next_event(last_event.present? ? last_event.occurs_on : Date.current.beginning_of_month)
-    # 'To Be Announced', 'Date is tentative until program is confirmed.'
-    Event.new({:title => Setting.retrieve('default_event_title'), :page_template => 'event', :occurs_on => last_plus_one, :description => Setting.retrieve('default_event_description')})
-  end
-  
   def to_ics
     event = Icalendar::Event.new
     event.start = occurs_on.strftime("%Y%m%dT%H%M%S")
@@ -81,30 +120,4 @@ class Event < ActiveRecord::Base
     %w(on_sale at_door sold_out past)
   end
   
-  private
-  def self.next_event last_date
-    # defaults to second Tuesday of the next month
-    nm = last_date.next_week(self.default_meeting_day)
-    until valid_next_event_date(nm)
-      nm = nm.next_week(self.default_meeting_day)
-    end
-    nm
-  end
-  
-  def self.valid_next_event_date nxdt
-    dmw = self.default_meeting_week
-    stdt = dmw*7 || 1
-    eddt = stdt + 7
-    nxdt >= Date.current and ((nxdt.day > stdt) and (nxdt.day < eddt))
-  end
-  
-  def self.default_meeting_day
-    # 'w:2,d:tuesday'
-    Setting.find_by_name("default_next_event_date").value.split(",").last.split(":").last.to_sym
-  end
-
-  def self.default_meeting_week
-    # 'w:2,d:tuesday'
-    Setting.find_by_name("default_next_event_date").value.split(",").first.split(":").last.to_i - 1
-  end
 end
