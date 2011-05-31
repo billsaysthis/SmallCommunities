@@ -1,4 +1,33 @@
 RailsAdmin.config do |config|
+  config.included_models = [Event,Speaker,User,Membership,Photo,StatPage,Setting,Linkage,Lookup]
+  config.navigation.max_visible_tabs config.included_models.count
+
+  config.model User do
+    edit do
+      field :first_name
+      field :last_name
+      field :email
+      field :is_admin
+      field :joined_on, :date
+      field :street
+      field :city
+      field :state
+      field :zip, :integer
+      field :phone
+      field :url
+      field :logo
+      field :label
+      field :linkedin
+      field :facebook
+      field :twitter
+      field :foursquare
+      field :volunteer_title
+    end
+  end
+
+  # config.model Membership do
+  # end
+  
   config.model StatPage do
     edit do
       field :title
@@ -26,11 +55,9 @@ RailsAdmin.config do |config|
       end
       field :special_pricing
       field :show_sponsors
-      # TODO this should be a select widget, needs investigation
       field :status
       field :speakers do
-        # TODO this should not cause a 500 error, needs investigation
-        # orderable true
+        orderable true
       end
     end
   end
@@ -52,6 +79,7 @@ RailsAdmin.config do |config|
       field :bio, :text do
         ckeditor true
       end
+      field :events
     end
   end
   
