@@ -44,7 +44,6 @@ class EventsController < ApplicationController
     end
   end
   
-  # TODO make into an AJAX call
   def rsvp
     if params[:id].present?
       evt = Event.find(params[:id])

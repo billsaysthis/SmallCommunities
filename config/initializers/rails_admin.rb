@@ -1,5 +1,5 @@
 RailsAdmin.config do |config|
-  config.included_models = [Event,Speaker,User,Membership,Photo,StatPage,Setting,Linkage,Lookup]
+  config.included_models = [Event,Speaker,User,Membership,Photo,StatPage,Setting,Paypal,Linkage,Lookup]
   config.navigation.max_visible_tabs config.included_models.count
 
   config.model User do
@@ -47,26 +47,30 @@ RailsAdmin.config do |config|
       field :description, :text do
         ckeditor true
       end
-      field :regular_paypal do
-        help 'Enter PayPayl button GUID code'
-      end
-      field :special_paypal do
-        help 'Enter PayPayl button GUID code'
-      end
       field :special_pricing
       field :show_sponsors
       field :status
+      field :paypals
       field :speakers do
         orderable true
       end
     end
   end
 
+  config.model Paypal do
+    edit do
+      field :name
+      field :amount
+      field :guid
+      field :events, :has_and_belongs_to_many_association
+    end
+  end
+  
   config.model Photo do
     edit do
       field :filename
       field :caption
-      field :lookups
+      field :lookups, :has_and_belongs_to_many_association
       field :active
     end
   end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110529021428) do
+ActiveRecord::Schema.define(:version => 20110610040750) do
 
   create_table "events", :force => true do |t|
     t.string   "title"
@@ -26,6 +26,11 @@ ActiveRecord::Schema.define(:version => 20110529021428) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "status",          :default => "on_sale"
+  end
+
+  create_table "events_paypals", :id => false, :force => true do |t|
+    t.integer "event_id"
+    t.integer "paypal_id"
   end
 
   create_table "linkages", :force => true do |t|
@@ -63,8 +68,13 @@ ActiveRecord::Schema.define(:version => 20110529021428) do
     t.datetime "updated_at"
   end
 
-  create_table "photo_lookups", :force => true do |t|
-    t.string "location"
+  create_table "paypals", :force => true do |t|
+    t.string   "name"
+    t.decimal  "amount"
+    t.string   "guid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "button_type"
   end
 
   create_table "photos", :force => true do |t|

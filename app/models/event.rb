@@ -3,6 +3,7 @@ class Event < ActiveRecord::Base
   has_many :speakers, :through => :presentations
   has_many :rsvps
   has_many :users, :through => :rsvps
+  has_and_belongs_to_many :paypals
 
   EVT_ACTIVE_STATUSES = %w(on_sale at_door)
   EVT_INACTIVE_STATUSES = %w(sold_out past)
