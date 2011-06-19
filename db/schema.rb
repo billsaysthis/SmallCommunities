@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110610040750) do
+ActiveRecord::Schema.define(:version => 20110619183542) do
 
   create_table "events", :force => true do |t|
     t.string   "title"
@@ -19,8 +19,6 @@ ActiveRecord::Schema.define(:version => 20110610040750) do
     t.string   "page_template"
     t.datetime "occurs_on"
     t.text     "description"
-    t.string   "regular_paypal"
-    t.string   "special_paypal"
     t.string   "special_pricing"
     t.boolean  "show_sponsors",   :default => true
     t.datetime "created_at"

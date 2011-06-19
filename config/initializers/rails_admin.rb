@@ -62,6 +62,7 @@ RailsAdmin.config do |config|
       field :name
       field :amount
       field :guid
+      field :button_type
       field :events, :has_and_belongs_to_many_association
     end
   end

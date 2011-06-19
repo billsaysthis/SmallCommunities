@@ -6,4 +6,4 @@
 	= render :partial => 'events/share_event'
 	- if @event.is_current?
 		= render :partial => 'rsvp_block'
-		- render :partial => 'event_admin_buttons' if admin_signed_in?
+		= render :partial => 'event_admin_buttons' if (user_signed_in? and current_user.admin?)

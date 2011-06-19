@@ -1,19 +1,19 @@
 class Event < ActiveRecord::Base
   has_many :presentations
-  has_many :speakers, :through => :presentations
+  has_many :speakers, through: :presentations
   has_many :rsvps
-  has_many :users, :through => :rsvps
+  has_many :users, through: :rsvps
   has_and_belongs_to_many :paypals
 
   EVT_ACTIVE_STATUSES = %w(on_sale at_door)
   EVT_INACTIVE_STATUSES = %w(sold_out past)
   
-  validates :title, :presence => true
-  validates :occurs_on, :presence => true
-  validates :status, :inclusion => {:in => EVT_ACTIVE_STATUSES + EVT_INACTIVE_STATUSES}
-  validates :page_template, :presence => true
+  validates :title, presence: true
+  validates :occurs_on, presence: true
+  validates :status, inclusion: {in: EVT_ACTIVE_STATUSES + EVT_INACTIVE_STATUSES}
+  validates :page_template, presence: true
   
-  attr_accessible :title, :subtitle, :occurs_on, :special_paypal, :regular_paypal, :description, :page_template
+  attr_accessible :title, :subtitle, :occurs_on, :description, :page_template
 
   class << self
     def future_events
@@ -41,7 +41,7 @@ class Event < ActiveRecord::Base
       last_event = Event.where("occurs_on < ?", Date.current).limit(1).order("occurs_on DESC").first
       last_plus_one = self.next_event(last_event.present? ? last_event.occurs_on : Date.current.beginning_of_month)
       # 'To Be Announced', 'Date is tentative until program is confirmed.'
-      Event.new({:title => Setting.retrieve('default_event_title'), :page_template => 'event', :occurs_on => last_plus_one, :description => Setting.retrieve('default_event_description')})
+      Event.new({title: Setting.retrieve('default_event_title'), page_template: 'event', occurs_on: last_plus_one, description: Setting.retrieve('default_event_description')})
     end
 
     def next_event last_date
@@ -94,6 +94,14 @@ class Event < ActiveRecord::Base
   
   def at_door?
     status == 'at_door'
+  end
+  
+  def special_paypal
+    self.paypals.where(button_type: 'special').first || nil
+  end
+  
+  def regular_paypal
+    self.paypals.where(button_type: 'regular').first || nil
   end
   
   def to_ics
