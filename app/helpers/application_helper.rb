@@ -45,4 +45,8 @@ module ApplicationHelper
   def special_event_date(event)
     event.occurs_on.wday != 2 ?  content_tag(:div, t(:special_date_notice), :class => 'is-special') : ''
   end
+  
+  def idify str
+    str.split("/").first
+  end
 end
