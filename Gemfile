@@ -15,6 +15,7 @@ gem "icalendar"
 gem "compass", ">= 0.11.beta.3" # ">= 0.10.6"
 gem "haml", ">= 3.1.0.alpha.145"
 gem "sass"
+#gem "compass-lucid-grid"
 gem 'oily_png'
 gem "hpricot"
 gem 'jquery-rails', '>= 0.2.6'

@@ -44,7 +44,7 @@ body {
 		margin-top: 2px;
 		line-height:1.4em;
 		color: $body-text;
-		background-color: $lt-bgc;
+		background-color: $hilite-bgc;
 		border: $std-border;
 		h1, h2, h3 {font-family: $hdr-font;}
 		
@@ -56,6 +56,7 @@ body {
 
 		header, footer {
 			@include column($blueprint-grid-columns, true);
+			background-color: $lt-bgc;
 		}
 		
 		hr {
@@ -124,7 +125,7 @@ body {
       line-height:2.2em;
       border-top: $std-border;
       border-bottom: $std-border;
-      background: $hilite-bgc;
+      background: $lt-bgc;
       color:$dk-bgc;
       margin-top: 1em;
 
@@ -164,12 +165,12 @@ body {
 
 		sidebar {
 			// One third of the grid columns, rounding down. With 24 cols, this is 8.
-			@include column($sidebar-columns, last);
+			@include column($sidebar-columns);
       @include opaque;
 			background: $hilite-bgc;
 
-			padding-top: 10px;
-			margin-right: 0em;
+      // padding-top: 10px;
+      // margin-right: 0em;
 
 			h2 {
 				color: $dk-bgc; 
@@ -200,6 +201,7 @@ body {
 
 		sidebar, #content {
 			@include min-height(500px);
+			margin-top: 1em;
 		}
 		
 		.button-like {
@@ -207,7 +209,7 @@ body {
 		}
 
 		#content {
-			@include column($content-columns);
+			@include column($content-columns,true);
 			background-color: $hilite-bgc;
   		overflow: auto;
 			
@@ -294,6 +296,7 @@ body {
 			line-height:1.5em;
 			margin-top:5px;
 			margin-bottom:10px;
+			padding-top: 10px;
 			border-top: $thick-border;
 			border-bottom: $thick-border;
 			

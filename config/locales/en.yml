@@ -71,3 +71,6 @@ en:
   member_link_url: "Member Link URL"
   premium_members_only: "Gold Members and Sponsors Only"
   latest_news: "Latest News"
+  event_rsvps_button: "Only visible to admins"
+  rsvp: "RSVP"
+  count: "Count"

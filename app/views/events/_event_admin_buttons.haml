@@ -1,3 +1,3 @@
-= link_to( t(:see_rsvps), event_rsvps_path(@event), :id => 'evt-attendees', :title => 'Only visible to admins' ) if @event.rsvps.present?
+= link_to( t(:see_rsvps), rsvps_event_path(@event), :id => 'evt-attendees', :class => 'button-like', :title => t(:event_rsvps_button) ) if @event.rsvps.present?
 = link_to( t(:mark_soldout), soldout_event_path(@event), :id => 'evt-soldout', :class => 'button-like' ) if @event.active?
 = link_to( t(:mark_atdoor), tix_atdoor_event_path(@event), :id => 'evt-atdoor', :class => 'button-like' ) if @event.on_sale?

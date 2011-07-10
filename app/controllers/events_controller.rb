@@ -54,6 +54,13 @@ class EventsController < ApplicationController
     end
   end
   
+  def rsvps
+    @event = Event.find(params[:id])
+    unless @rsvps = @event.rsvps
+      redirect_to :back
+    end
+  end
+  
   protected
   def setup
     @event = params[:id].blank? ? Event.current_event : Event.find(params[:id])

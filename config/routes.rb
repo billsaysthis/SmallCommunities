@@ -10,6 +10,7 @@ SmallCommunities::Application.routes.draw do
       get 'soldout'
       get 'tix_atdoor'
       post 'rsvp'
+      get  :rsvps
     end
   end
   controller :events do
