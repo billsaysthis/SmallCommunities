@@ -1,0 +1,10 @@
+%h2= t(:rsvp).pluralize + ": " + @event.title
+
+%div
+	= t(:rsvp) + " " + t(:count) + ":"
+	= @rsvps.count
+
+- idx = 0
+- @rsvps.each do |rsvp|
+	- idx = idx + 1
+	%div{:class => cycle('list_odd', 'list_even')}= link_to idx.to_s + ' ' + rsvp.user.name, rsvp.user
