@@ -21,6 +21,9 @@ describe EventsController do
 
   describe "GET 'upcoming'" do
     it "should be successful" do
+      Factory.create(:event)
+      Factory.create(:event, :title => "This is another Title", :occurs_on =>  Date.current + 2.months)
+      @request.env['HTTP_REFERER'] = '/'
       get 'upcoming'
       response.should be_success
     end

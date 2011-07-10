@@ -7,7 +7,7 @@ Factory.define :user do |user|
   user.url "http://www.example.com"
   user.label "example.com"
   
-  user.after_create {|user| user.memberships << Factory(:membership)}
+  user.after_create {|u| u.memberships << Factory(:membership)}
 end
 
 Factory.define :membership do |m|
@@ -32,6 +32,10 @@ Factory.define :event do |event|
   event.occurs_on Date.current + 1.month
   event.status 'on_sale'
   event.page_template "event"
+end
+
+Factory.define :rsvp do |rsvp|
+  rsvp.event
 end
 
 Factory.define :setting do |setting|
