@@ -24,7 +24,7 @@
 		#container
 			%header
 				= render :partial => 'layouts/banner'
-				%nav= render_navigation :items => @menu, :expand_all => true
+				%nav= render_navigation :items => @menu, :expand_all => false
 			%section#content_container
 				%sidebar= render :partial => 'layouts/sidebar'
 				%section#content

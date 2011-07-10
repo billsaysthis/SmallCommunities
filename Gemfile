@@ -10,7 +10,6 @@ gem "haml-rails", ">= 0.2"
 gem "devise", ">=1.1.2"
 gem "rails_admin", :git => 'git://github.com/sferik/rails_admin.git'
 gem "ice_cube"
-#gem "smart_month"
 gem "icalendar"
 gem "compass", ">= 0.11.beta.3" # ">= 0.10.6"
 gem "haml", ">= 3.1.0.alpha.145"
@@ -23,8 +22,6 @@ gem "ruby_parser"
 gem 'rack-recaptcha', :require => 'rack/recaptcha'
 gem 'simple-navigation'
 gem "addressable"
-# gem 'unicorn'
-# gem 'capistrano'
 
 group :development, :test do
   # To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
