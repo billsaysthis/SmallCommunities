@@ -15,7 +15,7 @@ module SmallCommunities
     end
     config.action_view.javascript_expansions[:defaults] = %w(jquery.min rails jquery.jtweetsanywhere-1.2.1.min)
     config.filter_parameters += [:password]
-    asf = File.expand_path('../initializers/app_config.yml', __FILE__)
-    configatron.configure_from_yaml(asf)
+    asf = File.expand_path('../initializers/app_config.rb', __FILE__)
+    configatron.configure(asf)
   end
 end
