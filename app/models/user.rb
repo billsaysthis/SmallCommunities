@@ -31,15 +31,17 @@ class User < ActiveRecord::Base
   scope :volunteers, where("volunteer_title != ''")
   default_scope order("last_name, first_name")
   
-  def self.before_create
-    joined_on ||= DateTime.current
+  class << self
+    def before_create
+      joined_on ||= DateTime.current
+    end
+
+    # should probably be a scope...
+    def current_sponsors
+      User.all.each {|u| u.memberships.present? ? configatron.premium_memberships.include?(u.memberships.current.first.mtype) : nil}
+    end
   end
 
-  # should probably be a scope...
-  def self.current_sponsors
-    User.all.each {|u| u.memberships.present? ? configatron.premium_memberships.include?(u.memberships.current.first.mtype) : nil}
-  end
-  
   def name
     first_name + ' ' + last_name
   end
