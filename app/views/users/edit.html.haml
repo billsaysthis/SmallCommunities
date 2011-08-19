@@ -2,5 +2,5 @@
 
 = form_for(@user) do |f|
 	/= devise_error_messages!
-	= render :partial => 'devise/registrations/registration', :locals => {:f => f}
+	= render :partial => 'devise/registrations/registration', :f => f
 	%p= f.submit t(:update_button)

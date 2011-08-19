@@ -2,6 +2,6 @@
 	%h2= t(:past_events_title)
 	.gen_page
 		- if @events.present?
-			= render :partial => "past_event", :locals => {:events => @events}
+			= render :partial => "past_event", :events => @events
 		- else
 			%div= "No past events yet"

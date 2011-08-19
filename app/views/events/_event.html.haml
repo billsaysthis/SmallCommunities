@@ -5,4 +5,4 @@
 	#speaker-names= event_speakers_list(@event.speakers) if @event.speakers.present?
 	#event-infobox= render :partial => 'infobox'
 #meeting-description= raw @event.description
-= render(:partial => 'speakers', :locals => {:speakers => @event.speakers}) if @event.speakers.present?
+= render(:partial => 'speakers', :speakers => @event.speakers) if @event.speakers.present?

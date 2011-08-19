@@ -2,9 +2,7 @@
 %html
 	%head
 		%title= page_title(@context_title)
-		= raw stylesheet_link_tag('jquery.jtweetsanywhere-1.2.1', :media => 'screen, projection')
-		= raw stylesheet_link_tag('screen', :media => 'screen, projection')
-		= raw stylesheet_link_tag('apprise.min', :media => 'screen, projection')
+		= raw stylesheet_link_tag('jquery.jtweetsanywhere-1.2.1', 'screen', 'apprise.min', :media => 'screen, projection')
 		= raw stylesheet_link_tag('superfish', :media => 'screen, projection')
 		= raw stylesheet_link_tag('print', :media => 'print')
 		/[if lt IE 8]
@@ -34,7 +32,7 @@
 								%div{:id => ["flash", key]}= value
 					%section#content-inner= yield
 			%section#sponsorBlock= render :partial => 'layouts/sponsors_block' if @show_sponsors
-			/ = render(:partial => 'users/sponsors', :locals => {:sponsors => @sponsors}) if @sponsors.present?
+			/ = render(:partial => 'users/sponsors', :sponsors => @sponsors) if @sponsors.present?
 			%footer= render :partial => 'layouts/footer'
 		/ bottom-loading JavaScript
 		= render :partial => 'layouts/js'
