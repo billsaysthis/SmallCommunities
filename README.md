@@ -8,7 +8,7 @@ Events are available directly as well as on an upcoming calendar and a listing
 of past events. Members can RSVP for events and non-members can purchase 
 tickets. A Memberships page provides links for purchasing annual memberships.
 
-By default purchases are through simple PayPal Buy Now buttons and memberships 
+Purchases are through (simple) PayPal Buy Now buttons and memberships by definition 
 include admission to regular events.
 
 There are also facilities for simple "static" pages, such as About and Contact.
