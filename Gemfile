@@ -3,7 +3,6 @@ source 'http://rubygems.org'
 gem 'rails', '3.0.9'
 
 # gem 'mysql2'
-gem "sqlite3"
 
 gem "configatron"
 gem "haml-rails", ">= 0.2"
@@ -26,6 +25,7 @@ gem "addressable"
 group :development, :test do
   # To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
   # gem 'ruby-debug'
+  gem "sqlite3"
   gem 'ruby-debug19'
   gem "rspec-rails", ">=2.0.1"
   gem 'webrat'
@@ -38,4 +38,9 @@ group :test do
   gem "capybara", ">=0.3.6"
   gem "database_cleaner", ">=0.5.0"
   gem "factory_girl_rails"
+end
+
+group :production do
+  gem "pg"
+  gem "thin"
 end
