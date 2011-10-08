@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.9'
+gem 'rails', '~>3.1.1'
 
 # gem 'mysql2'
 
@@ -10,9 +10,7 @@ gem "devise", ">=1.1.2"
 gem "rails_admin", :git => 'git://github.com/sferik/rails_admin.git'
 gem "ice_cube"
 gem "icalendar"
-gem "compass", ">= 0.11.beta.3" # ">= 0.10.6"
 gem "haml", ">= 3.1.0.alpha.145"
-gem "sass"
 #gem "compass-lucid-grid"
 gem 'oily_png'
 gem "hpricot"
@@ -21,6 +19,12 @@ gem "ruby_parser"
 gem 'rack-recaptcha', :require => 'rack/recaptcha'
 gem 'simple-navigation'
 gem "addressable"
+
+group :assets do
+  gem "uglifier"
+  gem "sass-rails"
+  gem "compass", ">= 0.12.alpha.0"
+end
 
 group :development, :test do
   # To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
