@@ -15,7 +15,7 @@ There are also facilities for simple "static" pages, such as About and Contact.
 
 ## Technical Overview
 
-Small Communities uses Rails 3; Rails 2 support is precluded by use of certain 
+Small Communities uses Rails 3.1; Rails 2 support is precluded by use of certain 
 framework methods and gems not available in Rails 2.
 
 ### Core gems
