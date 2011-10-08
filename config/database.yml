@@ -14,7 +14,7 @@ test:
   timeout: 5000
 
 production:
-  adapter: mysql2
+  adapter: pg
   encoding: utf8
   reconnect: false
   database: small_communities_production
