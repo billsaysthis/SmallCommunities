@@ -23,7 +23,7 @@ gem "addressable"
 group :assets do
   gem "uglifier"
   gem "sass-rails"
-  gem "compass", ">= 0.12.alpha.0"
+  gem "compass", "~> 0.12.alpha.0"
 end
 
 group :development, :test do

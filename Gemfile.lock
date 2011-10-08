@@ -235,7 +235,7 @@ PLATFORMS
 DEPENDENCIES
   addressable
   capybara (>= 0.3.6)
-  compass (>= 0.12.alpha.0)
+  compass (~> 0.12.alpha.0)
   configatron
   cucumber (>= 0.6.3)
   cucumber-rails (>= 0.3.2)

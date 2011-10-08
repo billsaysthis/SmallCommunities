@@ -1,5 +1,5 @@
 module ApplicationHelper
-  include Compass::SassExtensions::Functions::ImageSize
+  # include Compass::SassExtensions::Functions::ImageSize
   include Rack::Recaptcha::Helpers
   
   def page_title(context_title='')
@@ -22,7 +22,7 @@ module ApplicationHelper
   def member_image_link(user)
     return if user.logo.blank?
     
-    ih = image_height(Sass::Script::String.new(user.m_logo))
+    ih = image-height(Sass::Script::String.new(user.m_logo))
     ic = (ih.to_i > 115) ? 'logoHT' : 'logoWD'
 
     link_to image_tag(user.m_logo, :alt => user.name), user.url, :class => ic
