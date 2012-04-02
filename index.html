@@ -1,0 +1,177 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>SmallCommunities by billsaysthis</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>SmallCommunities</h1>
+<p>Small Communities is an application built on Ruby on Rails to drive websites  for small groups. The central concepts of the app are Members and Events with  Speakers.</p>
+        <p class="view"><a href="https://github.com/billsaysthis/SmallCommunities">View the Project on GitHub <small>billsaysthis/SmallCommunities</small></a></p>
+        <ul>
+          <li><a href="https://github.com/billsaysthis/SmallCommunities/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/billsaysthis/SmallCommunities/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/billsaysthis/SmallCommunities">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h2>Welcome to Small Communities</h2>
+
+<p>Small Communities is an application built on Ruby on Rails to drive websites 
+for small groups. The central concepts of the app are Members and Events with 
+Speakers. An administrator backend is provided through the RailsAdmin gem.</p>
+
+<p>Events are available directly as well as on an upcoming calendar and a listing 
+of past events. Members can RSVP for events and non-members can purchase 
+tickets. A Memberships page provides links for purchasing annual memberships.</p>
+
+<p>Purchases are through (simple) PayPal Buy Now buttons and memberships by definition 
+include admission to regular events.</p>
+
+<p>There are also facilities for simple "static" pages, such as About and Contact.</p>
+
+<h2>Technical Overview</h2>
+
+<p>Small Communities uses Rails 3.1; Rails 2 support is precluded by use of certain 
+framework methods and gems not available in Rails 2.</p>
+
+<h3>Core gems</h3>
+
+<ul>
+<li>
+<a href="https://github.com/plataformatec/devise">Devise</a> for authentication</li>
+<li>
+<a href="http://compass-style.org">Compass</a>, <a href="http://sass-lang.com">Sass</a> and <a href="http://haml-lang.com">Haml</a> for views and programmable CSS</li>
+<li>
+<a href="https://github.com/indirect/jquery-rails">jQuery Rails</a> to provide jQuery-based JavaScript helpers</li>
+<li>
+<a href="https://github.com/seejohnrun/ice_cube">IceCube</a> and <a href="http://icalendar.rubyforge.org/">iCalendar</a> for calendaring</li>
+<li>
+<a href="https://github.com/sferik/rails_admin">RailsAdmin</a> for automatic admin backend</li>
+<li>
+<a href="http://rspec.info">RSpec</a> and <a href="http://cukes.info">Cucumber</a> for tests</li>
+<li>
+<a href="https://github.com/markbates/configatron">Configatron</a> for configuration file support</li>
+<li>
+<a href="https://github.com/achiu/rack-recaptcha">Rack-Recaptcha</a> for repatchas</li>
+<li>
+<a href="https://github.com/andi/simple-navigation">simple-navigation</a> for the Navigation menu</li>
+<li>
+<a href="http://users.tpg.com.au/j_birch/plugins/superfish">Superfish</a> navigation menu JavaScript</li>
+<li>
+<a href="http://thomasbillenstein.com/jTweetsAnywhere/">jTweetsAnywhere</a> for displaying tweets</li>
+<li>
+<a href="http://thrivingkings.com/apprise/">Apprise</a> for better JavaScript dialogs</li>
+<li>
+<a href="http://www.fontsquirrel.com/fonts/Cantarell">Cantarell font</a> by Abattis Fonts from <a href="http://www.fontsquirrel.com/">FontSquirrel</a>
+</li>
+</ul><h3>Theming and Text Customization</h3>
+
+<p>In order to easily customize appearance to match a group's visual branding, 
+Small Communities has a skin system.</p>
+
+<p>Additionally, Small Communities uses Rails' I18N facilities to manage strings 
+displayed so you may edit the provided English file and add other languages as 
+useful.</p>
+
+<h2>Getting Started</h2>
+
+<p>Clone the SmallCommunities GitHub repo:</p>
+
+<pre>   git clone git://github.com/billsaysthis/SmallCommunities.git</pre>
+
+<p>One of the gems, linecache19 (used by ruby-debug), doesn't install properly through Bundler, not clear why. 
+The workaround is to install it manually first, so this step is only necessary if linecache19 
+isn't already on your machine:</p>
+
+<pre>   gem install linecache19 --no-ri --no-rdoc</pre>
+
+<p>Change to the app directory and install the bundle:</p>
+
+<pre>   cd small_communities
+   bundle install</pre>
+
+<p>Install plugins</p>
+
+<pre>   git submodule init
+   git submodule update</pre>
+
+<p>Setup and create the database, run the migrations:</p>
+
+<pre>   edit config/database.yml
+   rake db:create
+   rake db:migrate</pre>
+
+<p>Edit the English locale file, or prepare the one for your language:</p>
+
+<pre>   edit config/locales/en.yml</pre>
+
+<p><em>Note:</em> You may want to review the RailsAdmin and Devise locale files for your language.</p>
+
+<p>Edit the Mailer and AppConfig initializers:</p>
+
+<pre>   edit config/initializers/sc_mailer.rb
+   edit config/initializers/app_config.yml</pre>
+
+<p>Edit the seeds file and run the rake task:</p>
+
+<pre>   edit db/seeds.rb
+   rake db:seed</pre>
+
+<p><em>Note:</em> The About and Memberships page titles make use of the locale file</p>
+
+<h3>Confirm a valid install:</h3>
+
+<p>Start the Rails server and load the app in your browser:</p>
+
+<pre>   rails s
+   http://localhost:3000</pre>
+
+<h3>Customize Appearance and Finetune Settings</h3>
+
+<ul>
+<li>Customize your theme by editing the SCSS files in app/stylesheets</li>
+<li>Review the basic settings in the Settings tab of the Admin backend</li>
+<li>Edit/create your "static" pages in the Pages tab of the Admin backend</li>
+</ul><h2>Contributing</h2>
+
+<h3>Contributors</h3>
+
+<ul>
+<li>Bill Lazar <a href="http://github.com/billsaysthis">billsaysthis</a> - maintainer</li>
+<li>Steve Morris <a href="http://github.com/stevemorris">stevemorris</a>
+</li>
+</ul><h3>Note on Patches/Pull Requests</h3>
+
+<ul>
+<li>Fork the project.</li>
+<li>Make your feature addition or bug fix.</li>
+<li>Add tests for it. This is important so I don't break it in a
+future version unintentionally.</li>
+<li>Commit, do not mess with rakefile, version, or history.
+(if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)</li>
+<li>Send me a pull request. Bonus points for topic branches.</li>
+</ul><h4>Copyright</h4>
+
+<p>Copyright (c) 2011 Bill Lazar, <a href="http://billlazar.com">http://billlazar.com</a>. See LICENSE for details.</p>
+      </section>
+    </div>
+    <footer>
+      <p>Project maintained by <a href="https://github.com/billsaysthis">billsaysthis</a></p>
+      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+    </footer>
+    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
+  </body>
+</html>
